@@ -13,12 +13,13 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc --target ESNext --module ES6 --outDir dist",
+    "build": "./node_modules/typescript/bin/tsc --target ESNext --module ES6 --outDir dist",
     "_eslint": "eslint --ext .ts --ext .tsx .",
     "_prettier": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
     "format": "yarn _prettier --write",
     "lint": "yarn _eslint",
-    "lint:fix": "yarn _eslint --fix"
+    "lint:fix": "yarn _eslint --fix",
+    "postinstall": "yarn build"
   },
   "dependencies": {},
   "devDependencies": {
