@@ -20,10 +20,14 @@
     "format:check": "yarn _prettier",
     "lint": "yarn _eslint",
     "lint:fix": "yarn _eslint --fix",
-    "test": "jest"
+    "test": "jest",
+    "build:storybook": "build-storybook",
+    "start:storybook": "start-storybook -p 9009"
   },
   "husky": {
-    "hooks": { "pre-commit": "lint-staged" }
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {},
   "devDependencies": {
@@ -31,6 +35,8 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/react": "^5.3.18",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^25.2.1",
@@ -39,6 +45,8 @@
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
     "babel-jest": "^25.3.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -58,9 +66,11 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "^16.13.1",
+    "regenerator-runtime": "^0.13.5",
     "rollup": "^1.27.12",
     "rollup-plugin-typescript2": "^0.27.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1"
   },
   "peerDependencies": {
     "react": "^16.13.0",

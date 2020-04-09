@@ -17,6 +17,14 @@ references:
     key: v1-dependencies-{{ checksum "yarn.lock" }}
 
 commands:
+  install:
+    description: "Install dependencies"
+    steps:
+      - checkout
+      - restore_cache: *restore_package_cache
+      - run: yarn install --frozen-lockfile
+      - save_cache: *save_package_cache
+
   npm-publish:
     steps:
       - run:
@@ -30,22 +38,25 @@ jobs:
   test-and-audit:
     executor: nodejs
     steps:
-      - checkout
-      - restore_cache: *restore_package_cache
-      - run: yarn install --frozen-lockfile
-      - save_cache: *save_package_cache
+      - install
       - run: yarn test
       - run: yarn lint
       - run: yarn format:check
       - run: .circleci/yarn-audit.sh
 
+  deploy-storybook-preview:
+    executor: nodejs
+    steps:
+      - install
+      - run: yarn build:storybook
+      - run: npx netlify-cli deploy --prod
+    environment:
+      NETLIFY_SITE_ID: "cffa1ae2-c3a1-4c6d-b964-f218b10d6fbe"
+
   release-and-publish:
     executor: nodejs
     steps:
-      - checkout
-      - restore_cache: *restore_package_cache
-      - run: yarn install --frozen-lockfile
-      - save_cache: *save_package_cache
+      - install
       - run: yarn build
       - npm-publish
 
@@ -67,3 +78,11 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
+
+      - deploy-storybook-preview:
+          context: IGG
+          requires:
+            - test-and-audit
+          filters:
+            branches:
+              only: master

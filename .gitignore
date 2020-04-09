@@ -1,5 +1,7 @@
 node_modules
 dist
+# Storybook export
+storybook-static
 
 # logs
 npm-debug.log*
