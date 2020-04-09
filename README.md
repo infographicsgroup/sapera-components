@@ -11,7 +11,7 @@ Storybook: https://sapera-storybook.netlify.com/
 ## Usage
 - Add the dependency to `package.json`, ex:
 ```bash
-yarn add sapera-components@^1.0.0
+yarn add sapera-components@^0.0.1-development
 ```
 
 - Include the components you want.
