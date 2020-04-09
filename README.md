@@ -1,5 +1,9 @@
 # Sapera Components
 
+![Build Status](https://img.shields.io/circleci/build/gh/infographicsgroup/sapera-components/master)
+![License](https://img.shields.io/github/license/infographicsgroup/sapera-components)
+![version](https://img.shields.io/npm/v/sapera-components)
+
 Sapera Components, Design System, and Storybook.
 
 Storybook: https://sapera-storybook.netlify.com/
