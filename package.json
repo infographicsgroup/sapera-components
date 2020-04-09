@@ -13,13 +13,12 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "./node_modules/typescript/bin/tsc --target ESNext --module ES6 --outDir dist",
+    "build": "rollup -c rollup.config.ts",
     "_eslint": "eslint --ext .ts --ext .tsx .",
     "_prettier": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
     "format": "yarn _prettier --write",
     "lint": "yarn _eslint",
-    "lint:fix": "yarn _eslint --fix",
-    "postinstall": "yarn build"
+    "lint:fix": "yarn _eslint --fix"
   },
   "dependencies": {},
   "devDependencies": {
@@ -39,6 +38,8 @@
     "prettier": "^2.0.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "rollup": "^1.27.12",
+    "rollup-plugin-typescript2": "^0.27.0",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
