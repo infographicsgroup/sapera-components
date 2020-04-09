@@ -35,7 +35,6 @@
     "dist"
   ],
   "include": [
-    "jest.setup.ts",
     "src/**/*.ts",
     "src/**/*.tsx"
   ],
