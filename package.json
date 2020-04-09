@@ -17,6 +17,7 @@
     "_eslint": "eslint --ext .ts --ext .tsx .",
     "_prettier": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
     "format": "yarn _prettier --write",
+    "format:check": "yarn _prettier",
     "lint": "yarn _eslint",
     "lint:fix": "yarn _eslint --fix",
     "test": "jest"
