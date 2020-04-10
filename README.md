@@ -4,12 +4,12 @@
 ![License](https://img.shields.io/github/license/infographicsgroup/sapera-components)
 ![version](https://img.shields.io/npm/v/sapera-components)
 
-Sapera Components, Design System, and Storybook.
+Sapera Pattern Library powered by [Storybook](https://storybook.js.org/) and [React](https://reactjs.org/).
 
-Storybook: https://sapera-storybook.netlify.com/
+Netlify URL: https://sapera-storybook.netlify.com/
 
 ## Usage
-- Add the dependency to `package.json`, ex:
+- Add the dependency to `package.json`, e.g.
 ```bash
 yarn add sapera-components@^0.0.1-development
 ```
@@ -30,10 +30,10 @@ import { Button, ButtonProps } from "sapera-components";
 ## General Notes
 - Each `Component` has its own folder under `src/components/{Component}/`.
 - Each `Component` has its tests under `src/components/{Component}.test.tsx`.
-- Each `Component` has its stories under `src/components/{Component}.storeis.tsx`.
+- Each `Component` has its stories under `src/components/{Component}.stories.tsx`.
 
 ## Storybook
-The storybook can be ran using `yarn start:storybook`. (served on http:localhost:9009)<br/>
+To run Storybook use: `yarn start:storybook`. (served on http:localhost:9009)<br/>
 The storybook is automatically build and deployed with every `master` branch commit and served using Netlify.
 
 ## Testing
@@ -53,7 +53,7 @@ hook to automatically fix TS linting issues.
 With every tag release the package is automatically published to NPM (automated through CircleCI)
 you need to:
 - update the version number in the [package.json](./package.json#L3)
-- create a tag on github to match the (semantic) version number to trigger the publish workflow through CircleCI.
+- create a tag on GitHub to match the (semantic) version number to trigger the publish workflow through CircleCI.
 
 The package is built -using [`rollup.js`](https://rollupjs.org/guide/en/)- to bundle only the components and typing
 for production usage on other project.
