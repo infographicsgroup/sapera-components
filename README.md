@@ -45,9 +45,9 @@ The code is linted with:
 - [ESLint](https://eslint.org/) (linting)
 - [Prettier](https://prettier.io/) (formatting)
 
-There is a [`yarn lint` and `yarn format:check` tasks](./package.json) that runs JS/TS linting on every build.<br/>
-There is also a [`yarn lint:fix` and `yarn format` tasks](./package.json) that run on staged files on a pre-commit
-hook to automatically fix TS linting issues.
+There are [`yarn lint:check` and `yarn format:check` tasks](./package.json) that runs linting checks on every build.<br/>
+There are also [`yarn lint` and `yarn format` tasks](./package.json) that run on staged files on a `pre-commit`
+hook to automatically fix linting issues (when possible).
 
 ## Publishing
 With every tag release the package is automatically published to NPM (automated through CircleCI)
