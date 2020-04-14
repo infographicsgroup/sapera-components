@@ -19,6 +19,14 @@ yarn add sapera-components@^0.0.1-development
 import { Button } from "sapera-components";
 ```
 
+`sapera-components` provides an integrated TypeScript experience out of the box.<br/>	
+The types for each component is provided (following the pattern `{Component}Props` and can be imported for	
+type-checking while developing.	
+
+```javascript	
+import { Button, ButtonProps } from "sapera-components";	
+```
+
 ## General Notes
 - Each `Component` has its own folder under `src/components/{Component}/`.
 - Each `Component` has its tests under `src/components/{Component}.test.tsx`.
