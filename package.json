@@ -30,8 +30,7 @@
     }
   },
   "dependencies": {
-    "styled-components": "^5.1.0",
-    "styled-system": "^5.1.5"
+    "sapera-components": "file:/Users/carolleung/Projects/sapera-components"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -74,11 +73,15 @@
     "regenerator-runtime": "^0.13.5",
     "rollup": "^1.27.12",
     "rollup-plugin-typescript2": "^0.27.0",
+    "styled-components": "^5.1.0",
+    "styled-system": "^5.1.5",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1"
   },
   "peerDependencies": {
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "styled-components": "^5.1.0",
+    "styled-system": "^5.1.5"
   }
 }
