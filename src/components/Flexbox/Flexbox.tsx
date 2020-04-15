@@ -8,7 +8,7 @@ export interface FlexboxComponentProps extends FlexboxProps {
   styles?: CSSProperties;
 }
 
-const FlexboxStyled = styled.div(
+const FlexboxStyled = styled.div<FlexboxProps>(
   {
     display: "flex",
   },
