@@ -1,13 +1,5 @@
-printWidth: 120
-tabWidth: 2
-useTabs: false
-semi: true
-singleQuote: false
-quoteProps: "as-needed"
-jsxSingleQuote: false
-trailingComma: "all"
-bracketSpacing: true
-jsxBracketSameLine: false
-arrowParens: "always"
-parser: "typescript"
-endOfLine: "lf"
+{
+    "printWidth": 120,
+    "trailingComma": "all",
+    "parser": "typescript"
+}
