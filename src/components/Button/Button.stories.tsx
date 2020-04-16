@@ -18,3 +18,11 @@ export const Disabled: React.FunctionComponent = () => (
     Disabled
   </Button>
 );
+
+export const Icon: React.FunctionComponent = () => (
+  <Button role="Icon button" onClick={action("clicked")}>
+    <svg height="30" width="30">
+      <rect fill="blue" height="30" width="30" />
+    </svg>
+  </Button>
+);
