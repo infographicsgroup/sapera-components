@@ -1,9 +1,4 @@
 import React, { FC } from "react";
-import styled from "styled-components";
-
-const ButtonStyled = styled.button`
-  background-color: red;
-`;
 
 // https://www.w3schools.com/tags/tag_button.asp
 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
@@ -39,7 +34,7 @@ export const Button: FC<ButtonProps> = ({
   type = "button",
   value,
 }: ButtonProps) => (
-  <ButtonStyled
+  <button
     aria-expanded={ariaExpanded}
     aria-labelledby={children}
     aria-pressed={ariaPressed}
@@ -54,5 +49,5 @@ export const Button: FC<ButtonProps> = ({
     onClick={onClick}
   >
     {children}
-  </ButtonStyled>
+  </button>
 );
