@@ -10689,11 +10689,6 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-"sapera-components@file:.":
-  version "0.0.2-development"
-  dependencies:
-    sapera-components "file:../../Library/Caches/Yarn/v6/npm-sapera-components-0.0.2-development-2bb55293-685b-4b20-858b-2f30d905040d-1587019533650/node_modules/sapera-components"
-
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
