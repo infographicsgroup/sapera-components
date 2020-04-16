@@ -6,11 +6,11 @@ export interface ButtonProps {
   ariaExpanded?: boolean | undefined;
   ariaPressed?: boolean | "mixed" | undefined;
   autoFocus?: boolean;
-  children: string;
+  children: string | React.ReactNode;
   className?: string;
   disabled?: boolean;
   name?: string;
-  role?: string;
+  role: string;
   tabIndex?: string;
   type?: "button" | "reset" | "submit";
   value?: string;
@@ -29,25 +29,31 @@ export const Button: FC<ButtonProps> = ({
   disabled = false,
   onClick,
   name,
-  role = children,
+  role,
   tabIndex,
   type = "button",
   value,
-}: ButtonProps) => (
-  <button
-    aria-expanded={ariaExpanded}
-    aria-labelledby={children}
-    aria-pressed={ariaPressed}
-    autoFocus={autoFocus}
-    className={className}
-    disabled={disabled}
-    name={name}
-    role={role}
-    tab-index={tabIndex}
-    type={type}
-    value={value}
-    onClick={onClick}
-  >
-    {children}
-  </button>
-);
+}: ButtonProps) => {
+  // aria-label atrribute usage
+  // developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
+  const hasTextLabel = typeof children === "string";
+  return (
+    <button
+      aria-expanded={ariaExpanded}
+      aria-label={!hasTextLabel ? role : undefined}
+      aria-labelledby={hasTextLabel ? role : undefined}
+      aria-pressed={ariaPressed}
+      autoFocus={autoFocus}
+      className={className}
+      disabled={disabled}
+      name={name}
+      role={role}
+      tab-index={tabIndex}
+      type={type}
+      value={value}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};

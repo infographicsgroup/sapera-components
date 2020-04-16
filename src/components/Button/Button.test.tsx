@@ -11,7 +11,7 @@ describe("Button", () => {
   describe("Renders common props as expected", () => {
     const mockFn = jest.fn();
     const wrapper = shallow(
-      <Button className={DATA.CLASSNAME} onClick={mockFn}>
+      <Button className={DATA.CLASSNAME} role="test button" onClick={mockFn}>
         {DATA.LABEL}
       </Button>,
     );
@@ -33,6 +33,6 @@ describe("Button", () => {
       expect(wrapper.props().disabled).toEqual(false);
     });
 
-    // TODO: continue
+    // TODO: continue add attributes and icon
   });
 });
