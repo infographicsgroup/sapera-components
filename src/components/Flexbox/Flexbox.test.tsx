@@ -7,7 +7,7 @@ const DATA = {
 };
 
 describe("Flexbox", () => {
-  describe("renders <Flexbox /> components", () => {
+  describe("renders <Flexbox /> component", () => {
     const wrapper = shallow(<Flexbox>{DATA.CONTENT}</Flexbox>);
 
     it("renders children when passed in", () => {
