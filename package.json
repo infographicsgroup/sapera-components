@@ -16,10 +16,10 @@
     "build": "rollup -c",
     "_eslint": "eslint --ext .ts --ext .tsx .",
     "_prettier": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
-    "format": "yarn _prettier --write",
     "format:check": "yarn _prettier",
-    "lint": "yarn _eslint",
-    "lint:fix": "yarn _eslint --fix",
+    "format": "yarn _prettier --write",
+    "lint:check": "yarn _eslint",
+    "lint": "yarn _eslint --fix",
     "test": "jest",
     "build:storybook": "build-storybook",
     "start:storybook": "start-storybook -p 9009"
