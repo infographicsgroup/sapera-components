@@ -15,6 +15,7 @@ enum BaseColor {
   GableGreen = "#18333C",
   Persimmon = "#FF5C57",
   Turquoise = "#30C7BE",
+  White = "#ffff",
 }
 
 /**
@@ -33,7 +34,7 @@ export enum Color {
   SecondaryYellow = BaseColor.Dandelion,
 
   TextPrimary = BaseColor.GableGreen,
-  TextInverted = BaseColor.Bianca,
+  TextInverted = BaseColor.White,
 
   BackgroundMain = BaseColor.Bianca,
 }
