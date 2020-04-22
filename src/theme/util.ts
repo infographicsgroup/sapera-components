@@ -39,31 +39,5 @@ export enum Color {
   BackgroundMain = BaseColor.Bianca,
 }
 
-/**
- * Types of Sizes
- * @enum {number}
- */
-export enum Size {
-  Wrapper = 1482,
-  HeaderHeight = 80,
-}
-
-/**
- * Types of Sizes
- * @enum {number}
- */
-export enum BreakpointSize {
-  xxs = 0,
-  xs = 320,
-  sm = 576,
-  md = 768,
-  lg = 992,
-  xl = 1200,
-}
-
-// TODO
-// z-indexes
-// fonts
-
 export type ColorType = Color;
 export type SizeType = Size;
