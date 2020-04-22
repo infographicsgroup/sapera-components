@@ -117,7 +117,7 @@ export const Button: FC<ButtonProps> = ({
   // aria-label atrribute usage
   // developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
 
-  // only Icon buttons need aria-label, since there is no text. Aria-labeled-by won't work in this case since is must refer to an id of anotther element on the page which acts instead as a buttton label. However in our case thet label will either be inside of the uton (default) or in aria-label for icon buttons:
+  // only Icon buttons will use aria-label, since others have descriptive text. Aria-labeled-by won't work in this case since is must refer to an id of another element on the page which acts instead as the buttton label
   // https://dequeuniversity.com/rules/axe/3.5/button-name?application=axeAPI
 
   return (
