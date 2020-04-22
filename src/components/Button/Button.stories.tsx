@@ -1,37 +1,37 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 import { Button } from "./Button";
+import { withA11y } from "@storybook/addon-a11y";
 
 export default {
   title: "Button",
   component: Button,
+  decorators: [withA11y],
 };
 
 export const TextButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <div>
-      <Button role="Primary button" onClick={action("clicked")}>
-        primary lg
-      </Button>
+      <Button onClick={action("clicked")}>primary lg</Button>
       <br />
-      <Button role="Primary button" size={"md"} onClick={action("clicked")}>
+      <Button size={"medium"} onClick={action("clicked")}>
         primary md
       </Button>
       <br />
-      <Button role="Primary button" size={"sm"} onClick={action("clicked")}>
+      <Button size={"small"} onClick={action("clicked")}>
         primary sm
       </Button>
     </div>
     <div>
-      <Button role="Secondary button" isSecondary onClick={action("clicked")}>
+      <Button isSecondary onClick={action("clicked")}>
         Secondary lg
       </Button>
       <br />
-      <Button role="Secondary button" size={"md"} isSecondary onClick={action("clicked")}>
+      <Button size={"medium"} isSecondary onClick={action("clicked")}>
         Secondary md
       </Button>
       <br />
-      <Button role="Secondary button" size={"sm"} isSecondary onClick={action("clicked")}>
+      <Button size={"small"} isSecondary onClick={action("clicked")}>
         Secondary sm
       </Button>
     </div>
@@ -41,21 +41,22 @@ export const TextButtons: React.FunctionComponent = () => (
 export const TextWithIconButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <div>
-      <Button buttonVariety={"textWithIcon"} role="Secondary button" onClick={action("clicked")}>
+      <Button buttonVariety={"textWithIcon"} onClick={action("clicked")}>
+        <svg height="30" width="30">
+          <rect height="30" width="30" />
+        </svg>
+        <p>Download</p>
+      </Button>
+      <br />
+      {/* TODO/Question: would I have to import button sizes here everytime I want to specify button size outside of sorybook to get rid of the type error? this is one of the parts of the enum typing that I didn't get */}
+      <Button buttonVariety={"textWithIcon"} size={"medium"} onClick={action("clicked")}>
         <svg height="30" width="30">
           <rect height="30" width="30" />
         </svg>
         Download
       </Button>
       <br />
-      <Button buttonVariety={"textWithIcon"} role="Secondary button" size={"md"} onClick={action("clicked")}>
-        <svg height="30" width="30">
-          <rect height="30" width="30" />
-        </svg>
-        Download
-      </Button>
-      <br />
-      <Button buttonVariety={"textWithIcon"} role="Secondary button" size={"sm"} onClick={action("clicked")}>
+      <Button buttonVariety={"textWithIcon"} size={"small"} onClick={action("clicked")}>
         <svg height="30" width="30">
           <rect height="30" width="30" />
         </svg>
@@ -63,36 +64,23 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
       </Button>
     </div>
     <div>
-      <Button buttonVariety={"textWithIcon"} role="Secondary button" isSecondary onClick={action("clicked")}>
-        <svg height="30" width="30">
-          <rect height="30" width="30" />
-        </svg>
-        Download
-      </Button>
-
-      <br />
-      <Button
-        buttonVariety={"textWithIcon"}
-        role="Secondary button"
-        size={"md"}
-        isSecondary
-        onClick={action("clicked")}
-      >
+      <Button buttonVariety={"textWithIcon"} isSecondary onClick={action("clicked")}>
         <svg height="30" width="30">
           <rect height="30" width="30" />
         </svg>
         Download
       </Button>
       <br />
-      <Button
-        buttonVariety={"textWithIcon"}
-        role="Secondary button"
-        size={"sm"}
-        isSecondary
-        onClick={action("clicked")}
-      >
+      <Button buttonVariety={"textWithIcon"} size={"medium"} isSecondary onClick={action("clicked")}>
+        Download
         <svg height="30" width="30">
-          <rect fill="blue" height="30" width="30" />
+          <rect height="30" width="30" />
+        </svg>
+      </Button>
+      <br />
+      <Button buttonVariety={"textWithIcon"} size={"small"} isSecondary onClick={action("clicked")}>
+        <svg height="30" width="30">
+          <rect height="30" width="30" />
         </svg>
         Download
       </Button>
@@ -101,35 +89,54 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
 );
 
 export const IconButtons: React.FunctionComponent = () => (
-  <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-    <Button buttonVariety={"icon"} role="Icon button" isSecondary onClick={action("clicked")}>
-      <svg height="20" width="20">
-        <rect height="20" width="20" />
-      </svg>
-    </Button>
-    <br />
-    <Button buttonVariety={"icon"} role="Icon button" size={"md"} isSecondary onClick={action("clicked")}>
-      <svg height="20" width="20">
-        <rect height="20" width="20" />
-      </svg>
-    </Button>
-    <br />
-    <Button buttonVariety={"icon"} role="Icon button" size={"sm"} isSecondary onClick={action("clicked")}>
-      <svg height="20" width="20">
-        <rect height="20" width="20" />
-      </svg>
-    </Button>
+  <div style={{ display: "flex", justifyContent: "space-around" }}>
+    <div>
+      <Button ariaLabel={"download"} buttonVariety={"icon"} isSecondary onClick={action("clicked")}>
+        <svg height="20" width="20">
+          <rect height="20" width="20" />
+        </svg>
+      </Button>
+      <br />
+      <Button ariaLabel={"download"} buttonVariety={"icon"} size={"medium"} isSecondary onClick={action("clicked")}>
+        <svg height="20" width="20">
+          <rect height="20" width="20" />
+        </svg>
+      </Button>
+      <br />
+      <Button ariaLabel={"download"} buttonVariety={"icon"} size={"small"} isSecondary onClick={action("clicked")}>
+        <svg height="20" width="20">
+          <rect height="20" width="20" />
+        </svg>
+      </Button>
+    </div>
+    <div>
+      <Button ariaLabel={"download"} buttonVariety={"icon"} onClick={action("clicked")}>
+        <svg height="20" width="20">
+          <rect height="20" width="20" />
+        </svg>
+      </Button>
+      <br />
+      <Button ariaLabel={"download"} buttonVariety={"icon"} size={"medium"} onClick={action("clicked")}>
+        <svg height="20" width="20">
+          <rect height="20" width="20" />
+        </svg>
+      </Button>
+      <br />
+      <Button ariaLabel={"download"} buttonVariety={"icon"} size={"small"} onClick={action("clicked")}>
+        <svg height="20" width="20">
+          <rect height="20" width="20" />
+        </svg>
+      </Button>
+    </div>
   </div>
 );
 
 export const ButtonStates: React.FunctionComponent = () => (
   <>
-    <Button role="Disabled button" disabled onClick={action("clicked")}>
+    <Button disabled onClick={action("clicked")}>
       Disabled
     </Button>
     <br />
-    <Button role="Hovered button" onClick={action("clicked")}>
-      Hover
-    </Button>
+    <Button onClick={action("clicked")}>Hover</Button>
   </>
 );
