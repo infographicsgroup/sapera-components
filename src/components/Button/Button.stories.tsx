@@ -53,14 +53,14 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
         <svg height="30" width="30">
           <rect height="30" width="30" />
         </svg>
-        Download
+        <p>Download</p>
       </Button>
       <br />
       <Button buttonVariety={"textWithIcon"} size={"small"} onClick={action("clicked")}>
         <svg height="30" width="30">
           <rect height="30" width="30" />
         </svg>
-        Download
+        <p>Download</p>
       </Button>
     </div>
     <div>
@@ -68,11 +68,11 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
         <svg height="30" width="30">
           <rect height="30" width="30" />
         </svg>
-        Download
+        <p>Download</p>
       </Button>
       <br />
       <Button buttonVariety={"textWithIcon"} size={"medium"} isSecondary onClick={action("clicked")}>
-        Download
+        <p>Download</p>
         <svg height="30" width="30">
           <rect height="30" width="30" />
         </svg>

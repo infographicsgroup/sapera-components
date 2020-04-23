@@ -91,8 +91,11 @@ const StyledButton = styled.button<ButtonProps>`
     p.buttonVariety === BUTTON_VAREITY.TEXT_WITH_ICON &&
     css`
       padding: 0 30px;
-      :nth-child(2) {
-        padding-right: 20px;
+      /* This will only work for both buttons with text first and images first if text is wrapped in an html tag within the button */
+      * {
+        :first-child {
+          padding-right: 20px;
+        }
       }
     `};
 `;
