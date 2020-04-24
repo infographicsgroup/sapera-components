@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import { Color } from "../../theme/util";
 
 // https://www.w3schools.com/tags/tag_button.asp
-// https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
 export interface ButtonProps {
   ariaExpanded?: boolean | undefined;
   ariaPressed?: boolean | "mixed" | undefined;
@@ -120,7 +119,7 @@ export const Button: FC<ButtonProps> = ({
   // aria-label atrribute usage
   // developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
 
-  // only Icon buttons will use aria-label, since others have descriptive text. Aria-labeled-by won't work in this case since is must refer to an id of another element on the page which acts instead as the buttton label
+  // only Icon buttons will use aria-label, since others have descriptive text. Aria-labeled-by won't work here since it must refer to an id of another element on the page instead of the buttton text
   // https://dequeuniversity.com/rules/axe/3.5/button-name?application=axeAPI
 
   return (
