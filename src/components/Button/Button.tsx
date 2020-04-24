@@ -56,7 +56,6 @@ const StyledButton = styled.button<ButtonProps>`
   background: ${Color.Primary};
   border: none;
   font-size: 16px;
-  font-family: "Apercu Mono Pro";
   letter-spacing: 1px;
   font-weight: normal;
   padding: 0 60px;
