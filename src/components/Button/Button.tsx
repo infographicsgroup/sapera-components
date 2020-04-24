@@ -25,7 +25,6 @@ export interface ButtonProps {
  * Button
  */
 
-// TODO: refer to the BUTTON_SIZES enum here (?)
 const BUTTON_HEIGHTS = {
   large: 56,
   medium: 50,

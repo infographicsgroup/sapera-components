@@ -48,7 +48,6 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
         <p>Download</p>
       </Button>
       <br />
-      {/* TODO/Question: would I have to import button sizes here everytime I want to specify button size outside of sorybook to get rid of the type error? this is one of the parts of the enum typing that I didn't get */}
       <Button buttonVariety={"textWithIcon"} size={"medium"} onClick={action("clicked")}>
         <svg height="25" width="25">
           <rect height="25" width="25" />
