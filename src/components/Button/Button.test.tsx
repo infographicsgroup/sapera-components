@@ -25,7 +25,7 @@ describe("Button", () => {
     });
 
     it("simulates click events", () => {
-      wrapper.find(DATA.CLASSNAME).simulate("click");
+      wrapper.find(`.${DATA.CLASSNAME}`).simulate("click");
       expect(mockFn.mock.calls.length).toEqual(1);
     });
 
