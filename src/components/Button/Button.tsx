@@ -13,9 +13,9 @@ export interface ButtonProps {
   disabled?: boolean;
   name?: string;
   tabIndex?: string;
-  size?: BUTTON_SIZES;
+  size?: "large" | "medium" | "small";
   type?: "button" | "reset" | "submit";
-  buttonVariety?: BUTTON_VAREITY;
+  buttonVariety?: "text" | "textWithIcon" | "icon";
   isSecondary?: boolean;
   value?: string;
   onClick?: () => void;
@@ -25,19 +25,6 @@ export interface ButtonProps {
  * Button
  */
 
-enum BUTTON_VAREITY {
-  TEXT = "text",
-  TEXT_WITH_ICON = "textWithIcon",
-  ICON = "icon",
-}
-
-enum BUTTON_SIZES {
-  LARGE = "large",
-  MEDIUM = "medium",
-  SMALL = "small",
-}
-
-// TODO: refer to the BUTTON_SIZES enum here (?)
 const BUTTON_HEIGHTS = {
   large: 56,
   medium: 50,
@@ -48,7 +35,6 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* //TODO I know I'm not using the TS enum right here (the TS error: Type 'undefined' cannot be used as an index type.) but not sure about the right way */
   height: ${(p) => BUTTON_HEIGHTS[p.size] + "px"};
   border-radius: 28px;
   color: ${Color.TextInverted};
@@ -78,7 +64,7 @@ const StyledButton = styled.button<ButtonProps>`
     `}
 
   ${(p) =>
-    p.buttonVariety === BUTTON_VAREITY.ICON &&
+    p.buttonVariety === "icon" &&
     css`
       border-radius: 50%;
       width: ${BUTTON_HEIGHTS[p.size]}px;
@@ -87,7 +73,7 @@ const StyledButton = styled.button<ButtonProps>`
     `};
 
   ${(p) =>
-    p.buttonVariety === BUTTON_VAREITY.TEXT_WITH_ICON &&
+    p.buttonVariety === "textWithIcon" &&
     css`
       padding: 0 30px;
       /* This will only work for both buttons with text first and images first if text is wrapped in an html tag within the button */
@@ -111,8 +97,8 @@ export const Button: FC<ButtonProps> = ({
   name,
   tabIndex,
   type = "button",
-  buttonVariety = BUTTON_VAREITY.TEXT,
-  size = BUTTON_SIZES.LARGE,
+  buttonVariety = "text",
+  size = "large",
   isSecondary = false,
   value,
 }: ButtonProps) => {

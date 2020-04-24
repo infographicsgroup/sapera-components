@@ -90,7 +90,7 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
 
 export const IconButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Button ariaLabel={"download"} buttonVariety={"icon"} isSecondary onClick={action("clicked")}>
         <svg height="20" width="20">
           <rect height="20" width="20" />
@@ -109,7 +109,7 @@ export const IconButtons: React.FunctionComponent = () => (
         </svg>
       </Button>
     </div>
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Button ariaLabel={"download"} buttonVariety={"icon"} onClick={action("clicked")}>
         <svg height="20" width="20">
           <rect height="20" width="20" />
