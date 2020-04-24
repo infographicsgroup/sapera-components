@@ -22,7 +22,7 @@
     "lint": "yarn _eslint --fix",
     "test": "jest",
     "build:storybook": "build-storybook",
-    "start:storybook": "start-storybook  -p 9009 -s ./public"
+    "start:storybook": "start-storybook  -p 9009"
   },
   "husky": {
     "hooks": {
