@@ -48,7 +48,7 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] : BUTTON_HEIGHTS.large + "px")};
+  height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
   border-radius: 28px;
   color: ${Color.TextInverted};
   background: ${Color.Primary};
@@ -80,7 +80,7 @@ const StyledButton = styled.button<ButtonProps>`
     p.buttonVariety === "icon" &&
     css`
       border-radius: 50%;
-      width: ${p.size ? BUTTON_HEIGHTS[p.size] : BUTTON_HEIGHTS.large + "px"};
+      width: ${p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px"};
       min-width: auto;
       padding: 0;
     `};
