@@ -50,15 +50,15 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
       <br />
       {/* TODO/Question: would I have to import button sizes here everytime I want to specify button size outside of sorybook to get rid of the type error? this is one of the parts of the enum typing that I didn't get */}
       <Button buttonVariety={"textWithIcon"} size={"medium"} onClick={action("clicked")}>
-        <svg height="30" width="30">
-          <rect height="30" width="30" />
+        <svg height="25" width="25">
+          <rect height="25" width="25" />
         </svg>
         <p>Download</p>
       </Button>
       <br />
       <Button buttonVariety={"textWithIcon"} size={"small"} onClick={action("clicked")}>
-        <svg height="30" width="30">
-          <rect height="30" width="30" />
+        <svg height="20" width="20">
+          <rect height="20" width="20" />
         </svg>
         <p>Download</p>
       </Button>
@@ -73,14 +73,14 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
       <br />
       <Button buttonVariety={"textWithIcon"} size={"medium"} isSecondary onClick={action("clicked")}>
         <p>Download</p>
-        <svg height="30" width="30">
-          <rect height="30" width="30" />
+        <svg height="25" width="25">
+          <rect height="25" width="25" />
         </svg>
       </Button>
       <br />
       <Button buttonVariety={"textWithIcon"} size={"small"} isSecondary onClick={action("clicked")}>
-        <svg height="30" width="30">
-          <rect height="30" width="30" />
+        <svg height="20" width="20">
+          <rect height="20" width="20" />
         </svg>
         Download
       </Button>
@@ -92,8 +92,8 @@ export const IconButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Button ariaLabel={"download"} buttonVariety={"icon"} isSecondary onClick={action("clicked")}>
-        <svg height="20" width="20">
-          <rect height="20" width="20" />
+        <svg height="25" width="25">
+          <rect height="25" width="25" />
         </svg>
       </Button>
       <br />
@@ -104,15 +104,15 @@ export const IconButtons: React.FunctionComponent = () => (
       </Button>
       <br />
       <Button ariaLabel={"download"} buttonVariety={"icon"} size={"small"} isSecondary onClick={action("clicked")}>
-        <svg height="20" width="20">
-          <rect height="20" width="20" />
+        <svg height="15" width="15">
+          <rect height="15" width="15" />
         </svg>
       </Button>
     </div>
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Button ariaLabel={"download"} buttonVariety={"icon"} onClick={action("clicked")}>
-        <svg height="20" width="20">
-          <rect height="20" width="20" />
+        <svg height="25" width="25">
+          <rect height="25" width="25" />
         </svg>
       </Button>
       <br />
@@ -123,8 +123,8 @@ export const IconButtons: React.FunctionComponent = () => (
       </Button>
       <br />
       <Button ariaLabel={"download"} buttonVariety={"icon"} size={"small"} onClick={action("clicked")}>
-        <svg height="20" width="20">
-          <rect height="20" width="20" />
+        <svg height="15" width="15">
+          <rect height="15" width="15" />
         </svg>
       </Button>
     </div>

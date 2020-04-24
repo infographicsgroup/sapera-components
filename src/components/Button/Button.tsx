@@ -25,18 +25,6 @@ export interface ButtonProps {
  * Button
  */
 
-enum BUTTON_VAREITY {
-  TEXT = "text",
-  TEXT_WITH_ICON = "textWithIcon",
-  ICON = "icon",
-}
-
-enum BUTTON_SIZES {
-  LARGE = "large",
-  MEDIUM = "medium",
-  SMALL = "small",
-}
-
 // TODO: refer to the BUTTON_SIZES enum here (?)
 const BUTTON_HEIGHTS = {
   large: 56,
