@@ -1,21 +1,27 @@
 import React, { FC } from "react";
+import styled from "styled-components";
 
 // https://www.w3schools.com/tags/tag_button.asp
 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
 export interface RadioButtonProps {
-  // ariaExpanded?: boolean | undefined;
   // ariaPressed?: boolean | "mixed" | undefined;
   // autoFocus?: boolean;
   children: string | React.ReactNode;
   className?: string;
   disabled?: boolean;
   // name?: string;
-  // role: string;
   // tabIndex?: string;
-  // type?: "button" | "reset" | "submit";
   // value?: string;
   onClick?: () => void;
 }
+
+const Label = styled.label`
+  input {
+  }
+`;
+
+const StyledRadioButton = styled.input`
+`;
 
 /**
  * Button
@@ -41,8 +47,8 @@ RadioButtonProps) => {
 
       {/* https://webaim.org/techniques/forms/advanced#arialabel */}
 
-      <label htmlFor="male">
-        <input
+      <Label htmlFor="male">
+        <StyledRadioButton
           aria-label="name"
           name="gender"
           type="radio"
@@ -59,7 +65,7 @@ RadioButtonProps) => {
           onClick={onClick}
         />
         {children}
-      </label>
+      </Label>
     </>
   );
 };
