@@ -2,12 +2,15 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 import { Button } from "./Button";
 import { withA11y } from "@storybook/addon-a11y";
+import Icon from "./Icon";
 
 export default {
   title: "Button",
   component: Button,
   decorators: [withA11y],
 };
+
+const downloadIcon = <Icon width={"25px"} />;
 
 export const TextButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
@@ -41,90 +44,29 @@ export const TextButtons: React.FunctionComponent = () => (
 export const TextWithIconButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <div>
-      <Button buttonVariety={"textWithIcon"} onClick={action("clicked")}>
-        <svg height="30" width="30">
-          <rect height="30" width="30" />
-        </svg>
+      <Button icon={downloadIcon} onClick={action("clicked")}>
         <p>Download</p>
       </Button>
       <br />
-      <Button buttonVariety={"textWithIcon"} size={"medium"} onClick={action("clicked")}>
-        <svg height="25" width="25">
-          <rect height="25" width="25" />
-        </svg>
+      <Button icon={downloadIcon} size={"medium"} iconFirst onClick={action("clicked")}>
         <p>Download</p>
       </Button>
       <br />
-      <Button buttonVariety={"textWithIcon"} size={"small"} onClick={action("clicked")}>
-        <svg height="20" width="20">
-          <rect height="20" width="20" />
-        </svg>
+      <Button icon={downloadIcon} size={"small"} onClick={action("clicked")}>
         <p>Download</p>
       </Button>
     </div>
     <div>
-      <Button buttonVariety={"textWithIcon"} isSecondary onClick={action("clicked")}>
-        <svg height="30" width="30">
-          <rect height="30" width="30" />
-        </svg>
+      <Button icon={downloadIcon} isSecondary onClick={action("clicked")}>
         <p>Download</p>
       </Button>
       <br />
-      <Button buttonVariety={"textWithIcon"} size={"medium"} isSecondary onClick={action("clicked")}>
+      <Button icon={downloadIcon} size={"medium"} isSecondary onClick={action("clicked")}>
         <p>Download</p>
-        <svg height="25" width="25">
-          <rect height="25" width="25" />
-        </svg>
       </Button>
       <br />
-      <Button buttonVariety={"textWithIcon"} size={"small"} isSecondary onClick={action("clicked")}>
-        <svg height="20" width="20">
-          <rect height="20" width="20" />
-        </svg>
+      <Button icon={downloadIcon} size={"small"} iconFirst isSecondary onClick={action("clicked")}>
         Download
-      </Button>
-    </div>
-  </div>
-);
-
-export const IconButtons: React.FunctionComponent = () => (
-  <div style={{ display: "flex", justifyContent: "space-around" }}>
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Button ariaLabel={"download"} buttonVariety={"icon"} isSecondary onClick={action("clicked")}>
-        <svg height="25" width="25">
-          <rect height="25" width="25" />
-        </svg>
-      </Button>
-      <br />
-      <Button ariaLabel={"download"} buttonVariety={"icon"} size={"medium"} isSecondary onClick={action("clicked")}>
-        <svg height="20" width="20">
-          <rect height="20" width="20" />
-        </svg>
-      </Button>
-      <br />
-      <Button ariaLabel={"download"} buttonVariety={"icon"} size={"small"} isSecondary onClick={action("clicked")}>
-        <svg height="15" width="15">
-          <rect height="15" width="15" />
-        </svg>
-      </Button>
-    </div>
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Button ariaLabel={"download"} buttonVariety={"icon"} onClick={action("clicked")}>
-        <svg height="25" width="25">
-          <rect height="25" width="25" />
-        </svg>
-      </Button>
-      <br />
-      <Button ariaLabel={"download"} buttonVariety={"icon"} size={"medium"} onClick={action("clicked")}>
-        <svg height="20" width="20">
-          <rect height="20" width="20" />
-        </svg>
-      </Button>
-      <br />
-      <Button ariaLabel={"download"} buttonVariety={"icon"} size={"small"} onClick={action("clicked")}>
-        <svg height="15" width="15">
-          <rect height="15" width="15" />
-        </svg>
       </Button>
     </div>
   </div>

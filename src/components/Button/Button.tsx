@@ -12,10 +12,11 @@ export interface ButtonProps {
   className?: string;
   disabled?: boolean;
   name?: string;
+  iconFirst?: boolean;
   tabIndex?: string;
   size?: "large" | "medium" | "small";
   type?: "button" | "reset" | "submit";
-  icon?: any;
+  icon?: React.ReactNode;
   isSecondary?: boolean;
   value?: string;
   onClick?: () => void;
@@ -35,7 +36,9 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${(p): string => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
+  flex-direction: row;
+  min-width: 190px;
+  height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
   border-radius: 28px;
   color: ${Color.TextInverted};
   background: ${Color.Primary};
@@ -43,8 +46,12 @@ const StyledButton = styled.button<ButtonProps>`
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: normal;
-  padding: 0 60px;
-  cursor: ${(p): string => (p.disabled ? "default" : "pointer")};
+  padding: 0 20px;
+  cursor: ${(p) => (p.disabled ? "default" : "pointer")};
+
+  svg {
+    padding: 0 0 0 10px;
+  }
 
   svg,
   path {
@@ -64,16 +71,13 @@ const StyledButton = styled.button<ButtonProps>`
     `}
 
   ${(p) =>
-    p.buttonVariety === "textWithIcon" &&
+    p.iconFirst &&
     css`
-      padding: 0 30px;
-      /* This will only work for both buttons with text first and images first if text is wrapped in an html tag within the button */
-      * {
-        :first-child {
-          padding-right: 20px;
-        }
+      flex-direction: row-reverse;
+      svg {
+        padding: 0 10px 0 0;
       }
-    `};
+    `}
 `;
 
 export const Button: FC<ButtonProps> = ({
@@ -90,6 +94,7 @@ export const Button: FC<ButtonProps> = ({
   type = "button",
   icon = null,
   size = "large",
+  iconFirst = false,
   isSecondary = false,
   value,
 }: ButtonProps) => {
@@ -107,6 +112,7 @@ export const Button: FC<ButtonProps> = ({
       autoFocus={autoFocus}
       className={className}
       disabled={disabled}
+      iconFirst={iconFirst}
       isSecondary={isSecondary}
       name={name}
       size={size}
@@ -116,7 +122,7 @@ export const Button: FC<ButtonProps> = ({
       onClick={onClick}
     >
       <span>{children}</span>
-      {/* {icon && icon} */}
+      {icon && icon}
     </StyledButton>
   );
 };
