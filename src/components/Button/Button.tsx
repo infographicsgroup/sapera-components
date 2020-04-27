@@ -92,7 +92,7 @@ export const Button: FC<ButtonProps> = ({
   name,
   tabIndex,
   type = "button",
-  icon = null,
+  icon,
   size = "large",
   iconFirst = false,
   isSecondary = false,
@@ -100,10 +100,6 @@ export const Button: FC<ButtonProps> = ({
 }: ButtonProps) => {
   // aria-label atrribute usage
   // developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
-
-  // only Icon buttons will use aria-label, since others have descriptive text. Aria-labeled-by won't work here since it must refer to an id of another element on the page instead of the buttton text
-  // https://dequeuniversity.com/rules/axe/3.5/button-name?application=axeAPI
-
   return (
     <StyledButton
       aria-expanded={ariaExpanded}
