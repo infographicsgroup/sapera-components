@@ -14,13 +14,49 @@ export interface RadioButtonProps {
   // value?: string;
   onClick?: () => void;
 }
+const StyledRadioButton = styled.div`
+  position: relative;
+  margin: 0.5rem 0;
 
-const Label = styled.label`
-  input {
+  label {
+    + input {
+      /* height: 40px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 40px; */
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 20px; /* This will be adjusted */
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        left: -22px; /* This will be adjusted */
+        width: 20px;
+        height: 20px;
+        background: $muted-red;
+      }
+    }
+  }
+  fieldset {
+    border: none;
   }
 `;
 
-const StyledRadioButton = styled.input`
+const Label = styled.label`
+  /* :before {
+    border: 2px solid;
+    content: "";
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+  } */
 `;
 
 /**
@@ -41,14 +77,13 @@ export const RadioButton: FC<RadioButtonProps> = ({
 // value,
 RadioButtonProps) => {
   return (
-    <>
+    <StyledRadioButton>
       {/* // aria-label for form elements */}
       {/* https://dequeuniversity.com/rules/axe/3.5/label?application=axeAPI */}
 
       {/* https://webaim.org/techniques/forms/advanced#arialabel */}
-
-      <Label htmlFor="male">
-        <StyledRadioButton
+      <Label htmlFor="male" onClick={onClick}>
+        <input
           aria-label="name"
           name="gender"
           type="radio"
@@ -66,6 +101,6 @@ RadioButtonProps) => {
         />
         {children}
       </Label>
-    </>
+    </StyledRadioButton>
   );
 };
