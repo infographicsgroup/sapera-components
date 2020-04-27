@@ -15,7 +15,7 @@ export interface ButtonProps {
   tabIndex?: string;
   size?: "large" | "medium" | "small";
   type?: "button" | "reset" | "submit";
-  buttonVariety?: "text" | "textWithIcon" | "icon";
+  icon?: any;
   isSecondary?: boolean;
   value?: string;
   onClick?: () => void;
@@ -35,7 +35,7 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
+  height: ${(p): string => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
   border-radius: 28px;
   color: ${Color.TextInverted};
   background: ${Color.Primary};
@@ -44,7 +44,7 @@ const StyledButton = styled.button<ButtonProps>`
   letter-spacing: 1px;
   font-weight: normal;
   padding: 0 60px;
-  cursor: ${(p) => !p.disabled && "pointer"};
+  cursor: ${(p): string => (p.disabled ? "default" : "pointer")};
 
   svg,
   path {
@@ -62,15 +62,6 @@ const StyledButton = styled.button<ButtonProps>`
         fill: ${Color.Primary};
       }
     `}
-
-  ${(p) =>
-    p.buttonVariety === "icon" &&
-    css`
-      border-radius: 50%;
-      width: ${p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px"};
-      min-width: auto;
-      padding: 0;
-    `};
 
   ${(p) =>
     p.buttonVariety === "textWithIcon" &&
@@ -97,7 +88,7 @@ export const Button: FC<ButtonProps> = ({
   name,
   tabIndex,
   type = "button",
-  buttonVariety = "text",
+  icon = null,
   size = "large",
   isSecondary = false,
   value,
@@ -114,7 +105,6 @@ export const Button: FC<ButtonProps> = ({
       aria-label={ariaLabel || undefined}
       aria-pressed={ariaPressed}
       autoFocus={autoFocus}
-      buttonVariety={buttonVariety}
       className={className}
       disabled={disabled}
       isSecondary={isSecondary}
@@ -125,7 +115,8 @@ export const Button: FC<ButtonProps> = ({
       value={value}
       onClick={onClick}
     >
-      {children}
+      <span>{children}</span>
+      {/* {icon && icon} */}
     </StyledButton>
   );
 };
