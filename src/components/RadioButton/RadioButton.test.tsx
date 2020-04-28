@@ -25,8 +25,6 @@ describe("RadioButon", () => {
       </RadioButton>,
     );
 
-    console.log("wrapper", wrapper.props());
-
     it("should have a class name", () => {
       expect(wrapper.hasClass(DATA.CLASSNAME)).toBe(true);
     });

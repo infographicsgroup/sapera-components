@@ -19,32 +19,13 @@ export const Default: React.FunctionComponent = () => {
 
   return (
     <>
-      <RadioButton
-        checked={selectedOption === "red"}
-        name="color"
-        value="red"
-        // onChange={() => onClick("red")}
-        onClick={() => onClick("red")}
-      >
+      <RadioButton checked={selectedOption === "red"} name="color" value="red" onClick={() => onClick("red")}>
         Red
       </RadioButton>
-      <RadioButton
-        checked={selectedOption === "yellow"}
-        name="color"
-        value="yellow"
-        // onChange={() => onClick("yellow")}
-
-        onClick={() => onClick("yellow")}
-      >
+      <RadioButton checked={selectedOption === "yellow"} name="color" value="yellow" onClick={() => onClick("yellow")}>
         Yellow
       </RadioButton>
-      <RadioButton
-        checked={selectedOption === "green"}
-        name="color"
-        value="green"
-        onClick={() => onClick("green")}
-        // onChange={() => onClick("green")}
-      >
+      <RadioButton checked={selectedOption === "green"} name="color" value="green" onClick={() => onClick("green")}>
         Green
       </RadioButton>
       <RadioButton
@@ -53,7 +34,6 @@ export const Default: React.FunctionComponent = () => {
         value="pink"
         disabled
         onClick={() => onClick("pink")}
-        // onChange={() => onClick("pink")}
       >
         Pink (Disabled)
       </RadioButton>
