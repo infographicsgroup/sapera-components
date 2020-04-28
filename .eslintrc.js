@@ -28,7 +28,13 @@ module.exports = {
     ],
     "comma-dangle": ["error", "always-multiline"],
     "no-unused-vars": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-function-return-type": ["error",
+      {
+        allowExpressions: true, // this is to allow using expressions with styled-components
+        allowTypedFunctionExpressions: true,
+        allowHigherOrderFunctions: true,
+      }
+    ],
     quotes: ["error", "double"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
