@@ -1,4 +1,3 @@
-// TODO: fix No props found when using docs addon
 const path = require("path");
 
 module.exports = {
