@@ -9,6 +9,7 @@ export interface RadioButtonProps {
   children: string | React.ReactNode;
   className?: string;
   disabled?: boolean;
+  checked?: boolean;
   // name?: string;
   // tabIndex?: string;
   // value?: string;
@@ -70,6 +71,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
   // className,
   // disabled = false,
   onClick,
+  checked = "false",
 }: // name,
 // role,
 // tabIndex,
@@ -84,6 +86,7 @@ RadioButtonProps) => {
       {/* https://webaim.org/techniques/forms/advanced#arialabel */}
       <Label htmlFor="male" onClick={onClick}>
         <input
+          aria-checked={checked}
           aria-label="name"
           name="gender"
           type="radio"
