@@ -28,6 +28,7 @@ module.exports = {
     ],
     "comma-dangle": ["error", "always-multiline"],
     "no-unused-vars": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
     quotes: ["error", "double"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",

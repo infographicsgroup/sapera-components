@@ -25,6 +25,7 @@ module.exports = {
     return config;
   },
   addons: [
+    "@storybook/addon-a11y/register",
     "@storybook/addon-actions",
     "@storybook/addon-links",
     {
