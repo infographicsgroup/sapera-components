@@ -31,13 +31,7 @@ const ButtonWrapper = styled.div<{ color?: string; disabled?: boolean }>`
 
     &:focus {
       + label::before {
-        /* box-shadow: 0 0px 8px ${(p) => p.color}; */
-        /* border: 1px  solid -webkit-focus-ring-color; */
-        /* outline-width: 2px;
-  outline-style: solid;
-  outline-color: Highlight; */
-  /* outline-color: -webkit-focus-ring-color; */
-      outline: rgb(59, 153, 252) auto 5px;
+        outline: rgb(59, 153, 252) auto 5px;
       }
     }
 
