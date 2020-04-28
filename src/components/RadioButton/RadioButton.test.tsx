@@ -3,7 +3,9 @@ import { shallow } from "enzyme";
 import { RadioButton } from "./RadioButton";
 
 const DATA = {
-  LABEL: "Label",
+  NAME: "Name",
+  TEXT: "Text",
+  VALUE: "Value",
   CLASSNAME: "radioButton",
 };
 
@@ -11,13 +13,13 @@ describe("RadioButon", () => {
   describe("Renders common props as expected", () => {
     const mockFn = jest.fn();
     const wrapper = shallow(
-      <RadioButton className={DATA.CLASSNAME} onClick={mockFn}>
-        {DATA.LABEL}
+      <RadioButton className={DATA.CLASSNAME} name={DATA.NAME} value={DATA.VALUE} onClick={mockFn}>
+        {DATA.TEXT}
       </RadioButton>,
     );
 
     it("renders children as a string expected", () => {
-      expect(wrapper.children().text()).toEqual(DATA.LABEL);
+      expect(wrapper.children().text()).toEqual(DATA.TEXT);
     });
 
     it("should have a class name", () => {
@@ -32,7 +34,5 @@ describe("RadioButon", () => {
     it("should not be disabled", () => {
       expect(wrapper.props().disabled).toEqual(false);
     });
-
-    // TODO: continue add attributes and icon
   });
 });

@@ -1,23 +1,20 @@
 import React, { FC } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { Color } from "../../theme/util";
 
 const RADIO_BUTTON_WIDTH = 24;
-// https://www.w3schools.com/tags/tag_button.asp
-// https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+
 export interface RadioButtonProps {
-  // ariaPressed?: boolean | "mixed" | undefined;
-  // autoFocus?: boolean;
   children: string | React.ReactNode;
   className?: string;
   disabled?: boolean;
-  checked?: boolean;
+  checked: boolean;
   name: string;
   value: string;
-  // name?: string;
-  // tabIndex?: string;
+  color?: string | Color;
   onClick?: () => void;
 }
-const ButtonWrapper = styled.div<RadioButtonProps>`
+const ButtonWrapper = styled.div<{ color?: string; disabled?: boolean }>`
   position: relative;
   position: relative;
   font-size: 17px;
@@ -27,58 +24,56 @@ const ButtonWrapper = styled.div<RadioButtonProps>`
   margin: 1rem 0;
 
   input {
-    margin-right: ${RADIO_BUTTON_WIDTH}px;
-    margin-left: 0;
-  }
-
-  input[type="radio"] {
     opacity: 0;
+    visibility: visible;
+    position: absolute;
+    margin-left: 0;
+
+    &:focus {
+      + label::before {
+        /* box-shadow: 0 0px 8px ${(p) => p.color}; */
+        /* border: 1px  solid -webkit-focus-ring-color; */
+        /* outline-width: 2px;
+  outline-style: solid;
+  outline-color: Highlight; */
+  /* outline-color: -webkit-focus-ring-color; */
+      outline: rgb(59, 153, 252) auto 5px;
+      }
+    }
 
     + label {
       position: relative;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      -webkit-box-orient: horizontal;
+
       cursor: ${(p) => (p.disabled ? "default" : "pointer")};
 
       &::before {
         content: "";
-        display: inline-block;
-        position: absolute;
-        left: -${RADIO_BUTTON_WIDTH + 12}px;
+        margin-right: 15px;
         border-radius: 50%;
-        border: 2px solid black;
+        border: 2px solid ${(p) => (p.disabled ? "#949F9F" : p.color)};
         width: ${RADIO_BUTTON_WIDTH}px;
         height: ${RADIO_BUTTON_WIDTH}px;
-        top: -3px;
+        box-sizing: border-box;
       }
 
       &::after {
         content: "";
         position: absolute;
-        display: inline-block;
-        left: -20px;
-        top: 4px;
+        top: ${RADIO_BUTTON_WIDTH / 4}px;
+        left: ${RADIO_BUTTON_WIDTH / 4}px;
         border-radius: 50%;
         width: ${RADIO_BUTTON_WIDTH / 2}px;
         height: ${RADIO_BUTTON_WIDTH / 2}px;
+        box-sizing: border-box;
       }
     }
 
-    ${(p) =>
-      p.checked &&
-      css`
-        + label::after {
-          background: red;
-        }
-      `}
     &:checked {
       + label::after {
-        background: red;
-      }
-    }
-
-    &:focus {
-      + label::before {
-        box-shadow: 0 0px 8px red;
+        background: ${(p) => p.color};
       }
     }
 
@@ -86,54 +81,40 @@ const ButtonWrapper = styled.div<RadioButtonProps>`
       margin-left: 20px;
     }
   }
-
-  fieldset {
-    border: none;
-  }
 `;
 
 /**
  * Button
  */
 export const RadioButton: FC<RadioButtonProps> = ({
-  // ariaExpanded,
-  // ariaPressed,
-  // autoFocus,
   children,
-  // className,
+  className,
   name,
   onClick,
   disabled = false,
-  checked = false,
-  // name,
-  // role,
-  // tabIndex,
-  // type = "button",
+  checked,
+  color = Color.Primary,
   value,
 }: RadioButtonProps) => {
   return (
-    <ButtonWrapper checked={checked} disabled={disabled}>
+    <ButtonWrapper className={className} color={color} disabled={disabled}>
       {/* // aria-label for form elements */}
       {/* https://dequeuniversity.com/rules/axe/3.5/label?application=axeAPI */}
 
       {/* https://webaim.org/techniques/forms/advanced#arialabel */}
+
+      {/* // input checked property vs. attribute
+      https://github.com/facebook/react/issues/6321 */}
+
       <input
         aria-checked={checked}
         aria-label={name}
+        checked={checked}
         disabled={disabled}
         name={name}
         type="radio"
-        // aria-pressed={ariaPressed}
-        // autoFocus={autoFocus}
-        // className={className}
         value={value}
-        // checked={}
-        // name={name}
-        // role={role}
-        // tab-index={tabIndex}
-        // type={type}
-        // value={value}
-        // onClick={disabled ? () => null : onClick}
+        onChange={onClick}
       />
       <label htmlFor={value} onClick={disabled ? () => null : onClick}>
         {children}
