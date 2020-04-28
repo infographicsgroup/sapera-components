@@ -1,7 +1,7 @@
 import React from "react";
 
 // eslint-disable-next-line react/prop-types
-const Icon = ({ width = "100%", height = "", viewBox = "0 0 20 20" }) => {
+const Icon = ({ width = "100%", height = "", viewBox = "0 0 20 20" }): JSX.Element => {
   return (
     <svg height={height} viewBox={viewBox} width={width}>
       <path
