@@ -40,4 +40,3 @@ export enum Color {
 }
 
 export type ColorType = Color;
-export type SizeType = Size;
