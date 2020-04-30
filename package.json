@@ -1,6 +1,6 @@
 {
   "name": "sapera-components",
-  "version": "0.0.3-development",
+  "version": "0.0.4-development",
   "description": "Sapera Design System and Storybook",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
