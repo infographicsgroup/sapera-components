@@ -14,7 +14,7 @@ export interface RadioButtonProps {
   color?: string | Color | undefined;
   onClick?: () => void;
 }
-const ButtonWrapper = styled.div<{ color?: string; disabled?: boolean }>`
+const ButtonWrapper = styled.div<{ color?: string | COLOR | undefined; disabled?: boolean }>`
   position: relative;
   position: relative;
   font-size: 17px;
