@@ -8,7 +8,7 @@ export interface RadioButtonProps {
   children: string | React.ReactNode;
   className?: string;
   disabled?: boolean;
-  checked: boolean;
+  checked?: boolean;
   name: string;
   value: string;
   color?: ColorType;
