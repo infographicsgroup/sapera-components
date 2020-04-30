@@ -8,10 +8,10 @@ export interface RadioButtonProps {
   children: string | React.ReactNode;
   className?: string;
   disabled?: boolean;
-  checked: boolean;
+  checked?: boolean;
   name: string;
   value: string;
-  color?: string | Color;
+  color?: string | Color | undefined;
   onClick?: () => void;
 }
 const ButtonWrapper = styled.div<{ color?: string; disabled?: boolean }>`
@@ -105,6 +105,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
         aria-label={name}
         checked={checked}
         disabled={disabled}
+        id={`radio-button-${value}`}
         name={name}
         type="radio"
         value={value}
