@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { action } from "@storybook/addon-actions";
 import { RadioButton } from "./RadioButton";
 import { withA11y } from "@storybook/addon-a11y";
+import { Color } from "../../theme/util";
 
 export default {
   title: "RadioButton",
@@ -19,17 +20,36 @@ export const Default: React.FunctionComponent = () => {
 
   return (
     <>
-      <RadioButton checked={selectedOption === "red"} name="color" value="red" onClick={() => onClick("red")}>
+      <RadioButton
+        checked={selectedOption === "red"}
+        color={Color.SecondaryRed}
+        name="color"
+        value="red"
+        onClick={() => onClick("red")}
+      >
         Red
       </RadioButton>
-      <RadioButton checked={selectedOption === "yellow"} name="color" value="yellow" onClick={() => onClick("yellow")}>
+      <RadioButton
+        checked={selectedOption === "yellow"}
+        color={Color.SecondaryYellow}
+        name="color"
+        value="yellow"
+        onClick={() => onClick("yellow")}
+      >
         Yellow
       </RadioButton>
-      <RadioButton checked={selectedOption === "green"} name="color" value="green" onClick={() => onClick("green")}>
+      <RadioButton
+        checked={selectedOption === "green"}
+        color="green"
+        name="color"
+        value="green"
+        onClick={() => onClick("green")}
+      >
         Green
       </RadioButton>
       <RadioButton
         checked={selectedOption === "pink"}
+        color="pink"
         name="color"
         value="pink"
         disabled
