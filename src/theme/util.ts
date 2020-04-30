@@ -22,21 +22,21 @@ enum BaseColor {
  * Types of Semantic Colors.
  * @enum {string}
  */
-export enum Color {
-  Primary = BaseColor.GableGreen,
+export const Color = {
+  Primary: BaseColor.GableGreen,
 
-  SecondaryBlue = BaseColor.DodgerBlue,
-  SecondaryGreen = BaseColor.Emerald,
-  SecondaryOrange = BaseColor.Coral,
-  SecondaryPurple = BaseColor.Amethyst,
-  SecondaryRed = BaseColor.Persimmon,
-  SecondaryTeal = BaseColor.Turquoise,
-  SecondaryYellow = BaseColor.Dandelion,
+  SecondaryBlue: BaseColor.DodgerBlue,
+  SecondaryGreen: BaseColor.Emerald,
+  SecondaryOrange: BaseColor.Coral,
+  SecondaryPurple: BaseColor.Amethyst,
+  SecondaryRed: BaseColor.Persimmon,
+  SecondaryTeal: BaseColor.Turquoise,
+  SecondaryYellow: BaseColor.Dandelion,
 
-  TextPrimary = BaseColor.GableGreen,
-  TextInverted = BaseColor.White,
+  TextPrimary: BaseColor.GableGreen,
+  TextInverted: BaseColor.White,
 
-  BackgroundMain = BaseColor.Bianca,
-}
+  BackgroundMain: BaseColor.Bianca,
+};
 
-export type ColorType = Color;
+export type ColorType = BaseColor;

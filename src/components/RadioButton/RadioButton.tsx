@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Color } from "../../theme/util";
+import { Color, ColorType } from "../../theme/util";
 
 const RADIO_BUTTON_WIDTH = 24;
 
@@ -11,10 +11,10 @@ export interface RadioButtonProps {
   checked?: boolean;
   name: string;
   value: string;
-  color?: string | Color | undefined;
+  color?: string | ColorType | undefined;
   onClick?: () => void;
 }
-const ButtonWrapper = styled.div<{ color?: string | COLOR | undefined; disabled?: boolean }>`
+const ButtonWrapper = styled.div<{ color?: string | ColorType | undefined; disabled?: boolean }>`
   position: relative;
   position: relative;
   font-size: 17px;
