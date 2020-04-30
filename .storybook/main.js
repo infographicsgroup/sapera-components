@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   stories: ["../src/**/*.stories.(ts|tsx|mdx)"],
-  webpackFinal: async config => {
+  webpackFinal: async (config) => {
     config.module.rules.push(
       {
         test: /\.(ts|tsx)$/,
@@ -28,6 +28,7 @@ module.exports = {
     "@storybook/addon-a11y/register",
     "@storybook/addon-actions",
     "@storybook/addon-links",
+
     {
       name: "@storybook/addon-docs",
       options: {
