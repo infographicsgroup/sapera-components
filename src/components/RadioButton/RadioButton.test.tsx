@@ -34,7 +34,7 @@ describe("RadioButon", () => {
     });
 
     it("should be checked", () => {
-      expect(wrapper.props().ischecked).toEqual(true);
+      expect(wrapper.find(`.${DATA.CLASSNAME} input`).prop("checked")).toEqual(true);
     });
   });
 });
