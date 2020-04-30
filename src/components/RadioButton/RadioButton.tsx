@@ -11,7 +11,7 @@ export interface RadioButtonProps {
   checked?: boolean;
   name: string;
   value: string;
-  color?: ColorType;
+  color?: string | ColorType;
   onClick?: () => void;
 }
 const ButtonWrapper = styled.div<{ color?: string; disabled?: boolean }>`
