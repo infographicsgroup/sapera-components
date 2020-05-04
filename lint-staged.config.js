@@ -1,4 +1,4 @@
 module.exports = {
-  "./src/**/*.{ts,tsx}": ["yarn format", "yarn lint"],
-  "./*.{config,setup}.{js,ts}": ["yarn format", "yarn lint"],
+  "./{src,.storybook}/**/*.{ts,tsx,js,jsx}": ["yarn format", "yarn lint"],
+  "./*.{js,ts}": ["yarn format ./*.{js,ts}", "yarn lint ./*.{js,ts}"],
 };

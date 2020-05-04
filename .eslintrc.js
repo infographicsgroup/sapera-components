@@ -19,16 +19,11 @@ module.exports = {
   },
   plugins: ["react", "react-hooks", "@typescript-eslint", "jest"],
   rules: {
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
-      },
-    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "comma-dangle": ["error", "always-multiline"],
     "no-unused-vars": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
     quotes: ["error", "double"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -50,6 +45,21 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+      rules: {
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            argsIgnorePattern: "^_",
+            varsIgnorePattern: "^_",
+          },
+        ],
+        "@typescript-eslint/no-var-requires": "error",
+      },
+    },
+  ],
   settings: {
     react: {
       version: "detect",
