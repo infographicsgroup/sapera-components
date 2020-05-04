@@ -34,7 +34,8 @@ import { Button, ButtonProps } from "sapera-components";
 
 ## Storybook
 To run Storybook use: `yarn start:storybook`. (served on http:localhost:9009)<br/>
-The storybook is automatically build and deployed with every `master` branch commit and served using Netlify.
+A storybook preview is automatically built on every commit (`deploy-storybook` step) generating unique preview URL.
+The storybook is automatically built and deployed with every `master` branch commit and served using Netlify.
 
 ## Testing
 Testing works with [jest](https://jestjs.io/)<br/>
@@ -63,9 +64,9 @@ for production usage on other project.
 To use the package directly from git (`master` branch),
 you need to build the package locally (after installing), this can be done with the following:
 ```bash
-yarn add https://github.com/infographicsgroup/sapera-storybook#master
+yarn add https://github.com/infographicsgroup/sapera-components#master
 // or if it's already added
-yarn upgrade sapera-storybook
+yarn upgrade sapera-components
 
 cd node_modules/sapera-components && yarn build
 ```
