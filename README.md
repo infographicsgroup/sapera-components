@@ -6,7 +6,7 @@
 
 Sapera Pattern Library powered by [Storybook](https://storybook.js.org/) and [React](https://reactjs.org/).
 
-Netlify URL: https://sapera-storybook.netlify.com/
+Netlify URL: https://sapera-storybook.netlify.app/
 
 ## Usage
 - Add the dependency to `package.json`, e.g.
