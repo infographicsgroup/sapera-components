@@ -44,7 +44,7 @@ jobs:
       - run: yarn format:check
       - run: .circleci/yarn-audit.sh
 
-  deploy-storybook-preview:
+  deploy-storybook:
     executor: nodejs
     steps:
       - install
@@ -69,6 +69,11 @@ workflows:
             tags:
               only: /.*/
 
+      - deploy-storybook:
+          context: IGG
+          requires:
+            - test-and-audit
+
       - release-and-publish:
           context: IGG
           requires:
@@ -78,11 +83,3 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
-
-      - deploy-storybook-preview:
-          context: IGG
-          requires:
-            - test-and-audit
-          filters:
-            branches:
-              only: master
