@@ -49,9 +49,9 @@ jobs:
     steps:
       - install
       - run: yarn build:storybook
-      - run: npx netlify-cli deploy --prod
+      - run: .circleci/deploy-netlify.sh
     environment:
-      NETLIFY_SITE_ID: "cffa1ae2-c3a1-4c6d-b964-f218b10d6fbe"
+      NETLIFY_SITE_ID: "13a33302-aed1-4031-bdf5-3cbb2587c343"
 
   release-and-publish:
     executor: nodejs
