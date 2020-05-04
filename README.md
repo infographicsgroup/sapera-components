@@ -1,8 +1,8 @@
 # Sapera Components
 
-![Build Status](https://img.shields.io/circleci/build/gh/infographicsgroup/sapera-components/master)
-![License](https://img.shields.io/github/license/infographicsgroup/sapera-components)
-![version](https://img.shields.io/npm/v/sapera-components)
+[![Build Status](https://img.shields.io/circleci/build/gh/infographicsgroup/sapera-components/master)](https://app.circleci.com/pipelines/github/infographicsgroup/sapera-components)
+[![License](https://img.shields.io/github/license/infographicsgroup/sapera-components)](./LICENSE.md)
+[![version](https://img.shields.io/npm/v/sapera-components)](https://www.npmjs.com/package/sapera-components)
 
 Sapera Pattern Library powered by [Storybook](https://storybook.js.org/) and [React](https://reactjs.org/).
 
