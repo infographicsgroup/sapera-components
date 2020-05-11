@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
-import { Color } from "../../theme/util";
+import { Color, ColorType } from "../../theme/util";
 
 // https://www.w3schools.com/tags/tag_button.asp
 export interface ButtonProps {
@@ -12,6 +12,7 @@ export interface ButtonProps {
   className?: string;
   disabled?: boolean;
   name?: string;
+  bg?: string | ColorType | undefined;
   iconFirst?: boolean;
   tabIndex?: string;
   size?: "large" | "medium" | "small";
@@ -41,7 +42,7 @@ const StyledButton = styled.button<ButtonProps>`
   height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
   border-radius: 28px;
   color: ${Color.TextInverted};
-  background: ${Color.Primary};
+  background: ${(p) => p.bg};
   border: none;
   font-size: 16px;
   letter-spacing: 1px;
@@ -62,7 +63,7 @@ const StyledButton = styled.button<ButtonProps>`
     p.isSecondary &&
     css`
       color: ${Color.Primary};
-      background: ${Color.BackgroundMain};
+      background: ${(p) => p.bg};
       border: 1.25px solid ${Color.Primary};
       svg,
       path {
@@ -96,6 +97,7 @@ export const Button: FC<ButtonProps> = ({
   size = "large",
   iconFirst = false,
   isSecondary = false,
+  bg = isSecondary ? Color.BackgroundMain : Color.Primary,
   value,
 }: ButtonProps) => {
   // aria-label atrribute usage
@@ -106,6 +108,7 @@ export const Button: FC<ButtonProps> = ({
       aria-label={ariaLabel || undefined}
       aria-pressed={ariaPressed}
       autoFocus={autoFocus}
+      bg={bg}
       className={className}
       disabled={disabled}
       iconFirst={iconFirst}

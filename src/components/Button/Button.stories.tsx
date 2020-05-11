@@ -15,7 +15,9 @@ const downloadIcon = <Icon width={"25px"} />;
 export const TextButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <div>
-      <Button onClick={action("clicked")}>primary lg</Button>
+      <Button bg={"purple"} onClick={action("clicked")}>
+        primary lg
+      </Button>
       <br />
       <Button size={"medium"} onClick={action("clicked")}>
         primary md
@@ -30,7 +32,7 @@ export const TextButtons: React.FunctionComponent = () => (
         Secondary lg
       </Button>
       <br />
-      <Button size={"medium"} isSecondary onClick={action("clicked")}>
+      <Button bg={"yellow"} size={"medium"} isSecondary onClick={action("clicked")}>
         Secondary md
       </Button>
       <br />
