@@ -97,7 +97,7 @@ export const Button: FC<ButtonProps> = ({
   size = "large",
   iconFirst = false,
   isSecondary = false,
-  bg = isSecondary ? Color.BackgroundMain : Color.Primary,
+  bg = isSecondary ? "none" : Color.Primary,
   value,
 }: ButtonProps) => {
   // aria-label atrribute usage
