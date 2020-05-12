@@ -39,6 +39,7 @@ jobs:
     executor: nodejs
     steps:
       - install
+      - run: yarn build
       - run: yarn test
       - run: yarn lint:check
       - run: yarn format:check
