@@ -63,7 +63,7 @@ const StyledButton = styled.button<ButtonProps>`
     p.isSecondary &&
     css`
       color: ${Color.Primary};
-      background: ${(p) => p.bg};
+      background: ${p.bg};
       border: 1.25px solid ${Color.Primary};
       svg,
       path {
