@@ -12,7 +12,7 @@ enum BaseColor {
   Dandelion = "#FFDD61",
   DodgerBlue = "#4DA3FF",
   Emerald = "#56D680",
-  DarkTeal = "#19323C",
+  GableGreen = "#19323C",
   Persimmon = "#FF5C57",
   Turquoise = "#30C7BE",
   White = "#ffff",
@@ -23,7 +23,7 @@ enum BaseColor {
  * @enum {string}
  */
 export const Color = {
-  Primary: BaseColor.DarkTeal,
+  Primary: BaseColor.GableGreen,
 
   SecondaryBlue: BaseColor.DodgerBlue,
   SecondaryGreen: BaseColor.Emerald,
@@ -33,7 +33,7 @@ export const Color = {
   SecondaryTeal: BaseColor.Turquoise,
   SecondaryYellow: BaseColor.Dandelion,
 
-  TextPrimary: BaseColor.DarkTeal,
+  TextPrimary: BaseColor.GableGreen,
   TextInverted: BaseColor.White,
 
   BackgroundMain: BaseColor.Bianca,
