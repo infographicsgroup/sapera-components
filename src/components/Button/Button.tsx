@@ -22,6 +22,7 @@ export interface ButtonProps {
   value?: string;
   onClick?: () => void;
   isDisabled?: boolean;
+  width?: string;
 }
 
 /**
@@ -41,6 +42,7 @@ const BUTTON_PADDING = {
 };
 
 const StyledButton = styled.button<ButtonProps>`
+  width: ${(p) => p.width};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,6 +101,7 @@ export const Button: FC<ButtonProps> = ({
   onClick,
   name,
   tabIndex,
+  width = "auto",
   type = "button",
   icon,
   size = "large",
@@ -128,6 +131,7 @@ export const Button: FC<ButtonProps> = ({
       tab-index={tabIndex}
       type={type}
       value={value}
+      width={width}
       onClick={disabled ? () => null : onClick}
     >
       <span>{children}</span>
