@@ -36,7 +36,7 @@ describe("Button", () => {
     });
 
     it("button should look disabled, but not have disabled attribute", () => {
-      expect(wrapperDisabled.props().disabled).toEqual(undefined || false);
+      expect(wrapperDisabled.props().disabled).toEqual(undefined);
     });
 
     // TODO: continue add attributes and icon
