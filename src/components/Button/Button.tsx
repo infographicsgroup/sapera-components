@@ -21,6 +21,7 @@ export interface ButtonProps {
   isSecondary?: boolean;
   value?: string;
   onClick?: () => void;
+  isDisabled?: boolean;
 }
 
 /**
@@ -33,21 +34,27 @@ const BUTTON_HEIGHTS = {
   small: 44,
 };
 
+const BUTTON_PADDING = {
+  large: "0 35",
+  medium: "0 30",
+  small: "0 25",
+};
+
 const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  min-width: 190px;
   height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
+  padding: ${(p) => (p.size ? BUTTON_PADDING[p.size] + "px" : BUTTON_PADDING.large + "px")};
   border-radius: 28px;
   color: ${Color.TextInverted};
-  background: ${(p) => p.bg};
+  background: ${(p) => (p.isDisabled ? Color.DisabledGrey : p.bg)};
   border: none;
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: normal;
-  padding: 0 20px;
+
   cursor: ${(p) => (p.disabled ? "default" : "pointer")};
 
   svg {
@@ -87,7 +94,7 @@ export const Button: FC<ButtonProps> = ({
   autoFocus,
   children,
   className,
-  disabled = false,
+  disabled,
   ariaLabel,
   onClick,
   name,
@@ -102,23 +109,26 @@ export const Button: FC<ButtonProps> = ({
 }: ButtonProps) => {
   // aria-label atrribute usage
   // developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
+  // 'disabled' removes button for screen readers, so for a11y it's best to visually make them disbaled and use aria-diabled instead
+
   return (
     <StyledButton
+      aria-disabled={disabled}
       aria-expanded={ariaExpanded}
       aria-label={ariaLabel || undefined}
       aria-pressed={ariaPressed}
       autoFocus={autoFocus}
       bg={bg}
       className={className}
-      disabled={disabled}
       iconFirst={iconFirst}
+      isDisabled={disabled}
       isSecondary={isSecondary}
       name={name}
       size={size}
       tab-index={tabIndex}
       type={type}
       value={value}
-      onClick={onClick}
+      onClick={disabled ? () => null : onClick}
     >
       <span>{children}</span>
       {icon && icon}

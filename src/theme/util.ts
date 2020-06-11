@@ -16,6 +16,7 @@ enum BaseColor {
   Persimmon = "#FF5C57",
   Turquoise = "#30C7BE",
   White = "#ffff",
+  Pewter = "#949F9F",
 }
 
 /**
@@ -37,6 +38,8 @@ export const Color = {
   TextInverted: BaseColor.White,
 
   BackgroundMain: BaseColor.Bianca,
+
+  DisabledGrey: BaseColor.Pewter,
 };
 
 export type ColorType = BaseColor;
