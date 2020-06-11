@@ -51,7 +51,7 @@ const StyledButton = styled.button<ButtonProps>`
   cursor: ${(p) => (p.disabled ? "default" : "pointer")};
 
   svg {
-    padding: 0 0 0 10px;
+    margin: 0 0 0 10px;
   }
 
   svg,
@@ -76,7 +76,7 @@ const StyledButton = styled.button<ButtonProps>`
     css`
       flex-direction: row-reverse;
       svg {
-        padding: 0 10px 0 0;
+        margin: 0 10px 0 0;
       }
     `}
 `;

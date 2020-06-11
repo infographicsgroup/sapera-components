@@ -10,7 +10,7 @@ export default {
   decorators: [withA11y],
 };
 
-const downloadIcon = <Icon width={"25px"} />;
+const downloadIcon = <Icon height={"25px"} width={"25px"} />;
 
 export const TextButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
