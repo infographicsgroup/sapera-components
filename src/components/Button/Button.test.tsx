@@ -30,7 +30,7 @@ describe("Button", () => {
     });
 
     it("should not be disabled", () => {
-      expect(wrapper.props().disabled).toEqual(false);
+      expect(wrapper.props().disabled).toEqual(!true);
     });
 
     // TODO: continue add attributes and icon
