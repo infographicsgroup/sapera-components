@@ -21,8 +21,11 @@ export interface ButtonProps {
   isSecondary?: boolean;
   value?: string;
   onClick?: () => void;
-  isDisabled?: boolean;
   width?: string;
+}
+
+interface StyledButtonProps extends ButtonProps {
+  disabledUI?: boolean;
 }
 
 /**
@@ -41,7 +44,7 @@ const BUTTON_PADDING = {
   small: "0 25",
 };
 
-const StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button<StyledButtonProps>`
   width: ${(p) => p.width};
   display: flex;
   justify-content: center;
@@ -51,13 +54,13 @@ const StyledButton = styled.button<ButtonProps>`
   padding: ${(p) => (p.size ? BUTTON_PADDING[p.size] + "px" : BUTTON_PADDING.large + "px")};
   border-radius: 28px;
   color: ${Color.TextInverted};
-  background: ${(p) => (p.isDisabled ? Color.DisabledGrey : p.bg)};
+  background: ${(p) => (p.disabledUI ? Color.DisabledGrey : p.bg)};
   border: none;
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: normal;
 
-  cursor: ${(p) => (p.disabled ? "default" : "pointer")};
+  cursor: ${(p) => (p.disabledUI ? "default" : "pointer")};
 
   svg {
     margin: 0 0 0 10px;
@@ -96,7 +99,7 @@ export const Button: FC<ButtonProps> = ({
   autoFocus,
   children,
   className,
-  disabled,
+  disabled = false,
   ariaLabel,
   onClick,
   name,
@@ -123,8 +126,8 @@ export const Button: FC<ButtonProps> = ({
       autoFocus={autoFocus}
       bg={bg}
       className={className}
+      disabledUI={disabled}
       iconFirst={iconFirst}
-      isDisabled={disabled}
       isSecondary={isSecondary}
       name={name}
       size={size}

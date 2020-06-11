@@ -16,6 +16,12 @@ describe("Button", () => {
       </Button>,
     );
 
+    const wrapperDisabled = shallow(
+      <Button disabled onClick={mockFn}>
+        {DATA.LABEL}
+      </Button>,
+    );
+
     it("renders children as a string expected", () => {
       expect(wrapper.children().text()).toEqual(DATA.LABEL);
     });
@@ -29,8 +35,8 @@ describe("Button", () => {
       expect(mockFn.mock.calls.length).toEqual(1);
     });
 
-    it("should not be disabled", () => {
-      expect(wrapper.props().disabled).toEqual(!true);
+    it("button should look disabled, but not have disabled attribute", () => {
+      expect(wrapperDisabled.props().disabled).toEqual(undefined || false);
     });
 
     // TODO: continue add attributes and icon
