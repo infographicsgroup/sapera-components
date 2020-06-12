@@ -29,7 +29,11 @@
       "pre-commit": "lint-staged"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "@humblebee/styled-components-breakpoint": "^2.1.4",
+    "@types/chroma-js": "^2.0.0",
+    "chroma-js": "^2.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
