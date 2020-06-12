@@ -35,7 +35,7 @@ export const Color = {
   SecondaryYellow: BaseColor.Dandelion,
 
   TextPrimary: BaseColor.GableGreen,
-  TextInverted: BaseColor.Pewter,
+  TextInverted: BaseColor.Bianca,
 
   BackgroundMain: BaseColor.Bianca,
 
