@@ -45,11 +45,11 @@ const BUTTON_PADDING = {
 };
 
 const StyledButton = styled.button<StyledButtonProps>`
-  width: ${(p) => p.width};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  width: ${(p) => p.width};
   height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
   padding: ${(p) => (p.size ? BUTTON_PADDING[p.size] + "px" : BUTTON_PADDING.large + "px")};
   border-radius: 28px;
