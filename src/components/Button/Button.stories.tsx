@@ -55,24 +55,24 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <Column>
       <Button icon={downloadIcon} onClick={action("clicked")}>
-        <p>button</p>
+        button
       </Button>
       <br />
       <Button icon={downloadIcon} size={"medium"} iconFirst onClick={action("clicked")}>
-        <p>Button</p>
+        Button
       </Button>
       <br />
       <Button icon={downloadIcon} size={"small"} onClick={action("clicked")}>
-        <p>Button</p>
+        Button
       </Button>
     </Column>
     <Column>
       <Button icon={downloadIcon} isSecondary onClick={action("clicked")}>
-        <p>Download</p>
+        Download
       </Button>
       <br />
       <Button icon={downloadIcon} size={"medium"} isSecondary onClick={action("clicked")}>
-        <p>Download</p>
+        Download
       </Button>
       <br />
       <Button icon={downloadIcon} size={"small"} iconFirst isSecondary onClick={action("clicked")}>
