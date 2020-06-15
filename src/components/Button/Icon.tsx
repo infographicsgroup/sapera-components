@@ -1,7 +1,13 @@
 import React from "react";
 
-// eslint-disable-next-line react/prop-types
-const Icon = ({ width = "15px", height = "15px", viewBox = "0 0 20 20", fill = "#000" }) => {
+interface IconProps {
+  width: string;
+  height: string;
+  viewBox?: string;
+  fill?: string;
+}
+
+const Icon = ({ width = "15px", height = "15px", viewBox = "0 0 20 20", fill = "#000" }: IconProps) => {
   return (
     <svg height={height} viewBox={viewBox} width={width}>
       <path
