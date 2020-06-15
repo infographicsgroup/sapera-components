@@ -12,4 +12,12 @@ const options = [
   { value: "vanilla", label: "Vanilla" },
 ];
 
-export const Default: React.FunctionComponent = () => <SelectComponent options={options} />;
+export const Default: React.FunctionComponent = () => {
+  return (
+    <>
+      <SelectComponent options={options} />
+      <br /> <br /> <br /> <br />
+      <br /> <br /> <br /> <br />
+    </>
+  );
+};
