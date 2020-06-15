@@ -115,7 +115,9 @@ export const Button: FC<ButtonProps> = ({
 }: ButtonProps) => {
   // aria-label atrribute usage
   // developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
+
   // 'disabled' removes button for screen readers, so for a11y it's best to visually make them disbaled and use aria-diabled instead
+  // https://a11y-101.com/development/aria-disabled
 
   return (
     <StyledButton
