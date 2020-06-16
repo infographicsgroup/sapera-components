@@ -152,7 +152,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
   return (
     <>
       {isMobile ? (
-        <SelectNative label={label} options={options} size={"medium"} />
+        <SelectNative hasDisabledUI={hasDisabledUI} label={label} options={options} size={"medium"} />
       ) : (
         <div>
           {/* TODO: Included label for accessibility but need design. */}
