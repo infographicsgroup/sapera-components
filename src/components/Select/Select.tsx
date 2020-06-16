@@ -168,6 +168,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
             hideSelectedOptions={hasDisabledUI}
             id={label}
             isSearchable={false}
+            openMenuOnClick={!hasDisabledUI}
             options={options}
             placeholder={placeholder}
             size={size}
