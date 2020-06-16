@@ -29,9 +29,9 @@ const fonts = () => ({
 export const SelectComponent: FC<SelectComponentProps> = ({
   className,
   options,
-  width,
+  width = 286,
   size = "large",
-  placeholder,
+  placeholder = "Select...",
 }: SelectComponentProps) => {
   const isClient = typeof window !== "undefined";
   const [selectedOption, setSelectedOption] = useState<ValueType<OptionType>>(null);
@@ -113,7 +113,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
   return (
     <>
       {isMobile ? (
-        <SelectNative options={options} size={size} />
+        <SelectNative options={options} size="medium" />
       ) : (
         <Select
           className={className}
@@ -125,7 +125,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
           styles={customStyles}
           value={selectedOption}
           // defaultMenuIsOpen
-          width={width || 286}
+          width={width}
           onChange={handleChange}
         />
       )}
