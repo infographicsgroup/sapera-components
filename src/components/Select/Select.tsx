@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import Select, { OptionProps, components } from "react-select";
 import { Color } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
+import tickSVG from "../../images/tick.svg";
 
 // interface SelectStyledProps {s
 //   width?: string;
@@ -26,6 +27,16 @@ const DropdownIndicator = (props) => {
     )
   );
 };
+
+// const TickIconComponent = (props) => {
+//   return (
+//     components.DropdownIndicator && (
+//       <components.DropdownIndicator {...props}>
+//         <TickIcon>
+//       </components.DropdownIndicator>
+//     )
+//   );
+// };
 
 const fonts = () => ({
   fontFamily: "monospace",
@@ -52,6 +63,9 @@ export const SelectComponent: FC<SelectProps> = ({ className, options, width, si
       backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
       color: state.isSelected || state.isFocused ? Color.TextInverted : Color.TextPrimary,
       padding: state.size === "large" ? "22px 25px" : "19px 25px",
+      backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "right 25px center",
     }),
     menu: () => ({
       border: `2px solid ${Color.Primary}`,
