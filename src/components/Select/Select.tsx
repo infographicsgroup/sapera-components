@@ -19,6 +19,7 @@ export const LabelStyled = styled.label`
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const DropdownIndicator = (props: IndicatorProps<any>) => {
+  // NOTE: using hideSelectedOptions to set the disabled fill color for now because the user cannot select the options anyway
   const { menuIsOpen, hideSelectedOptions } = props.selectProps;
   const fillColor = hideSelectedOptions ? Color.TextDisabled : Color.TextPrimary;
   return (
@@ -99,6 +100,8 @@ export const SelectComponent: FC<SelectComponentProps> = ({
         maxWidth: width,
         padding: "0 16px 0 24px",
         backgroundColor: hasDisabledUI ? Color.BackgroundDisabled : "none",
+        // TODO: Remove pointerEvents and fix disabledUI for screen reader.
+        pointerEvents: hasDisabledUI ? "none" : "auto",
       } as CSSProperties;
     },
     indicatorSeparator: () => ({
@@ -155,6 +158,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
           {/* TODO: Included label for accessibility but need design. */}
           <LabelStyled htmlFor={label}>{label}</LabelStyled>
           <Spacer mb={1} />
+          {/* NOTE: adding disabled UI instead of disabled attribute for screen reader */}
           <Select
             aria-disabled={hasDisabledUI}
             aria-label={label}
@@ -164,14 +168,13 @@ export const SelectComponent: FC<SelectComponentProps> = ({
             hideSelectedOptions={hasDisabledUI}
             id={label}
             isSearchable={false}
-            // defaultMenuIsOpen
             options={options}
             placeholder={placeholder}
             size={size}
             styles={customStyles}
             value={selectedOption}
             width={width}
-            onChange={hasDisabledUI ? () => null : handleChange}
+            onChange={handleChange}
           />
         </div>
       )}
