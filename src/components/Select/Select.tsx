@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, useState, useEffect, CSSProperties } from "react";
 import Select, { components, IndicatorProps, ValueType } from "react-select";
 import { Color, lightenColor } from "../../theme/util";
@@ -9,6 +8,7 @@ import { throttle } from "lodash";
 import { SelectNative } from "./SelectNative";
 import { SelectComponentProps, OptionType, WidthProps, SizeProps } from "./SelectTypes";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const DropdownIndicator = (props: IndicatorProps<any>) => {
   return (
     components.DropdownIndicator && (
@@ -31,6 +31,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
   options,
   width,
   size = "large",
+  placeholder,
 }: SelectComponentProps) => {
   const isClient = typeof window !== "undefined";
   const [selectedOption, setSelectedOption] = useState<ValueType<OptionType>>(null);
@@ -92,6 +93,9 @@ export const SelectComponent: FC<SelectComponentProps> = ({
         ...fonts(),
       } as CSSProperties),
     menuList: () => ({}),
+    placeholder: () => ({
+      color: Color.Primary,
+    }),
     option: (_: CSSProperties, state: { isSelected: boolean; isFocused: boolean; size: string }) =>
       ({
         backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
@@ -116,11 +120,12 @@ export const SelectComponent: FC<SelectComponentProps> = ({
           components={{ DropdownIndicator }}
           isSearchable={false}
           options={options}
+          placeholder={placeholder}
           size={size}
           styles={customStyles}
           value={selectedOption}
-          width={width || 286}
           // defaultMenuIsOpen
+          width={width || 286}
           onChange={handleChange}
         />
       )}
