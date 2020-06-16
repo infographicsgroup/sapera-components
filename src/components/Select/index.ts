@@ -1,4 +1,4 @@
-import { Select, SelectProps } from "./Select";
+import { SelectComponent, SelectComponentProps } from "./Select";
 
-export { Select };
-export type { SelectProps };
+export { SelectComponent };
+export type { SelectComponentProps };

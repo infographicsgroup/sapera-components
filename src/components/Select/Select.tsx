@@ -1,14 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { FC, useState, useEffect } from "react";
-import Select, {
-  OptionTypeBase,
-  components,
-  IndicatorProps,
-  ControlProps,
-  SingleValueProps,
-  OptionProps,
-  ValueContainerProps,
-} from "react-select";
+import React, { FC, useState, useEffect, CSSProperties } from "react";
+import Select, { OptionTypeBase, components, IndicatorProps, ValueType } from "react-select";
 import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
 import tickSVG from "../../images/tick.svg";
@@ -31,7 +23,7 @@ interface SizeProps extends WidthProps {
 export interface SelectComponentProps extends SizeProps {
   className?: string;
   options: OptionType[];
-  selectProps: SizeProps;
+  selectProps?: SizeProps;
 }
 
 const DropdownIndicator = (props: IndicatorProps<any>) => {
@@ -58,11 +50,10 @@ export const SelectComponent: FC<SelectComponentProps> = ({
   size = "large",
 }: SelectComponentProps) => {
   const isClient = typeof window !== "undefined";
-  const [selectedOption, setSelectedOption] = useState<null>(null);
+  const [selectedOption, setSelectedOption] = useState<ValueType<OptionType>>(null);
   const [isMobile, setIsMobile] = useState<boolean>(isClient ? isMobileDetect() : false);
 
   const handleResize = () => {
-    console.log("on resize");
     setIsMobile(isMobileDetect());
   };
 
@@ -74,39 +65,19 @@ export const SelectComponent: FC<SelectComponentProps> = ({
     };
   }, [isMobile]);
 
-  const handleChange = (selectedOption) => {
+  const handleChange = (selectedOption: ValueType<OptionType>) => {
     setSelectedOption(selectedOption);
   };
 
   const customStyles = {
-    option: (provided: OptionProps<any>, state: { isSelected: boolean; isFocused: boolean; size: string }) => ({
-      ...provided,
-      backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
-      color: state.isSelected || state.isFocused ? Color.TextInverted : Color.TextPrimary,
-      padding: state.size === "large" ? "22px 25px" : "19px 25px",
-      backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "right 25px center",
-    }),
-    menu: () => ({
-      position: "absolute",
-      zIndex: 2,
-      border: `2px solid ${Color.Primary}`,
-      maxWidth: "87%",
-      width: "100%",
-      left: "50%",
-      backgroundColor: `${Color.Inverted}`,
-      transform: "translate(-50%, -2px)",
-      boxShadow: "none",
-      borderTopRightRadius: "none",
-      borderTopLeftRadius: "none",
-      margin: "0 auto",
-      ...fonts(),
-    }),
-    control: (
-      _: ControlProps<any>,
-      state: { selectProps: { width: WidthProps; size: SizeProps }; isFocused: boolean },
-    ) => {
+    container: (_: CSSProperties, state: { selectProps: { width: WidthProps } }) => {
+      const { width } = state.selectProps;
+      return {
+        position: "relative",
+        maxWidth: width,
+      } as CSSProperties;
+    },
+    control: (_: CSSProperties, state: { selectProps: { width: WidthProps; size: SizeProps }; isFocused: boolean }) => {
       const { width, size } = state.selectProps;
       return {
         display: "flex",
@@ -116,25 +87,40 @@ export const SelectComponent: FC<SelectComponentProps> = ({
         borderRadius: "6px",
         maxWidth: width,
         padding: "0 16px 0 24px",
-      };
+      } as CSSProperties;
     },
-    container: (_, { selectProps: { width } }: SelectComponentProps) => ({
-      position: "relative",
-      maxWidth: width,
-    }),
-    singleValue: (provided: SingleValueProps<any>, state: { isDisabled: boolean }) => {
-      const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = "opacity 300ms";
-
-      return { ...provided, opacity, transition };
-    },
-    valueContainer: (provided: ValueContainerProps<any>) => ({
-      ...provided,
-      padding: 0,
-    }),
-    menuList: () => ({}),
     indicatorSeparator: () => ({
       display: "none",
+    }),
+    menu: () =>
+      ({
+        position: "absolute",
+        zIndex: 2,
+        border: `2px solid ${Color.Primary}`,
+        maxWidth: "87%",
+        width: "100%",
+        left: "50%",
+        backgroundColor: `${Color.Inverted}`,
+        transform: "translate(-50%, -2px)",
+        boxShadow: "none",
+        borderTopRightRadius: "none",
+        borderTopLeftRadius: "none",
+        margin: "0 auto",
+        ...fonts(),
+      } as CSSProperties),
+    menuList: () => ({}),
+    option: (_: CSSProperties, state: { isSelected: boolean; isFocused: boolean; size: string }) =>
+      ({
+        backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
+        color: state.isSelected || state.isFocused ? Color.TextInverted : Color.TextPrimary,
+        padding: state.size === "large" ? "22px 25px" : "19px 25px",
+        backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right 25px center",
+      } as CSSProperties),
+    valueContainer: (provided: CSSProperties) => ({
+      ...provided,
+      padding: 0,
     }),
   };
   return (
@@ -151,6 +137,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
           styles={customStyles}
           value={selectedOption}
           width={width || 286}
+          // defaultMenuIsOpen
           onChange={handleChange}
         />
       )}
