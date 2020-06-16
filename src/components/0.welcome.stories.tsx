@@ -6,7 +6,7 @@ export default {
 
 export const ToStorybook = (): ReactNode => (
   <div>
-    Welcome!!! Read the <a href="https://github.com/infographicsgroup/sapera-components">README</a>.
+    Welcome! Read the <a href="https://github.com/infographicsgroup/sapera-components">README</a>.
   </div>
 );
 
