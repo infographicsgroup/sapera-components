@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
 import { Box, Column, Spacer } from "../../theme/custom-styled-components";
-import { OptionType, SelectComponentProps, CustomSelectProps } from "./SelectTypes";
+import { OptionType, SelectComponentProps, DisabledUIProps } from "./SelectTypes";
 import { LabelStyled } from "./Select";
 
-const SelectNativeStyled = styled.select<CustomSelectProps>`
+const SelectNativeStyled = styled.select<DisabledUIProps>`
   border: 2px solid ${(p) => (p.hasDisabledUI ? Color.BorderDisabled : Color.Primary)};
-  padding: ${(p) => (p.size === "large" ? "22px 25px" : "19px 25px")};
+  padding: "19px 25px";
   width: 100%;
   border-radius: 6px;
   font-family: monospace;
@@ -28,7 +28,6 @@ const SelectNativeStyled = styled.select<CustomSelectProps>`
 export const SelectNative: FC<SelectComponentProps> = ({
   className,
   options,
-  size,
   label,
   hasDisabledUI,
 }: SelectComponentProps) => {
@@ -44,7 +43,6 @@ export const SelectNative: FC<SelectComponentProps> = ({
           disabled={hasDisabledUI}
           hasDisabledUI={hasDisabledUI}
           id={label}
-          size={size}
         >
           {options.map((item: OptionType, index: number) => {
             return (
