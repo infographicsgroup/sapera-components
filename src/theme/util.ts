@@ -41,7 +41,7 @@ export const Color = {
 
   TextPrimary: BaseColor.GableGreen,
   TextInverted: BaseColor.Bianca,
-  TextDisabled: lightenColor(BaseColor.Black, 0.4).css(),
+  TextDisabled: lightenColor(BaseColor.Black, 0.6).css(),
 
   BackgroundMain: BaseColor.Bianca,
   BackgroundDisabled: lightenColor(BaseColor.Black, 0.1).css(),
