@@ -14,7 +14,7 @@ export const LabelStyled = styled.label`
   font-family: sans-serif;
   font-size: 14px;
   font-weight: bold;
-  color: Color.Primary;
+  color: ${Color.Primary};
 `;
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
