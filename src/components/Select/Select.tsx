@@ -1,42 +1,48 @@
-import React, { FC, useState } from "react";
-// import styled from "styled-components";
-import Select, { OptionProps, components } from "react-select";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { FC, useState, useEffect } from "react";
+import Select, {
+  OptionTypeBase,
+  components,
+  IndicatorProps,
+  ControlProps,
+  SingleValueProps,
+  OptionProps,
+  ValueContainerProps,
+} from "react-select";
 import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
 import tickSVG from "../../images/tick.svg";
+import isMobileDetect from "../../utils/isMobileDetect";
+import { throttle } from "lodash";
+import { SelectNative } from "./SelectNative";
 
-// interface SelectStyledProps {s
-//   width?: string;
-// }
+interface OptionType extends OptionTypeBase {
+  value: string;
+  label: string;
+}
 
-// const SelectStyled = styled(Select)<SelectStyledProps>`
-//   width: ${(p) => p.width};
-// `;
-
-export interface SelectProps extends OptionProps {
+interface WidthProps {
+  width?: number | string;
+}
+interface SizeProps extends WidthProps {
   size?: "large" | "medium";
 }
 
-const DropdownIndicator = (props) => {
+export interface SelectComponentProps extends SizeProps {
+  className?: string;
+  options: OptionType[];
+  selectProps: SizeProps;
+}
+
+const DropdownIndicator = (props: IndicatorProps<any>) => {
   return (
     components.DropdownIndicator && (
       <components.DropdownIndicator {...props}>
-        <CaretIcon />
-        {/* <FontAwesomeIcon icon={props.selectProps.menuIsOpen ? "caret-up" : "caret-down"} /> */}
+        <CaretIcon isUp={props.selectProps.menuIsOpen} />
       </components.DropdownIndicator>
     )
   );
 };
-
-// const TickIconComponent = (props) => {
-//   return (
-//     components.DropdownIndicator && (
-//       <components.DropdownIndicator {...props}>
-//         <TickIcon>
-//       </components.DropdownIndicator>
-//     )
-//   );
-// };
 
 const fonts = () => ({
   fontFamily: "monospace",
@@ -45,21 +51,35 @@ const fonts = () => ({
   color: Color.Primary,
 });
 
-export const SelectComponent: FC<SelectProps> = ({ className, options, width, size = "large" }: SelectProps) => {
+export const SelectComponent: FC<SelectComponentProps> = ({
+  className,
+  options,
+  width,
+  size = "large",
+}: SelectComponentProps) => {
+  const isClient = typeof window !== "undefined";
   const [selectedOption, setSelectedOption] = useState<null>(null);
+  const [isMobile, setIsMobile] = useState<boolean>(isClient ? isMobileDetect() : false);
 
-  const handleChange = (selectedOption: any) => {
+  const handleResize = () => {
+    console.log("on resize");
+    setIsMobile(isMobileDetect());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", throttle(handleResize));
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobile]);
+
+  const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
   };
 
   const customStyles = {
-    // option: () => ({
-    //   width: "100%",
-    //   padding: "8px 14px",
-    //   backgroundColor: state.isSelected ? `${Color.Primary}` : `${Color.Inverted}`,
-    //   color: state.isFocus ? `${Color.Inverted}` : `${Color.Primary}`,
-    // }),
-    option: (provided, state) => ({
+    option: (provided: OptionProps<any>, state: { isSelected: boolean; isFocused: boolean; size: string }) => ({
       ...provided,
       backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
       color: state.isSelected || state.isFocused ? Color.TextInverted : Color.TextPrimary,
@@ -69,21 +89,27 @@ export const SelectComponent: FC<SelectProps> = ({ className, options, width, si
       backgroundPosition: "right 25px center",
     }),
     menu: () => ({
+      position: "absolute",
+      zIndex: 2,
       border: `2px solid ${Color.Primary}`,
       maxWidth: "87%",
+      width: "100%",
+      left: "50%",
       backgroundColor: `${Color.Inverted}`,
-      transform: "translateY(-2px)",
+      transform: "translate(-50%, -2px)",
       boxShadow: "none",
       borderTopRightRadius: "none",
       borderTopLeftRadius: "none",
       margin: "0 auto",
       ...fonts(),
     }),
-    control: (_, state) => {
+    control: (
+      _: ControlProps<any>,
+      state: { selectProps: { width: WidthProps; size: SizeProps }; isFocused: boolean },
+    ) => {
       const { width, size } = state.selectProps;
       return {
         display: "flex",
-        width: width,
         height: size === "large" ? 56 : 50,
         ...fonts(),
         border: state.isFocused ? `2px solid ${lightenColor(Color.Primary, 0.7)}` : `2px solid ${Color.BorderGrey}`,
@@ -92,16 +118,17 @@ export const SelectComponent: FC<SelectProps> = ({ className, options, width, si
         padding: "0 16px 0 24px",
       };
     },
-    container: (_, { selectProps: { width } }) => ({
+    container: (_, { selectProps: { width } }: SelectComponentProps) => ({
+      position: "relative",
       maxWidth: width,
     }),
-    singleValue: (provided, state) => {
+    singleValue: (provided: SingleValueProps<any>, state: { isDisabled: boolean }) => {
       const opacity = state.isDisabled ? 0.5 : 1;
       const transition = "opacity 300ms";
 
       return { ...provided, opacity, transition };
     },
-    valueContainer: (provided) => ({
+    valueContainer: (provided: ValueContainerProps<any>) => ({
       ...provided,
       padding: 0,
     }),
@@ -109,25 +136,24 @@ export const SelectComponent: FC<SelectProps> = ({ className, options, width, si
     indicatorSeparator: () => ({
       display: "none",
     }),
-    // singleValue: (provided, state) => {
-    //   const opacity = state.isDisabled ? 0.5 : 1;
-    //   const transition = "opacity 300ms";
-
-    //   return { ...provided, opacity, transition };
-    // },
   };
   return (
-    <Select
-      className={className}
-      components={{ DropdownIndicator }}
-      isSearchable={false}
-      options={options}
-      size={size}
-      styles={customStyles}
-      value={selectedOption}
-      width={width || 286}
-      // defaultMenuIsOpen
-      onChange={handleChange}
-    />
+    <>
+      {isMobile ? (
+        <SelectNative options={options} size={size} />
+      ) : (
+        <Select
+          className={className}
+          components={{ DropdownIndicator }}
+          isSearchable={false}
+          options={options}
+          size={size}
+          styles={customStyles}
+          value={selectedOption}
+          width={width || 286}
+          onChange={handleChange}
+        />
+      )}
+    </>
   );
 };

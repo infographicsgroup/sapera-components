@@ -14,9 +14,14 @@ const options = [
 
 export const Default: React.FunctionComponent = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "space-around" }}>
-      <SelectComponent options={options} />
-      <SelectComponent options={options} size="medium" />
+    <div>
+      <div>
+        <SelectComponent options={options} />
+      </div>
+      <br></br>
+      <div>
+        <SelectComponent options={options} size="medium" />
+      </div>
     </div>
   );
 };
