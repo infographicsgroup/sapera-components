@@ -3,12 +3,9 @@ import styled from "styled-components";
 import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
 import { Box, Column } from "../../theme/custom-styled-components";
+import { OptionType, SelectComponentProps, SizeProps } from "./SelectTypes";
 
-interface SelectNativeStyledProps {
-  size?: "large" | "medium";
-}
-
-const SelectNativeStyled = styled.select<SelectNativeStyledProps>`
+const SelectNativeStyled = styled.select<SizeProps>`
   height: ${(p) => (p.size === "large" ? 56 : 50)};
   border: 2px solid ${Color.BorderGrey};
   padding: ${(p) => (p.size === "large" ? "22px 25px" : "19px 25px")};
@@ -27,17 +24,15 @@ const SelectNativeStyled = styled.select<SelectNativeStyledProps>`
   }
 `;
 
-export interface SelectNativeProps {
-  className?: string;
-  size?: "large" | "medium";
-  options?: any;
-}
-
-export const SelectNative: FC<SelectNativeProps> = ({ className, options, size = "medium" }: SelectNativeProps) => {
+export const SelectNative: FC<SelectComponentProps> = ({
+  className,
+  options,
+  size = "medium",
+}: SelectComponentProps) => {
   return (
     <Column alignItems="center" position="relative">
       <SelectNativeStyled className={className} size={size}>
-        {options.map((item: any, index: number) => {
+        {options.map((item: OptionType, index: number) => {
           return (
             <option key={`item-${index}`} value={item.value}>
               {item.label}

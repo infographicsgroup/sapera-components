@@ -1,30 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, useState, useEffect, CSSProperties } from "react";
-import Select, { OptionTypeBase, components, IndicatorProps, ValueType } from "react-select";
+import Select, { components, IndicatorProps, ValueType } from "react-select";
 import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
 import tickSVG from "../../images/tick.svg";
 import isMobileDetect from "../../utils/isMobileDetect";
 import { throttle } from "lodash";
 import { SelectNative } from "./SelectNative";
-
-interface OptionType extends OptionTypeBase {
-  value: string;
-  label: string;
-}
-
-interface WidthProps {
-  width?: number | string;
-}
-interface SizeProps extends WidthProps {
-  size?: "large" | "medium";
-}
-
-export interface SelectComponentProps extends SizeProps {
-  className?: string;
-  options: OptionType[];
-  selectProps?: SizeProps;
-}
+import { SelectComponentProps, OptionType, WidthProps, SizeProps } from "./SelectTypes";
 
 const DropdownIndicator = (props: IndicatorProps<any>) => {
   return (
