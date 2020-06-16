@@ -1,13 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import { SelectComponent } from "./Select";
 import { OPTIONS_DATA } from "./dummyData";
 import { Column, Spacer } from "../../theme/custom-styled-components";
 import { withA11y } from "@storybook/addon-a11y";
 
-const Heading = styled.h5`
-  font-family: sans-serif;
-`;
 export default {
   title: "Select",
   component: SelectComponent,
@@ -19,15 +15,22 @@ export const Default: React.FunctionComponent = () => {
     <Column>
       <Spacer p={3}>
         <Column>
-          <Heading>Large size with custom placeholder</Heading>
           <Spacer mb={4} mt={2}>
-            <SelectComponent options={OPTIONS_DATA} placeholder="Choose flavour" />
+            <SelectComponent
+              label="Large size with custom placeholder"
+              options={OPTIONS_DATA}
+              placeholder="Choose flavour"
+            />
           </Spacer>
         </Column>
         <Column>
-          <Heading>Meidum size</Heading>
+          <Spacer mb={4} mt={2}>
+            <SelectComponent label="Medium size" options={OPTIONS_DATA} size="medium" />
+          </Spacer>
+        </Column>
+        <Column>
           <Spacer mb={7} mt={2}>
-            <SelectComponent options={OPTIONS_DATA} size="medium" />
+            <SelectComponent label="Disabled UI" options={OPTIONS_DATA} placeholder="Choose flavour" hasDisabledUI />
           </Spacer>
         </Column>
       </Spacer>

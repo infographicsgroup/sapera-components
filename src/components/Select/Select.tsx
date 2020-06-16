@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, CSSProperties } from "react";
+import styled from "styled-components";
 import Select, { components, IndicatorProps, ValueType } from "react-select";
 import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
@@ -6,14 +7,24 @@ import tickSVG from "../../images/tick.svg";
 import isMobileDetect from "../../utils/isMobileDetect";
 import { throttle } from "lodash";
 import { SelectNative } from "./SelectNative";
-import { SelectComponentProps, OptionType, WidthProps, SizeProps } from "./SelectTypes";
+import { SelectComponentProps, OptionType, WidthProps, SizeProps, DisabledUIProps } from "./SelectTypes";
+import { Spacer } from "../../theme/custom-styled-components";
+
+export const LabelStyled = styled.label`
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: Color.Primary;
+`;
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const DropdownIndicator = (props: IndicatorProps<any>) => {
+  const { menuIsOpen, hideSelectedOptions } = props.selectProps;
+  const fillColor = hideSelectedOptions ? Color.TextDisabled : Color.TextPrimary;
   return (
     components.DropdownIndicator && (
       <components.DropdownIndicator {...props}>
-        <CaretIcon isUp={props.selectProps.menuIsOpen} />
+        <CaretIcon fill={fillColor} isUp={menuIsOpen} />
       </components.DropdownIndicator>
     )
   );
@@ -32,6 +43,8 @@ export const SelectComponent: FC<SelectComponentProps> = ({
   width = 286,
   size = "large",
   placeholder = "Select...",
+  label,
+  hasDisabledUI,
 }: SelectComponentProps) => {
   const isClient = typeof window !== "undefined";
   const [selectedOption, setSelectedOption] = useState<ValueType<OptionType>>(null);
@@ -61,16 +74,31 @@ export const SelectComponent: FC<SelectComponentProps> = ({
         maxWidth: width,
       } as CSSProperties;
     },
-    control: (_: CSSProperties, state: { selectProps: { width: WidthProps; size: SizeProps }; isFocused: boolean }) => {
-      const { width, size } = state.selectProps;
+    control: (
+      _: CSSProperties,
+      state: {
+        selectProps: { width: WidthProps; size: SizeProps; hasDisabledUI: DisabledUIProps };
+        isFocused: boolean;
+      },
+    ) => {
+      const { width, size, hasDisabledUI } = state.selectProps;
+      const isStateFocused = state.isFocused;
+      // NOTE: prettier and eslint conflict so ignoring prettier here
+      // prettier-ignore
+      const borderStyle = isStateFocused
+        ? `2px solid ${lightenColor(Color.Primary, 0.7).css()}`
+        : hasDisabledUI
+          ? `2px solid ${Color.BorderDisabled}`
+          : `2px solid ${Color.BorderGrey}`;
       return {
         display: "flex",
         height: size === "large" ? 56 : 50,
         ...fonts(),
-        border: state.isFocused ? `2px solid ${lightenColor(Color.Primary, 0.7)}` : `2px solid ${Color.BorderGrey}`,
+        border: borderStyle,
         borderRadius: "6px",
         maxWidth: width,
         padding: "0 16px 0 24px",
+        backgroundColor: hasDisabledUI ? Color.BackgroundDisabled : "none",
       } as CSSProperties;
     },
     indicatorSeparator: () => ({
@@ -93,9 +121,17 @@ export const SelectComponent: FC<SelectComponentProps> = ({
         ...fonts(),
       } as CSSProperties),
     menuList: () => ({}),
-    placeholder: () => ({
-      color: Color.Primary,
-    }),
+    placeholder: (
+      _: CSSProperties,
+      state: {
+        selectProps: { hasDisabledUI: DisabledUIProps };
+      },
+    ) => {
+      const { hasDisabledUI } = state.selectProps;
+      return {
+        color: hasDisabledUI ? Color.TextDisabled : Color.TextPrimary,
+      };
+    },
     option: (_: CSSProperties, state: { isSelected: boolean; isFocused: boolean; size: string }) =>
       ({
         backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
@@ -113,21 +149,31 @@ export const SelectComponent: FC<SelectComponentProps> = ({
   return (
     <>
       {isMobile ? (
-        <SelectNative options={options} size="medium" />
+        <SelectNative label={label} options={options} size={"medium"} />
       ) : (
-        <Select
-          className={className}
-          components={{ DropdownIndicator }}
-          isSearchable={false}
-          options={options}
-          placeholder={placeholder}
-          size={size}
-          styles={customStyles}
-          value={selectedOption}
-          // defaultMenuIsOpen
-          width={width}
-          onChange={handleChange}
-        />
+        <div>
+          {/* TODO: Included label for accessibility but need design. */}
+          <LabelStyled htmlFor={label}>{label}</LabelStyled>
+          <Spacer mb={1} />
+          <Select
+            aria-disabled={hasDisabledUI}
+            aria-label={label}
+            className={className}
+            components={{ DropdownIndicator }}
+            hasDisabledUI={hasDisabledUI}
+            hideSelectedOptions={hasDisabledUI}
+            id={label}
+            isSearchable={false}
+            // defaultMenuIsOpen
+            options={options}
+            placeholder={placeholder}
+            size={size}
+            styles={customStyles}
+            value={selectedOption}
+            width={width}
+            onChange={hasDisabledUI ? () => null : handleChange}
+          />
+        </div>
       )}
     </>
   );
