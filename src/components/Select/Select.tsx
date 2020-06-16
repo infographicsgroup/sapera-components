@@ -12,7 +12,9 @@ import { CaretIcon } from "../Icon/Icons";
 //   width: ${(p) => p.width};
 // `;
 
-export type SelectProps = OptionProps;
+export interface SelectProps extends OptionProps {
+  size?: "large" | "medium";
+}
 
 const DropdownIndicator = (props) => {
   return (
@@ -25,7 +27,13 @@ const DropdownIndicator = (props) => {
   );
 };
 
-export const SelectComponent: FC<SelectProps> = ({ className, options, width }: SelectProps) => {
+const fonts = () => ({
+  fontFamily: "monospace",
+  fontSize: "14px",
+  fontWeight: "normal",
+});
+
+export const SelectComponent: FC<SelectProps> = ({ className, options, width, size = "large" }: SelectProps) => {
   const [selectedOption, setSelectedOption] = useState<null>(null);
 
   const handleChange = (selectedOption: any) => {
@@ -33,37 +41,47 @@ export const SelectComponent: FC<SelectProps> = ({ className, options, width }: 
   };
 
   const customStyles = {
-    option: () => ({
-      width: "100%",
-      display: "block!important",
-      padding: "8px 14px",
+    // option: () => ({
+    //   width: "100%",
+    //   padding: "8px 14px",
+    //   backgroundColor: state.isSelected ? `${Color.Primary}` : `${Color.Inverted}`,
+    //   color: state.isFocus ? `${Color.Inverted}` : `${Color.Primary}`,
+    // }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
+      color: state.isSelected || state.isFocused ? Color.TextInverted : Color.TextPrimary,
+      padding: state.size === "large" ? "22px 25px" : "19px 25px",
     }),
     menu: () => ({
-      border: `2px solid ${Color.BorderGrey}`,
-      maxWidth: "400px",
-      // borderTopColor: `${Color.White}`,
+      border: `2px solid ${Color.Primary}`,
+      maxWidth: "87%",
+      backgroundColor: `${Color.Inverted}`,
+      transform: "translateY(-2px)",
       boxShadow: "none",
       borderTopRightRadius: "none",
       borderTopLeftRadius: "none",
-      fontFamily: "monospace",
-      fontSize: "14px",
-      fontWeight: "normal",
+      margin: "0 auto",
+      ...fonts(),
     }),
-    control: (_: any, { selectProps: { width } }: any) => ({
+    control: (_, { selectProps: { width, size } }) => ({
       display: "flex",
       width: width,
-      fontFamily: "monospace",
-      fontSize: "14px",
-      fontWeight: "normal",
+      height: size === "large" ? 56 : 50,
+      ...fonts(),
       border: `2px solid ${Color.BorderGrey}`,
       borderRadius: "6px",
-      maxWidth: "400px",
-      padding: "6px 14px 8px",
+      maxWidth: width,
+      padding: "0 16px 0 24px",
+    }),
+    container: (_, { selectProps: { width } }) => ({
+      maxWidth: width,
     }),
     valueContainer: (provided) => ({
       ...provided,
       padding: 0,
     }),
+    menuList: () => ({}),
     indicatorSeparator: () => ({
       display: "none",
     }),
@@ -79,9 +97,11 @@ export const SelectComponent: FC<SelectProps> = ({ className, options, width }: 
       className={className}
       components={{ DropdownIndicator }}
       options={options}
+      size={size}
       styles={customStyles}
       value={selectedOption}
-      width={width || "100%"}
+      width={width || 286}
+      defaultMenuIsOpen
       onChange={handleChange}
     />
   );

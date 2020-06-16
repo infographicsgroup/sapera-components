@@ -28,7 +28,7 @@ enum BaseColor {
  */
 export const Color = {
   Primary: BaseColor.GableGreen,
-  White: BaseColor.White,
+  Inverted: BaseColor.White,
 
   SecondaryBlue: BaseColor.DodgerBlue,
   SecondaryGreen: BaseColor.Emerald,
