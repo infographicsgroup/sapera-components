@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 // import styled from "styled-components";
 import Select, { OptionProps, components } from "react-select";
-import { Color } from "../../theme/util";
+import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
 import tickSVG from "../../images/tick.svg";
 
@@ -42,6 +42,7 @@ const fonts = () => ({
   fontFamily: "monospace",
   fontSize: "14px",
   fontWeight: "normal",
+  color: Color.Primary,
 });
 
 export const SelectComponent: FC<SelectProps> = ({ className, options, width, size = "large" }: SelectProps) => {
@@ -78,19 +79,28 @@ export const SelectComponent: FC<SelectProps> = ({ className, options, width, si
       margin: "0 auto",
       ...fonts(),
     }),
-    control: (_, { selectProps: { width, size } }) => ({
-      display: "flex",
-      width: width,
-      height: size === "large" ? 56 : 50,
-      ...fonts(),
-      border: `2px solid ${Color.BorderGrey}`,
-      borderRadius: "6px",
-      maxWidth: width,
-      padding: "0 16px 0 24px",
-    }),
+    control: (_, state) => {
+      const { width, size } = state.selectProps;
+      return {
+        display: "flex",
+        width: width,
+        height: size === "large" ? 56 : 50,
+        ...fonts(),
+        border: state.isFocused ? `2px solid ${lightenColor(Color.Primary, 0.7)}` : `2px solid ${Color.BorderGrey}`,
+        borderRadius: "6px",
+        maxWidth: width,
+        padding: "0 16px 0 24px",
+      };
+    },
     container: (_, { selectProps: { width } }) => ({
       maxWidth: width,
     }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = "opacity 300ms";
+
+      return { ...provided, opacity, transition };
+    },
     valueContainer: (provided) => ({
       ...provided,
       padding: 0,
@@ -110,12 +120,13 @@ export const SelectComponent: FC<SelectProps> = ({ className, options, width, si
     <Select
       className={className}
       components={{ DropdownIndicator }}
+      isSearchable={false}
       options={options}
       size={size}
       styles={customStyles}
       value={selectedOption}
       width={width || 286}
-      defaultMenuIsOpen
+      // defaultMenuIsOpen
       onChange={handleChange}
     />
   );
