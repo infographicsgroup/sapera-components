@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Select, { components, IndicatorProps, ValueType } from "react-select";
 import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
-import tickSVG from "../../images/tick.svg";
+// import tickSVG from "../../images/tick.svg";
 import isMobileDetect from "../../utils/isMobileDetect";
 import { throttle } from "lodash";
 import { SelectNative } from "./SelectNative";
@@ -140,7 +140,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
         backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
         color: state.isSelected || state.isFocused ? Color.TextInverted : Color.TextPrimary,
         padding: state.size === "large" ? "22px 25px" : "19px 25px",
-        backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
+        // backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "right 25px center",
       } as CSSProperties),
