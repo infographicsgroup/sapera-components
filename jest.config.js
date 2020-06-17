@@ -3,5 +3,6 @@ module.exports = {
   setupFiles: ["./jest.setup.js"],
   transform: {
     "^.+\\.[jt]sx?$": "babel-jest",
+    "^.+\\.svg$": "<rootDir>/jest.svgTransform.js",
   },
 };
