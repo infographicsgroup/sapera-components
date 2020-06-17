@@ -8,7 +8,7 @@ import { LabelStyled } from "./Select";
 
 const SelectNativeStyled = styled.select<DisabledUIProps>`
   border: 2px solid ${(p) => (p.hasDisabledUI ? Color.BorderDisabled : Color.Primary)};
-  padding: "19px 25px";
+  padding: 19px 25px;
   width: 100%;
   border-radius: 6px;
   font-family: monospace;
