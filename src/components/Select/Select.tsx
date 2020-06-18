@@ -155,7 +155,6 @@ export const SelectComponent: FC<SelectComponentProps> = ({
           {/* NOTE: adding disabled UI instead of disabled attribute for screen reader */}
           <Select
             aria-disabled={hasDisabledUI}
-            aria-label={label}
             className={className}
             components={{ DropdownIndicator }}
             hasDisabledUI={hasDisabledUI}
