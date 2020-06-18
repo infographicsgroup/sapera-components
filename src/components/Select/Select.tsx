@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect, CSSProperties } from "react";
 import styled from "styled-components";
 import Select, { components, IndicatorProps, ValueType } from "react-select";
-import { Color, lightenColor } from "../../theme/util";
+import { Color } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
 import tickSVG from "../../images/tick.svg";
 import isMobileDetect from "../../utils/isMobileDetect";
@@ -76,22 +76,16 @@ export const SelectComponent: FC<SelectComponentProps> = ({
       } as CSSProperties;
     },
     control: (
-      _: CSSProperties,
+      provided: CSSProperties,
       state: {
         selectProps: { width: WidthProps; size: SizeProps; hasDisabledUI: DisabledUIProps };
         isFocused: boolean;
       },
     ) => {
       const { width, size, hasDisabledUI } = state.selectProps;
-      const isStateFocused = state.isFocused;
-      // NOTE: prettier and eslint conflict so ignoring prettier here
-      // prettier-ignore
-      const borderStyle = isStateFocused
-        ? `2px solid ${lightenColor(Color.Primary, 0.7).css()}`
-        : hasDisabledUI
-          ? `2px solid ${Color.BorderDisabled}`
-          : `2px solid ${Color.BorderGrey}`;
+      const borderStyle = hasDisabledUI ? `2px solid ${Color.BorderDisabled}` : `2px solid ${Color.BorderGrey}`;
       return {
+        ...provided,
         display: "flex",
         height: size === "large" ? 56 : 50,
         ...fonts(),
