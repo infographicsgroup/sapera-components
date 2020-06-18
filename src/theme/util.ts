@@ -1,4 +1,7 @@
 // NOTE: temporary internal theme file. Will use CSS Utility repo later.
+import chroma from "chroma-js";
+
+export const lightenColor = (color: ColorType, alpha: number): chroma.Color => chroma(color).alpha(alpha);
 
 /**
  * Types of Base Colors.
@@ -15,8 +18,9 @@ enum BaseColor {
   GableGreen = "#19323C",
   Persimmon = "#FF5C57",
   Turquoise = "#30C7BE",
-  White = "#ffff",
   Pewter = "#949F9F",
+  White = "#FFFFFF",
+  Black = "#000000",
 }
 
 /**
@@ -25,6 +29,7 @@ enum BaseColor {
  */
 export const Color = {
   Primary: BaseColor.GableGreen,
+  Inverted: BaseColor.White,
 
   SecondaryBlue: BaseColor.DodgerBlue,
   SecondaryGreen: BaseColor.Emerald,
@@ -36,10 +41,14 @@ export const Color = {
 
   TextPrimary: BaseColor.GableGreen,
   TextInverted: BaseColor.Bianca,
+  TextDisabled: lightenColor(BaseColor.Black, 0.6).css(),
 
   BackgroundMain: BaseColor.Bianca,
+  BackgroundDisabled: lightenColor(BaseColor.Black, 0.1).css(),
 
   DisabledGrey: BaseColor.Pewter,
+  BorderGrey: lightenColor(BaseColor.GableGreen, 0.5).css(),
+  BorderDisabled: lightenColor(BaseColor.Black, 0.1).css(),
 };
 
 export type ColorType = BaseColor;

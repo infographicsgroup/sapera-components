@@ -27,7 +27,6 @@ module.exports = {
     "@storybook/addon-a11y/register",
     "@storybook/addon-actions",
     "@storybook/addon-links",
-
     {
       name: "@storybook/addon-docs",
       options: {

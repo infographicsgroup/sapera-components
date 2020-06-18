@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions";
 import styled from "styled-components";
 import { Button } from "./Button";
 import { withA11y } from "@storybook/addon-a11y";
-import Icon from "./Icon";
+import { DownloadIcon } from "../Icon/Icons";
 
 export default {
   title: "Button",
@@ -18,7 +18,7 @@ const Column = styled.div`
   align-items: center;
 `;
 
-const downloadIcon = <Icon height={"25px"} width={"25px"} />;
+const downloadIcon = <DownloadIcon height={25} width={25} />;
 
 export const TextButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
