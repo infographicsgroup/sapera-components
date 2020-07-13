@@ -19,18 +19,6 @@ export const Default: React.FunctionComponent = () => {
         </Checkbox>
       </Column>
       <Column>
-        <Checkbox
-          id="checkbox-checked"
-          name="checked"
-          value="checked"
-          checked
-          defaultChecked
-          onChange={action("clicked")}
-        >
-          checked
-        </Checkbox>
-      </Column>
-      <Column>
         <Checkbox id="checkbox-disabled" name="disabled" value="disabled" disabled onChange={action("clicked")}>
           disabled
         </Checkbox>
