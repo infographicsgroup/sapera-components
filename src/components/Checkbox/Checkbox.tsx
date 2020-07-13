@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { TickIcon } from "../Icon/Icons";
 import { Color } from "../../theme/util";
+import { Column } from "../../theme/custom-styled-components";
 
 const LABEL_SIZE = 24;
 const CHECKMARK_CLASSNAME = "checkmark";
@@ -81,7 +82,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   disabled = false,
 }: CheckboxProps) => {
   return (
-    <div className={className}>
+    <Column className={className}>
       <LabelStyled htmlFor={id} onChange={onChange}>
         <InputStyled checked={checked} disabled={disabled} id={id} name={name} type="checkbox" value={value} />
         <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
@@ -89,6 +90,6 @@ export const Checkbox: FC<CheckboxProps> = ({
         </CheckmarkStyled>
         {children}
       </LabelStyled>
-    </div>
+    </Column>
   );
 };
