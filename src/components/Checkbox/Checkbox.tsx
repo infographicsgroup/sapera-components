@@ -10,15 +10,23 @@ const LabelStyled = styled.label`
   position: relative;
   font-family: monospace;
   padding-left: ${LABEL_SIZE + 10}px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: pointer;
 `;
 
 /* Hide the browser's default checkbox */
 const InputStyled = styled.input`
   position: absolute;
+  z-index: 2;
+  top: -5px;
+  left: -5px;
   opacity: 0;
-  height: 0;
-  width: 0;
+  width: ${LABEL_SIZE + 3}px;
+  height: ${LABEL_SIZE + 3}px;
+  cursor: pointer;
 
   &:checked ~ .${CHECKMARK_CLASSNAME} {
     background-color: ${Color.Primary};
@@ -34,6 +42,7 @@ const InputStyled = styled.input`
 
 const CheckmarkStyled = styled.span`
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
   width: ${LABEL_SIZE}px;
@@ -56,24 +65,26 @@ export interface CheckboxProps {
   checked?: boolean;
   disabled?: boolean;
   id: string;
-  onClick?: () => void;
+  onChange?: () => void;
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
   id,
   children,
   className,
-  onClick,
+  onChange,
   checked,
   disabled = false,
 }: CheckboxProps) => {
   return (
-    <LabelStyled className={className} htmlFor={id} onClick={onClick}>
-      <InputStyled checked={checked} disabled={disabled} id={id} type="checkbox" />
-      <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
-        <TickIcon />
-      </CheckmarkStyled>
-      {children}
-    </LabelStyled>
+    <div>
+      <LabelStyled className={className} htmlFor={id} onChange={onChange}>
+        <InputStyled checked={checked} disabled={disabled} id={id} type="checkbox" />
+        <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
+          <TickIcon />
+        </CheckmarkStyled>
+        {children}
+      </LabelStyled>
+    </div>
   );
 };
