@@ -81,8 +81,8 @@ export const Checkbox: FC<CheckboxProps> = ({
   disabled = false,
 }: CheckboxProps) => {
   return (
-    <div>
-      <LabelStyled className={className} htmlFor={id} onChange={onChange}>
+    <div className={className}>
+      <LabelStyled htmlFor={id} onChange={onChange}>
         <InputStyled checked={checked} disabled={disabled} id={id} name={name} type="checkbox" value={value} />
         <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
           <TickIcon />

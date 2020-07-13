@@ -7,21 +7,13 @@ const DATA = {
   TEXT: "Text",
   VALUE: "Value",
   CLASSNAME: "Checkbox",
-  CHECKED: true,
 };
 
 describe("Checkbox", () => {
   describe("Renders common props as expected", () => {
     const mockFn = jest.fn();
     const wrapper = shallow(
-      <Checkbox
-        checked={DATA.CHECKED}
-        className={DATA.CLASSNAME}
-        id={DATA.ID}
-        name={DATA.ID}
-        value={DATA.VALUE}
-        onChange={mockFn}
-      >
+      <Checkbox className={DATA.CLASSNAME} id={DATA.ID} name={DATA.ID} value={DATA.VALUE} onChange={mockFn}>
         {DATA.TEXT}
       </Checkbox>,
     );
