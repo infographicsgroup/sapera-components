@@ -65,6 +65,8 @@ export interface CheckboxProps {
   checked?: boolean;
   disabled?: boolean;
   id: string;
+  name: string;
+  value: string;
   onChange?: () => void;
 }
 
@@ -74,11 +76,13 @@ export const Checkbox: FC<CheckboxProps> = ({
   className,
   onChange,
   checked,
+  name,
+  value,
   disabled = false,
 }: CheckboxProps) => {
   return (
     <div>
-      <LabelStyled className={className} htmlFor={id} onChange={onChange}>
+      <LabelStyled className={className} htmlFor={id} name={name} value={value} onChange={onChange}>
         <InputStyled checked={checked} disabled={disabled} id={id} type="checkbox" />
         <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
           <TickIcon />
