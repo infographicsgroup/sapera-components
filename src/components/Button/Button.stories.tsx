@@ -1,9 +1,9 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import styled from "styled-components";
 import { Button } from "./Button";
 import { withA11y } from "@storybook/addon-a11y";
 import { DownloadIcon } from "../Icon/Icons";
+import { Column } from "../../theme/custom-styled-components";
 
 export default {
   title: "Button",
@@ -11,18 +11,11 @@ export default {
   decorators: [withA11y],
 };
 
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 const downloadIcon = <DownloadIcon height={25} width={25} />;
 
 export const TextButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
-    <Column>
+    <Column alignItems="center" justifyContent="center">
       <Button bg={"purple"} onClick={action("clicked")}>
         primary lg, custom bg
       </Button>
@@ -53,7 +46,7 @@ export const TextButtons: React.FunctionComponent = () => (
 
 export const TextWithIconButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
-    <Column>
+    <Column alignItems="center" justifyContent="center">
       <Button icon={downloadIcon} onClick={action("clicked")}>
         button
       </Button>
