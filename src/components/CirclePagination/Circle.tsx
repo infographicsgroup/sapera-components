@@ -47,7 +47,7 @@ const Circle = ({
   bgColor = Color.BackgroundMain,
 }: CircleProps) => {
   return (
-    <CircleStyled className={className} color={color} diameter={diameter} isActive={isActive} bgColor={bgColor}>
+    <CircleStyled bgColor={bgColor} className={className} color={color} diameter={diameter} isActive={isActive}>
       <Dot color={color} diameter={diameter / 4.3} />
     </CircleStyled>
   );

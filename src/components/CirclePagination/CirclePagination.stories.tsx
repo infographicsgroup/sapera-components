@@ -23,10 +23,10 @@ export const CirclePaginationGroup: React.FunctionComponent = () => {
   return (
     <>
       <Column>
-        <Column alignItems="center" justifyContent="center" border="primary" width={50} height={50}>
+        <Column alignItems="center" border="primary" height={50} justifyContent="center" width={50}>
           {activeItem}
         </Column>
-        <CirclePagination data={dummyData} onItemClick={(index: number) => onClick(index)} activeItem={activeItem} />
+        <CirclePagination activeItem={activeItem} data={dummyData} onItemClick={(index: number) => onClick(index)} />
       </Column>
     </>
   );

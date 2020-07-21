@@ -93,7 +93,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     `}
 `;
 
-export const ButtonComponent: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   ariaExpanded,
   ariaPressed,
   autoFocus,
@@ -121,11 +121,11 @@ export const ButtonComponent: FC<ButtonProps> = ({
 
   return (
     <StyledButton
-      as="button"
       aria-disabled={disabled}
       aria-expanded={ariaExpanded}
       aria-label={ariaLabel || undefined}
       aria-pressed={ariaPressed}
+      as="button"
       autoFocus={autoFocus}
       bg={bg}
       className={className}

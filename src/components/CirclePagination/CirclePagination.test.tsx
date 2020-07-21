@@ -11,7 +11,7 @@ describe("CirclePagination", () => {
   describe("Renders common props as expected", () => {
     const mockFn = jest.fn();
     const wrapper = shallow(
-      <CirclePagination className={DATA.CLASSNAME} onItemClick={mockFn} activeItem={1} data={[1, 2, 3, 4]} />,
+      <CirclePagination activeItem={1} className={DATA.CLASSNAME} data={[1, 2, 3, 4]} onItemClick={mockFn} />,
     );
 
     it("should have a class name", () => {

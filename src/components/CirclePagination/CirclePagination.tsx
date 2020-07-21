@@ -27,17 +27,17 @@ export const CirclePagination: FC<CirclePaginationProps> = ({
   className,
 }: CirclePaginationProps) => {
   return (
-    <Row mt={{ xxs: 3, lg: 5 }} className={className}>
+    <Row className={className} mt={{ xxs: 3, lg: 5 }}>
       {data.map((item: any, index: number) => {
         return (
           <ButtonStyled
-            as="button"
-            mr={{ xxs: 5, lg: 7 }}
             aria-label={`carousel-page-${index}`}
+            as="button"
             key={`pagination-element-${index}-${item.toString()}`}
+            mr={{ xxs: 5, lg: 7 }}
             onClick={() => onItemClick(index)}
           >
-            <Circle isActive={activeItem == index} bgColor={bgColor} />
+            <Circle bgColor={bgColor} isActive={activeItem === index} />
           </ButtonStyled>
         );
       })}
