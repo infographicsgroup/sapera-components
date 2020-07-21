@@ -7,20 +7,21 @@ const DATA = {
   CLASSNAME: "circlePagination",
 };
 
+const DUMMY_DATA = [1, 2, 3, 4];
+
 describe("CirclePagination", () => {
   describe("Renders common props as expected", () => {
     const mockFn = jest.fn();
     const wrapper = shallow(
-      <CirclePagination activeItem={1} className={DATA.CLASSNAME} data={[1, 2, 3, 4]} onItemClick={mockFn} />,
+      <CirclePagination activeItem={1} className={DATA.CLASSNAME} data={DUMMY_DATA} onItemClick={mockFn} />,
     );
 
     it("should have a class name", () => {
       expect(wrapper.hasClass(DATA.CLASSNAME)).toBe(true);
     });
 
-    it("simulates click events", () => {
-      wrapper.find(`.${DATA.CLASSNAME}`).simulate("click");
-      expect(mockFn.mock.calls.length).toEqual(1);
+    it("should have a child for each data item", () => {
+      expect(wrapper.find("ul").children()).toHaveLength(DUMMY_DATA.length);
     });
   });
 });
