@@ -125,7 +125,6 @@ export const Button: FC<ButtonProps> = ({
       aria-expanded={ariaExpanded}
       aria-label={ariaLabel || undefined}
       aria-pressed={ariaPressed}
-      as="button"
       autoFocus={autoFocus}
       bg={bg}
       className={className}
