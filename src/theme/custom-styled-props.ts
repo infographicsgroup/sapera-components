@@ -36,5 +36,3 @@ export interface ColumnProps
 export interface SpacerProps extends SpaceProps, LayoutProps {}
 
 export interface GridComponentProps extends GridProps, LayoutProps, PositionProps {}
-
-export interface ButtonProps extends BoxProps {}

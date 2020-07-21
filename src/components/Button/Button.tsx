@@ -1,14 +1,9 @@
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 import { Color, ColorType } from "../../theme/util";
-import { Box } from "../../theme/custom-styled-components";
-// Styled-System Reference Table
-// https://github.com/styled-system/styled-system/blob/master/docs/table.md
-import { background, border, color, flexbox, grid, layout, position, shadow, space, typography } from "styled-system";
-import { ButtonProps } from "../../theme/custom-styled-props";
 
 // https://www.w3schools.com/tags/tag_button.asp
-export interface ButtonComponentProps {
+export interface ButtonProps {
   ariaExpanded?: boolean | undefined;
   ariaPressed?: boolean | "mixed" | undefined;
   ariaLabel?: string | undefined;
@@ -49,7 +44,7 @@ const BUTTON_PADDING = {
   small: "0 25",
 };
 
-const StyledButton = styled(Box)<StyledButtonProps>`
+const StyledButton = styled.button<StyledButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +93,7 @@ const StyledButton = styled(Box)<StyledButtonProps>`
     `}
 `;
 
-const ButtonComponent: FC<ButtonComponentProps> = ({
+export const ButtonComponent: FC<ButtonProps> = ({
   ariaExpanded,
   ariaPressed,
   autoFocus,
@@ -150,15 +145,3 @@ const ButtonComponent: FC<ButtonComponentProps> = ({
     </StyledButton>
   );
 };
-
-export const Button = styled(ButtonComponent)<ButtonProps>(
-  background,
-  border,
-  color,
-  flexbox,
-  layout,
-  position,
-  shadow,
-  space,
-  typography,
-);

@@ -1,9 +1,8 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Row } from "../../theme/custom-styled-components";
+import { Row, Box } from "../../theme/custom-styled-components";
 import { ColorType } from "../../theme/util";
 import Circle from "./Circle";
-import { Button } from "../Button/Button";
 
 export interface CirclePaginationProps {
   activeItem: number;
@@ -13,7 +12,7 @@ export interface CirclePaginationProps {
   className?: string;
 }
 
-const ButtonStyled = styled(Button)`
+const ButtonStyled = styled(Box)`
   background: none;
   border: none;
   cursor: pointer;
@@ -32,9 +31,9 @@ export const CirclePagination: FC<CirclePaginationProps> = ({
       {data.map((item: any, index: number) => {
         return (
           <ButtonStyled
-            mr={{ xxs: 3, lg: 5 }}
-            height="auto"
-            ariaLabel={`carousel-page-${index}`}
+            as="button"
+            mr={{ xxs: 5, lg: 7 }}
+            aria-label={`carousel-page-${index}`}
             key={`pagination-element-${index}-${item.toString()}`}
             onClick={() => onItemClick(index)}
           >

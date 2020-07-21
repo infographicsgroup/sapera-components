@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { Color, ColorType } from "../../theme/util";
+import { Color, ColorType, breakpoint } from "../../theme/util";
 
 interface CircleProps {
   className?: string;
@@ -18,10 +18,6 @@ const Dot = styled.div<CircleProps>`
   background-color: ${(p) => p.color};
 `;
 
-/* ${breakpoint.lg`
-    background-color: ${(p: CircleProps) => p.bgColor};
-  `} */
-
 const CircleStyled = styled.div<CircleProps>`
   position: relative;
   display: flex;
@@ -29,6 +25,10 @@ const CircleStyled = styled.div<CircleProps>`
   width: ${(p) => p.diameter}px;
   height: ${(p) => p.diameter}px;
   border-radius: 50%;
+
+  ${breakpoint.lg`
+    background-color: ${(p: CircleProps) => p.bgColor};
+  `}
 
   ${(p) =>
     p.isActive &&
