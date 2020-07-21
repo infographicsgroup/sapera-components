@@ -21,7 +21,7 @@ describe("CirclePagination", () => {
     });
 
     it("should have a child for each data item", () => {
-      expect(wrapper.find("ul").children()).toHaveLength(DUMMY_DATA.length);
+      expect(wrapper.children()).toHaveLength(DUMMY_DATA.length);
     });
   });
 });
