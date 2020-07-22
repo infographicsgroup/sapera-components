@@ -30,6 +30,8 @@
     }
   },
   "dependencies": {
+    "@humblebee/styled-components-breakpoint": "^2.1.4",
+    "@storybook/theming": "^5.3.19",
     "chroma-js": "^2.1.0",
     "lodash": "^4.17.15",
     "react-select": "^3.1.0"

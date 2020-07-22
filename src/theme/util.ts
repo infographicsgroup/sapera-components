@@ -1,5 +1,6 @@
 // NOTE: temporary internal theme file. Will use CSS Utility repo later.
 import chroma from "chroma-js";
+import styledBreakpoint from "@humblebee/styled-components-breakpoint";
 
 export const lightenColor = (color: ColorType, alpha: number): chroma.Color => chroma(color).alpha(alpha);
 
@@ -52,3 +53,26 @@ export const Color = {
 };
 
 export type ColorType = BaseColor;
+
+/**
+ * Types of breakpoint sizes
+ * @enum {number}
+ */
+export enum BreakpointSize {
+  xxs = 0,
+  xs = 320,
+  sm = 576,
+  md = 768,
+  lg = 992,
+  xl = 1200,
+}
+
+// For non styled-system usage
+export const breakpoint = styledBreakpoint({
+  xxs: BreakpointSize.xxs,
+  xs: BreakpointSize.xs,
+  sm: BreakpointSize.sm,
+  md: BreakpointSize.md,
+  lg: BreakpointSize.lg,
+  xl: BreakpointSize.xl,
+});
