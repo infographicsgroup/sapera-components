@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CirclePagination } from "./CirclePagination";
 import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
-import { Column } from "../../theme/custom-styled-components";
+import { Column, Spacer } from "../../theme/custom-styled-components";
 
 export default {
   title: "CirclePagination",
@@ -21,13 +21,12 @@ export const CirclePaginationGroup: React.FunctionComponent = () => {
   };
 
   return (
-    <>
-      <Column>
-        <Column alignItems="center" border="primary" height={50} justifyContent="center" width={50}>
-          {activeItem}
-        </Column>
-        <CirclePagination activeItem={activeItem} data={dummyData} onItemClick={(index: number) => onClick(index)} />
+    <Column>
+      <Column alignItems="center" border="primary" height={50} justifyContent="center" width={50}>
+        {activeItem}
       </Column>
-    </>
+      <Spacer mt={{ xxs: 3, lg: 5 }} />
+      <CirclePagination activeItem={activeItem} data={dummyData} onItemClick={(index: number) => onClick(index)} />
+    </Column>
   );
 };

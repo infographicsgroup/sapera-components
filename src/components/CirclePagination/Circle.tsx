@@ -44,7 +44,7 @@ const Circle = ({
   color = Color.Primary,
   diameter = 26,
   isActive,
-  bgColor = Color.BackgroundMain,
+  bgColor = "transparent",
 }: CircleProps) => {
   return (
     <CircleStyled bgColor={bgColor} className={className} color={color} diameter={diameter} isActive={isActive}>

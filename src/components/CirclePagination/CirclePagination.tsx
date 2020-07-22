@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Row, Box } from "../../theme/custom-styled-components";
+import { Grid, Box } from "../../theme/custom-styled-components";
 import { ColorType } from "../../theme/util";
 import Circle from "./Circle";
 
@@ -8,7 +8,7 @@ export interface CirclePaginationProps {
   activeItem: number;
   data: any;
   bgColor?: ColorType;
-  onItemClick: (index: any) => void;
+  onItemClick: (index: number) => void;
   className?: string;
 }
 
@@ -27,20 +27,25 @@ export const CirclePagination: FC<CirclePaginationProps> = ({
   className,
 }: CirclePaginationProps) => {
   return (
-    <Row className={className} mt={{ xxs: 3, lg: 5 }}>
+    <Grid
+      className={className}
+      display="inline-grid"
+      gridAutoFlow="column"
+      gridGap={{ xxs: 60, lg: 120 }}
+      justifyContent="flex-start"
+    >
       {data.map((item: any, index: number) => {
         return (
           <ButtonStyled
             aria-label={`carousel-page-${index}`}
             as="button"
             key={`pagination-element-${index}-${item.toString()}`}
-            mr={{ xxs: 5, lg: 7 }}
             onClick={() => onItemClick(index)}
           >
             <Circle bgColor={bgColor} isActive={activeItem === index} />
           </ButtonStyled>
         );
       })}
-    </Row>
+    </Grid>
   );
 };
