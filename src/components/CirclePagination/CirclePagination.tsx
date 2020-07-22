@@ -39,7 +39,7 @@ export const CirclePagination: FC<CirclePaginationProps> = ({
           <ButtonStyled
             aria-label={`carousel-page-${index}`}
             as="button"
-            key={`pagination-element-${index}-${item.toString()}`}
+            key={`pagination-element-${index}-${item}`}
             onClick={() => onItemClick(index)}
           >
             <Circle bgColor={bgColor} isActive={activeItem === index} />
