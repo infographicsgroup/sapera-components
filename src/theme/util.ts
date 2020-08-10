@@ -2,11 +2,7 @@
 import chroma from "chroma-js";
 import styledBreakpoint from "@humblebee/styled-components-breakpoint";
 
-<<<<<<< HEAD
-export const lightenColor = (color: any, alpha: number): chroma.Color => chroma(color).alpha(alpha);
-=======
 export const lightenColor = (color: ColorType, alpha: number): chroma.Color => chroma(color).alpha(alpha);
->>>>>>> 7b27257ae21a6095fa3841a39b00c70df134415e
 
 /**
  * Types of Base Colors.
@@ -49,15 +45,11 @@ export const Color = {
   TextDisabled: lightenColor(BaseColor.Black, 0.6).css(),
 
   BackgroundMain: BaseColor.Bianca,
-<<<<<<< HEAD
-  BorderGrey: lightenColor(BaseColor.GableGreen, 0.5).css(),
-=======
   BackgroundDisabled: lightenColor(BaseColor.Black, 0.1).css(),
 
   DisabledGrey: BaseColor.Pewter,
   BorderGrey: lightenColor(BaseColor.GableGreen, 0.5).css(),
   BorderDisabled: lightenColor(BaseColor.Black, 0.1).css(),
->>>>>>> 7b27257ae21a6095fa3841a39b00c70df134415e
 };
 
 export type ColorType = BaseColor;
