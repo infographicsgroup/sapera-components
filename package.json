@@ -31,15 +31,10 @@
   },
   "dependencies": {
     "@humblebee/styled-components-breakpoint": "^2.1.4",
-<<<<<<< HEAD
-    "@types/chroma-js": "^2.0.0",
-    "chroma-js": "^2.1.0"
-=======
     "@storybook/theming": "^5.3.19",
     "chroma-js": "^2.1.0",
     "lodash": "^4.17.15",
     "react-select": "^3.1.0"
->>>>>>> 7b27257ae21a6095fa3841a39b00c70df134415e
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
