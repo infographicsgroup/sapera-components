@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 import { Color, ColorType } from "../../theme/util";
+import { Row } from "../../theme/custom-styled-components";
 
 // https://www.w3schools.com/tags/tag_button.asp
 export interface InputProps {
@@ -31,23 +32,39 @@ const INPUT_HEIGHTS = {
 const InputWrapper = styled.div`
   display: flex;
   position: relative;
-`;
+  align-items: center;
 
+  /* svg {
+    position: absolute;
+    right: 0;
+  } */
+`;
 const StyledLabel = styled.label`
-  position: absolute;
+  font-family: sans-serif;
+  /* position: absolute; */
   z-index: 1;
   padding: 10px;
   pointer-events: none;
-
+  font-size: 17px;
   color: ${Color.TextPrimary};
+  transition: font-size 0.3s ease;
 `;
 
 const StyledInput = styled.input<InputProps>`
-  /* height: ${(p: InputProps) => (p.size ? INPUT_HEIGHTS[p.size] + "px" : INPUT_HEIGHTS.large + "px")}; */
+  height: ${(p: InputProps) => (p.size ? INPUT_HEIGHTS[p.size] + "px" : INPUT_HEIGHTS.large + "px")};
+  width: 100%;
   padding: 10px;
   border: thin solid ${Color.BorderGrey};
   border-radius: 7px;
   background: ${Color.BackgroundMain};
+  font-size: 17px;
+
+  &:focus {
+    ${StyledLabel} {
+      font-size: 12px;
+      color: orange;
+    }
+  }
 
   /* padding: 20px 10px; */
   /* display: flex;
@@ -73,10 +90,9 @@ const StyledInput = styled.input<InputProps>`
 
 export const Input: FC<InputProps> = ({
   autoFocus,
-  // children,
+  children,
   className,
   disabled = false,
-  ariaLabel,
   label,
   onClick,
   name,
@@ -90,17 +106,20 @@ export const Input: FC<InputProps> = ({
 }: InputProps) => {
   return (
     <InputWrapper>
-      <StyledLabel htmlFor={value} onClick={disabled ? () => null : onClick}>
-        {label}
-      </StyledLabel>
+      <Row alignItems="center" position="absolute">
+        <StyledLabel htmlFor={name} onClick={disabled ? () => null : onClick}>
+          {label}
+        </StyledLabel>
+        {icon && icon}
+      </Row>
+
       <StyledInput
-        aria-label={ariaLabel || undefined}
         autoFocus={autoFocus}
         bg={bg}
         className={className}
         disabled={disabled}
+        id={name}
         name={name}
-        // placeholder={placeholder}
         required={required}
         size={size}
         tab-index={tabIndex}
@@ -109,7 +128,7 @@ export const Input: FC<InputProps> = ({
         onClick={onClick}
       />
       {/* <span>{children}</span> */}
-      {/* {icon && icon} */}
+      {/* {iconRight && iconRight} */}
     </InputWrapper>
   );
 };

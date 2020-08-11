@@ -1,5 +1,6 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
+import { DownloadIcon } from "../Icon/Icons";
 import { Input } from "./Input";
 import { withA11y } from "@storybook/addon-a11y";
 
@@ -9,6 +10,8 @@ export default {
   decorators: [withA11y],
 };
 
+const downloadIcon = <DownloadIcon height={25} width={25} />;
+
 export const Inputs: React.FunctionComponent = () => (
   <form>
     <Input label={"First Name"} name="fname" value="red" required />
@@ -17,7 +20,7 @@ export const Inputs: React.FunctionComponent = () => (
     <Input label={"Last Name"} name="lname" value="red" />
     <br />
     <br />
-    <Input label={"Age"} name="age" type="number" value="red" required />
+    <Input icon={downloadIcon} label={"Age"} name="age" type="number" value="red" required />
     <br />
     <br />
     {/* todo: use button component */}
