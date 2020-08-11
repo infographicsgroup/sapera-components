@@ -14,15 +14,16 @@ const downloadIcon = <DownloadIcon height={25} width={25} />;
 
 export const Inputs: React.FunctionComponent = () => (
   <form>
-    <Input label={"First Name"} name="fname" value="red" required />
+    <Input errorText={"there was an error"} label={"First Name"} name="fname" required />
     <br />
     <br />
-    <Input label={"Last Name"} name="lname" value="red" />
+    <Input iconRight={downloadIcon} label={"Last Name"} name="lname" />
     <br />
     <br />
-    <Input icon={downloadIcon} label={"Age"} name="age" type="number" value="red" required />
+    <Input icon={downloadIcon} iconRight={downloadIcon} label={"Age"} name="age" type="number" required />
     <br />
     <br />
+    <Input icon={downloadIcon} label={"Color"} name="color" required />
     {/* todo: use button component */}
     {/* <button type="submit">submit</button> */}
   </form>
