@@ -3,6 +3,10 @@ import styled, { css } from "styled-components";
 import { Color } from "../../theme/util";
 import { IconProps } from "./IconTypes";
 
+// "ariaHidden = true" so icons are accessible to screen readers.
+// if icon should be a Semantic Icon (buttons, toggles), either show direct copy, hidden copy, or pass an aria-label to the wrapping element.
+// https://a11y-101.com/development/icons-and-links
+
 const SVGStyled = styled.svg<CaretIconProps>`
   transform-origin: center;
   ${(p) =>
@@ -34,6 +38,7 @@ const CaretIcon = ({
 }: CaretIconProps) => {
   return (
     <SVGStyled
+      aria-hidden={true}
       className={`svg-icon ${className}`}
       height={height}
       isLeft={isLeft}

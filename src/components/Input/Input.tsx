@@ -1,29 +1,34 @@
 import React, { FC, useState } from "react";
 import styled, { css } from "styled-components";
 import { Color, ColorType } from "../../theme/util";
-import { Row, Box } from "../../theme/custom-styled-components";
+import { Row, Box, Spacer, Column } from "../../theme/custom-styled-components";
+import { ErrorIcon } from "../Icon/Icons";
 
-// https://www.w3schools.com/tags/tag_button.asp
+// https://www.w3schools.com/tags/tag_input.asp
 export interface InputProps {
   ariaPressed?: boolean | "mixed" | undefined;
   ariaLabel?: string | undefined;
-  autoFocus?: boolean;
-  // children: string | React.ReactNode;
   className?: string;
   placeholder?: string;
-  type?: "text" | "number" | "date" | "datetime-local" | "email" | "password" | "search" | "tel" | "url" | "week";
+  type: "text" | "number" | "date" | "datetime-local" | "email" | "password" | "search" | "tel" | "url" | "week";
   required?: boolean;
   disabled?: boolean;
   name: string;
-  value?: string;
+  value: string | number | undefined;
   label: string;
   bg?: string | ColorType | undefined;
   tabIndex?: string;
+  maxLength?: number;
+  pattern?: string;
   errorText?: string;
   size?: "large" | "medium";
   icon?: React.ReactNode;
-  iconRight?: React.ReactNode;
-  onClick?: () => void;
+  hasError?: boolean;
+  onInputChange: (value: any) => void;
+}
+
+interface LabelContainerProps extends InputProps {
+  hasFocus: boolean;
 }
 
 const INPUT_HEIGHTS = {
@@ -31,109 +36,161 @@ const INPUT_HEIGHTS = {
   medium: 45,
 };
 
-const InputWrapper = styled.div`
-  display: flex;
-  position: relative;
-  align-items: center;
-`;
+const InputWrapper = styled(Column)``;
 
-const StyledLabel = styled.label<{}>`
+const StyledLabel = styled.label<{
+  hasIcon?: string | number | true | undefined;
+  disabled?: boolean;
+  error?: boolean;
+}>`
   font-family: sans-serif;
   z-index: 1;
-  padding: 15px;
+  padding: 16px 5px 16px 0;
   font-size: 17px;
-  color: ${Color.TextPrimary};
+  color: ${(p) => (p.disabled ? Color.DisabledGrey : Color.TextPrimary)};
+
+  ${(p) =>
+    p.error &&
+    css`
+      color: ${Color.ErrorRed};
+    `}
   /* TODO remove 'all', use 'top'*/
-  transition: font-size 0.3s ease, position 0.3s ease;
-  /* letter-spacing: 1px; */
+    transition: font-size 0.3s ease, position 0.3s ease;
 `;
 
-const LabelContainer = styled(Row)<{ hasFocus?: boolean }>`
+const LabelContainer = styled.div<LabelContainerProps>`
+  display: flex;
+  flex-direction: row;
+  pointer-events: none;
+  position: absolute;
+  align-items: center;
+  pointer-events: ${(p) => (p.disabled ? "none" : "default")};
+  padding-left: 16px;
+
   ${(p) =>
     p.hasFocus &&
     css`
-      top: ${(p: any) => (p.size ? -INPUT_HEIGHTS[p.size] / 1 + "px" : -INPUT_HEIGHTS.large / 2 + "px")};
-      padding: 0;
+      top: ${(p) => (p.size ? -INPUT_HEIGHTS[p.size] / 1 + "px" : -INPUT_HEIGHTS.large / 2 + "px")};
+      padding-left: 5px;
+      margin-left: 11px;
+      background: ${Color.BackgroundMain};
+
       ${StyledLabel} {
-        background: ${Color.BackgroundMain};
         font-size: 14px;
         line-height: 8px;
+        padding-left: 0;
       }
 
       svg {
         background: ${Color.BackgroundMain};
+        transform: scale(0.85);
+        transition: transform 0.3s ease;
       }
-    `}
+    `};
+`;
+
+const ErrorText = styled.h1`
+  font-family: sans-serif;
+  font-size: 17px;
+  color: ${Color.ErrorRed};
+  font-weight: normal;
 `;
 
 const StyledInput = styled.input<InputProps>`
+  position: relative;
   height: ${(p: InputProps) => (p.size ? INPUT_HEIGHTS[p.size] + "px" : INPUT_HEIGHTS.large + "px")};
   width: 100%;
-  padding: 15px;
+  padding: 16px;
   border: 2px solid ${Color.BorderGrey};
   border-radius: 7px;
   background: ${Color.BackgroundMain};
   font-size: 17px;
   cursor: ${(p) => (p.disabled ? "default" : "pointer")};
+
+  :disabled {
+    border: 2px solid ${Color.DisabledGrey};
+  }
 `;
 
+const IconContainer = styled(Row)<{ disabled?: boolean }>`
+  ${(p) =>
+    p.disabled &&
+    css`
+      svg * {
+        fill: ${Color.DisabledGrey};
+      }
+    `}
+`;
+
+// Pass accurate input type
+// https://www.w3.org/WAI/tutorials/forms/validation/#validating-common-input
+
 export const Input: FC<InputProps> = ({
-  autoFocus,
   className,
   disabled = false,
   label,
-  onClick,
+  onInputChange,
   name,
   tabIndex,
   type = "text",
   required,
+  maxLength,
+  pattern,
   icon,
-  iconRight,
   size = "large",
-  errorText = "Error default text",
+  hasError = false,
+  errorText = "Input not valid",
   bg = Color.Primary,
   value,
 }: InputProps) => {
   const [hasFocus, setHasFocus] = useState<boolean>(false);
-  const [inputValue, setInputValue] = useState<number | string | undefined>();
 
-  const isEmpty = inputValue;
+  // TODO - don't use disabled, similar to Button.tsx
+  // 'disabled' removes button for screen readers, so for a11y it's best to visually make them disbaled and use aria-diabled instead - // aria-disabled={disabled}
+
+  // https://a11y-101.com/development/aria-disabled
+
+  const error = hasError && hasFocus;
 
   return (
-    <InputWrapper>
+    <InputWrapper position="relative">
       <StyledInput
-        autoFocus={autoFocus}
+        aria-invalid={error}
+        aria-required={required}
+        autoFocus={error}
         bg={bg}
         className={className}
         disabled={disabled}
         errorText={errorText}
         id={name}
+        maxLength={maxLength}
         name={name}
+        pattern={pattern}
         required={required}
         size={size}
         tab-index={tabIndex}
         type={type}
-        // value={value}
+        value={value}
         onBlur={() => setHasFocus(false)}
-        onChange={(e) => setInputValue(e.target.value)}
-        onClick={onClick}
+        onChange={(e) => onInputChange(e.target.value)}
         onFocus={() => setHasFocus(true)}
       />
-      <LabelContainer
-        alignItems="center"
-        hasFocus={hasFocus || inputValue}
-        position="absolute"
-        style={{ pointerEvents: "none" }}
-        // width="100%"
-      >
-        <Row alignItems="center">
-          {icon && <Box pl="15px">{icon}</Box>}
-          <StyledLabel htmlFor={name} onClick={disabled ? () => null : onClick}>
+      {error && (
+        <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
+          <ErrorIcon fill={Color.ErrorRed} height={25} width={25} />
+        </Row>
+      )}
+
+      <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon || false}>
+        <IconContainer alignItems="center" disabled={disabled}>
+          {icon && <Box mr="8px">{icon}</Box>}
+          <StyledLabel disabled={disabled} error={error} hasFocus={hasFocus || value} htmlFor={name}>
             {label}
           </StyledLabel>
-        </Row>
-        {iconRight && <Box pr="15px">{iconRight}</Box>}
+        </IconContainer>
       </LabelContainer>
+      <Spacer mt={1} />
+      {error && <ErrorText>{errorText}</ErrorText>}
     </InputWrapper>
   );
 };
