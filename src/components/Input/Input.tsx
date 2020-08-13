@@ -4,6 +4,8 @@ import { Color, ColorType } from "../../theme/util";
 import { Row, Box, Spacer, Column } from "../../theme/custom-styled-components";
 import { ErrorIcon } from "../Icon/Icons";
 
+const INPUT_HEIGHT = 50;
+
 // https://www.w3schools.com/tags/tag_input.asp
 export interface InputProps {
   ariaPressed?: boolean | "mixed" | undefined;
@@ -21,7 +23,6 @@ export interface InputProps {
   maxLength?: number;
   pattern?: string;
   errorText?: string;
-  size?: "large" | "medium";
   icon?: React.ReactNode;
   hasError?: boolean;
   onInputChange: (value: any) => void;
@@ -30,11 +31,6 @@ export interface InputProps {
 interface LabelContainerProps extends InputProps {
   hasFocus: boolean;
 }
-
-const INPUT_HEIGHTS = {
-  large: 50,
-  medium: 45,
-};
 
 const InputWrapper = styled(Column)``;
 
@@ -64,13 +60,14 @@ const LabelContainer = styled.div<LabelContainerProps>`
   pointer-events: none;
   position: absolute;
   align-items: center;
+  z-index: 6;
   pointer-events: ${(p) => (p.disabled ? "none" : "default")};
   padding-left: 16px;
 
   ${(p) =>
     p.hasFocus &&
     css`
-      top: ${(p) => (p.size ? -INPUT_HEIGHTS[p.size] / 1 + "px" : -INPUT_HEIGHTS.large / 2 + "px")};
+      top: -${INPUT_HEIGHT} "px";
       padding-left: 5px;
       margin-left: 11px;
       background: ${Color.BackgroundMain};
@@ -98,7 +95,7 @@ const ErrorText = styled.h1`
 
 const StyledInput = styled.input<InputProps>`
   position: relative;
-  height: ${(p: InputProps) => (p.size ? INPUT_HEIGHTS[p.size] + "px" : INPUT_HEIGHTS.large + "px")};
+  height: ${INPUT_HEIGHT}px;
   width: 100%;
   padding: 16px;
   border: 2px solid ${Color.BorderGrey};
@@ -137,7 +134,6 @@ export const Input: FC<InputProps> = ({
   maxLength,
   pattern,
   icon,
-  size = "large",
   hasError = false,
   errorText = "Input not valid",
   bg = Color.Primary,
@@ -154,6 +150,14 @@ export const Input: FC<InputProps> = ({
 
   return (
     <InputWrapper position="relative">
+      <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon || false}>
+        <IconContainer alignItems="center" disabled={disabled}>
+          {icon && <Box mr="8px">{icon}</Box>}
+          <StyledLabel disabled={disabled} error={error} hasFocus={hasFocus || value} htmlFor={name}>
+            {label}
+          </StyledLabel>
+        </IconContainer>
+      </LabelContainer>
       <StyledInput
         aria-invalid={error}
         aria-required={required}
@@ -167,7 +171,6 @@ export const Input: FC<InputProps> = ({
         name={name}
         pattern={pattern}
         required={required}
-        size={size}
         tab-index={tabIndex}
         type={type}
         value={value}
@@ -180,15 +183,6 @@ export const Input: FC<InputProps> = ({
           <ErrorIcon fill={Color.ErrorRed} height={25} width={25} />
         </Row>
       )}
-
-      <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon || false}>
-        <IconContainer alignItems="center" disabled={disabled}>
-          {icon && <Box mr="8px">{icon}</Box>}
-          <StyledLabel disabled={disabled} error={error} hasFocus={hasFocus || value} htmlFor={name}>
-            {label}
-          </StyledLabel>
-        </IconContainer>
-      </LabelContainer>
       <Spacer mt={1} />
       {error && <ErrorText>{errorText}</ErrorText>}
     </InputWrapper>
