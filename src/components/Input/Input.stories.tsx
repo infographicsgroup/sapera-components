@@ -21,7 +21,7 @@ export const Inputs: React.FunctionComponent = () => {
   const [phone, setPhone] = useState<number | undefined | string>();
 
   return (
-    <Column bg={Color.BackgroundMain} width={300}>
+    <Column bg={Color.BackgroundMain} width={"100%"}>
       <form>
         <Spacer pb={5} />
         <Input

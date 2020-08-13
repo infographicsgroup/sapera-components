@@ -9,6 +9,7 @@ export interface InputProps {
   ariaLabel?: string | undefined;
   className?: string;
   placeholder?: string;
+  width?: string;
   type:
     | "color"
     | "hidden"

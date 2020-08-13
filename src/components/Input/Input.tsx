@@ -5,8 +5,6 @@ import { Row, Box, Spacer, Column } from "../../theme/custom-styled-components";
 import { ErrorIcon, CheckIcon } from "../Icon/Icons";
 import { InputProps, StyledLabelProps, StyledInputProps, LabelContainerProps } from "./InputTypes";
 
-const InputWrapper = styled(Column)``;
-
 const StyledLabel = styled.label<StyledLabelProps>`
   font-family: sans-serif;
   z-index: 1;
@@ -106,6 +104,7 @@ export const Input: FC<InputProps> = ({
   maxLength,
   pattern,
   size = "large",
+  width = "300px",
   icon,
   hasError = false,
   isValid = false,
@@ -121,7 +120,7 @@ export const Input: FC<InputProps> = ({
   const sizeNumber = size === "medium" ? 50 : 56;
 
   return (
-    <InputWrapper className={className} position="relative">
+    <Column className={className} position="relative" width={width}>
       <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon !== "undefined"} size={sizeNumber}>
         <IconContainer alignItems="center" disabled={disabled}>
           {icon && <Box mr="8px">{icon}</Box>}
@@ -165,6 +164,6 @@ export const Input: FC<InputProps> = ({
           <ErrorText>{errorText}</ErrorText>
         </>
       )}
-    </InputWrapper>
+    </Column>
   );
 };
