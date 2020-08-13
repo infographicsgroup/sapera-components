@@ -28,6 +28,7 @@ export const Inputs: React.FunctionComponent = () => {
         <Input
           errorText={"Age must be at least 18"}
           hasError={age ? age < 18 : false}
+          isValid={age && age >= 18}
           label={"Age"}
           name="age"
           type="number"
@@ -43,7 +44,7 @@ export const Inputs: React.FunctionComponent = () => {
           name="name"
           type="text"
           value={name}
-          isValid
+          // isValid
           required
           onInputChange={(name) => setName(name)}
         />
@@ -53,6 +54,7 @@ export const Inputs: React.FunctionComponent = () => {
           name="email"
           type="email"
           value={email}
+          disabled
           required
           onInputChange={(email) => setEmail(email)}
         />

@@ -3,71 +3,19 @@ import styled, { css } from "styled-components";
 import { Color } from "../../theme/util";
 import { Row, Box, Spacer, Column } from "../../theme/custom-styled-components";
 import { ErrorIcon, CheckIcon } from "../Icon/Icons";
-
-const INPUT_HEIGHT = 50;
-
-// https://www.w3schools.com/tags/tag_input.asp
-export interface InputProps {
-  ariaPressed?: boolean | "mixed" | undefined;
-  ariaLabel?: string | undefined;
-  className?: string;
-  placeholder?: string;
-  type:
-    | "color"
-    | "hidden"
-    | "image"
-    | "file"
-    | "month"
-    | "range"
-    | "search"
-    | "week"
-    | "text"
-    | "number"
-    | "date"
-    | "datetime-local"
-    | "email"
-    | "password"
-    | "search"
-    | "tel"
-    | "url"
-    | "week";
-  required?: boolean;
-  disabled?: boolean;
-  name: string;
-  value: string | string[] | undefined | number;
-  label: string;
-  tabIndex?: string;
-  maxLength?: number;
-  pattern?: string;
-  errorText?: string;
-  icon?: React.ReactNode;
-  hasError?: boolean;
-  isValid?: boolean;
-  onInputChange: (value: string | number) => void;
-}
-
-interface LabelContainerProps {
-  hasFocus: any;
-  hasIcon: boolean;
-  disabled: boolean;
-}
+import { InputProps, StyledLabelProps, StyledInputProps, LabelContainerProps } from "./InputTypes";
 
 const InputWrapper = styled(Column)``;
 
-const StyledLabel = styled.label<{
-  hasIcon?: string | number | true | undefined;
-  disabled?: boolean;
-  hasError?: boolean;
-  hasFocus: any;
-}>`
+const StyledLabel = styled.label<StyledLabelProps>`
   font-family: sans-serif;
   z-index: 1;
   padding: 16px 5px 16px 0;
   font-size: 17px;
-  color: ${(p) => (p.disabled ? Color.DisabledGrey : Color.TextPrimary)};
+  color: ${Color.TextPrimary};
 
   ${(p) =>
-    p.error &&
+    p.hasError &&
     css`
       color: ${Color.ErrorRed};
     `}
@@ -85,10 +33,10 @@ const LabelContainer = styled.div<LabelContainerProps>`
   pointer-events: ${(p) => (p.disabled ? "none" : "auto")};
   padding-left: 16px;
 
-  ${(p) =>
-    p.hasFocus &&
+  ${(props) =>
+    props.hasFocus &&
     css`
-      top: -${INPUT_HEIGHT / 4 - 3}px;
+      top: ${(p: { size: number }) => `-${p.size / 4 - 3}px`};
       padding-left: 5px;
       margin-left: 11px;
       background: ${Color.BackgroundMain};
@@ -116,9 +64,9 @@ const ErrorText = styled.h1`
   font-weight: normal;
 `;
 
-const StyledInput = styled.input<{ disabled?: boolean }>`
+const StyledInput = styled.input<StyledInputProps>`
   position: relative;
-  height: ${INPUT_HEIGHT}px;
+  height: ${(p) => `${p.size}px`};
   width: 100%;
   padding: 16px;
   border: 2px solid ${Color.BorderGrey};
@@ -128,7 +76,8 @@ const StyledInput = styled.input<{ disabled?: boolean }>`
   cursor: ${(p) => (p.disabled ? "default" : "pointer")};
 
   :disabled {
-    border: 2px solid ${Color.DisabledGrey};
+    border: 2px solid ${Color.BorderDisabled};
+    background: ${Color.BackgroundDisabled};
   }
 `;
 
@@ -156,13 +105,14 @@ export const Input: FC<InputProps> = ({
   required,
   maxLength,
   pattern,
+  size = "large",
   icon,
   hasError = false,
   isValid = false,
   errorText = "Input not valid",
   value,
 }: InputProps) => {
-  const [hasFocus, setHasFocus] = useState<boolean>(true);
+  const [hasFocus, setHasFocus] = useState<boolean>(false);
 
   // TODO - don't use disabled, similar to Button.tsx
   // 'disabled' removes element for screen readers, so for a11y it's best to visually make them disbaled and use aria-diabled instead - // aria-disabled={disabled}
@@ -170,18 +120,16 @@ export const Input: FC<InputProps> = ({
 
   // const error = hasError && hasFocus;
 
+  const sizeNumber = size === "medium" ? 50 : 56;
+
   return (
     <InputWrapper position="relative">
-      <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon !== "undefined"}>
+      <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon !== "undefined"} size={sizeNumber}>
         <IconContainer alignItems="center" disabled={disabled}>
           {icon && <Box mr="8px">{icon}</Box>}
-          <StyledLabel
-            disabled={disabled}
-            hasError={hasError}
-            hasFocus={hasFocus || value !== "undefined"}
-            htmlFor={name}
-          >
+          <StyledLabel disabled={disabled} hasError={hasError} hasFocus={hasFocus || value} htmlFor={name}>
             {label}
+            {required && "*"}
           </StyledLabel>
         </IconContainer>
       </LabelContainer>
@@ -197,6 +145,7 @@ export const Input: FC<InputProps> = ({
         name={name}
         pattern={pattern}
         required={required}
+        size={sizeNumber}
         tab-index={tabIndex}
         type={type}
         value={value}
