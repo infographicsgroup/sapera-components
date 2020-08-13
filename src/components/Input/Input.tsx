@@ -20,7 +20,7 @@ const StyledLabel = styled.label<StyledLabelProps>`
       color: ${Color.ErrorRed};
     `}
   /* TODO remove 'all', animate only 'fontsize' and 'top'*/
-    transition: font-size 0.3s ease, position 0.3s ease;
+    transition: all 0.3s ease;
 `;
 
 const LabelContainer = styled.div<LabelContainerProps>`
@@ -117,8 +117,6 @@ export const Input: FC<InputProps> = ({
   // TODO - don't use disabled, similar to Button.tsx
   // 'disabled' removes element for screen readers, so for a11y it's best to visually make them disbaled and use aria-diabled instead - // aria-disabled={disabled}
   // https://a11y-101.com/development/aria-disabled
-
-  // const error = hasError && hasFocus;
 
   const sizeNumber = size === "medium" ? 50 : 56;
 
