@@ -136,7 +136,6 @@ export const Input: FC<InputProps> = ({
         aria-required={required}
         autoFocus={hasError}
         disabled={disabled}
-        errorText={errorText}
         id={name}
         maxLength={maxLength}
         name={name}

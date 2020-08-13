@@ -15,11 +15,11 @@ export default {
 const downloadIcon = <DownloadIcon height={25} width={25} />;
 
 export const Inputs: React.FunctionComponent = () => {
-  const [age, setAge] = useState<number | undefined>();
-  const [name, setName] = useState<string | undefined>();
-  const [email, setEmail] = useState<string | undefined>();
-  const [password, setPassword] = useState<string | undefined>();
-  const [phone, setPhone] = useState<number | undefined>();
+  const [age, setAge] = useState<number | undefined | string>();
+  const [name, setName] = useState<number | undefined | string>();
+  const [email, setEmail] = useState<number | undefined | string>();
+  const [password, setPassword] = useState<number | undefined | string>();
+  const [phone, setPhone] = useState<number | undefined | string>();
 
   return (
     <Column bg={Color.BackgroundMain} width={300}>
@@ -28,7 +28,7 @@ export const Inputs: React.FunctionComponent = () => {
         <Input
           errorText={"Age must be at least 18"}
           hasError={age ? age < 18 : false}
-          isValid={age && age >= 18}
+          isValid={age ? age >= 18 : false}
           label={"Age"}
           name="age"
           type="number"
@@ -59,8 +59,8 @@ export const Inputs: React.FunctionComponent = () => {
         />
         <Spacer pb={5} />
         <Input
-          errorText={"Password should be at least 8 characters long "}
-          hasError={password ? password.length < 8 : false}
+          errorText={"Password should not be 'password'"}
+          hasError={password ? password === "password" : false}
           label={"password"}
           name="password"
           type="password"
