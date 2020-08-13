@@ -32,7 +32,9 @@ export interface InputProps {
   required?: boolean;
   disabled?: boolean;
   name: string;
-  value: string | string[] | undefined | number;
+  // TODO: remove any
+  // value: string | string[] | undefined | number;
+  value: any;
   label: string;
   tabIndex?: string;
   maxLength?: number;
