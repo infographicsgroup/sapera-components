@@ -61,21 +61,23 @@ const LabelContainer = styled.div<LabelContainerProps>`
   position: absolute;
   align-items: center;
   z-index: 6;
-  pointer-events: ${(p) => (p.disabled ? "none" : "default")};
+  pointer-events: ${(p) => (p.disabled ? "none" : "auto")};
   padding-left: 16px;
 
   ${(p) =>
     p.hasFocus &&
     css`
-      top: -${INPUT_HEIGHT} "px";
+      top: -${INPUT_HEIGHT / 4 - 3}px;
       padding-left: 5px;
+
       margin-left: 11px;
       background: ${Color.BackgroundMain};
 
       ${StyledLabel} {
         font-size: 14px;
-        line-height: 8px;
         padding-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
       }
 
       svg {
@@ -139,7 +141,7 @@ export const Input: FC<InputProps> = ({
   bg = Color.Primary,
   value,
 }: InputProps) => {
-  const [hasFocus, setHasFocus] = useState<boolean>(false);
+  const [hasFocus, setHasFocus] = useState<boolean>(true);
 
   // TODO - don't use disabled, similar to Button.tsx
   // 'disabled' removes button for screen readers, so for a11y it's best to visually make them disbaled and use aria-diabled instead - // aria-disabled={disabled}
@@ -183,8 +185,12 @@ export const Input: FC<InputProps> = ({
           <ErrorIcon fill={Color.ErrorRed} height={25} width={25} />
         </Row>
       )}
-      <Spacer mt={1} />
-      {error && <ErrorText>{errorText}</ErrorText>}
+      {error && (
+        <>
+          <Spacer mt={1} />
+          <ErrorText>{errorText}</ErrorText>
+        </>
+      )}
     </InputWrapper>
   );
 };
