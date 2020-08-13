@@ -48,6 +48,11 @@ export interface WidthProps {
   width?: number | string;
 }
 
+export interface StyledInputProps {
+  disabled?: boolean;
+  size: number;
+}
+
 export interface StyledLabelProps {
   hasIcon?: string | number | true | undefined;
   disabled?: boolean;

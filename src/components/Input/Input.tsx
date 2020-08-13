@@ -123,7 +123,7 @@ export const Input: FC<InputProps> = ({
   const sizeNumber = size === "medium" ? 50 : 56;
 
   return (
-    <InputWrapper position="relative">
+    <InputWrapper className={className} position="relative">
       <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon !== "undefined"} size={sizeNumber}>
         <IconContainer alignItems="center" disabled={disabled}>
           {icon && <Box mr="8px">{icon}</Box>}
@@ -137,7 +137,6 @@ export const Input: FC<InputProps> = ({
         aria-invalid={hasError}
         aria-required={required}
         autoFocus={hasError}
-        className={className}
         disabled={disabled}
         errorText={errorText}
         id={name}
