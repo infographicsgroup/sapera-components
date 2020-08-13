@@ -1,5 +1,4 @@
-import React, { useState, ReactText } from "react";
-import { action } from "@storybook/addon-actions";
+import React, { useState } from "react";
 import { DownloadIcon } from "../Icon/Icons";
 import { Color } from "../../theme/util";
 import { Spacer, Column } from "../../theme/custom-styled-components";
@@ -37,7 +36,6 @@ export const Inputs: React.FunctionComponent = () => {
           onInputChange={(age) => setAge(age)}
         />
         <Spacer pb={5} />
-        {/* Text Input with icon  */}
         <Input
           icon={downloadIcon}
           label={"First name"}
