@@ -42,7 +42,6 @@ export const Inputs: React.FunctionComponent = () => {
           name="name"
           type="text"
           value={name}
-          // isValid
           required
           onInputChange={(name) => setName(name)}
         />

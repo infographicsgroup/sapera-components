@@ -119,6 +119,14 @@ export const Input: FC<InputProps> = ({
 
   const sizeNumber = size === "medium" ? 50 : 56;
 
+  const setFocus = () => {
+    setHasFocus(true);
+  };
+
+  const removeFocus = () => {
+    setHasFocus(false);
+  };
+
   return (
     <Column className={className} position="relative" width={width}>
       <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon !== "undefined"} size={sizeNumber}>
@@ -144,9 +152,9 @@ export const Input: FC<InputProps> = ({
         tab-index={tabIndex}
         type={type}
         value={value}
-        onBlur={() => setHasFocus(false)}
+        onBlur={() => removeFocus}
         onChange={(e) => onInputChange(e.target.value)}
-        onFocus={() => setHasFocus(true)}
+        onFocus={() => setFocus}
       />
       {hasError && (
         <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
