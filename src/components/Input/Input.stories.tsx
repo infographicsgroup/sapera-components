@@ -39,10 +39,11 @@ export const Inputs: React.FunctionComponent = () => {
         {/* Text Input with icon  */}
         <Input
           icon={downloadIcon}
-          label={"Color"}
-          name="color"
+          label={"First name"}
+          name="name"
           type="text"
           value={name}
+          isValid
           required
           onInputChange={(name) => setName(name)}
         />
