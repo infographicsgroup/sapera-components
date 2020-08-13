@@ -55,7 +55,6 @@ export const Inputs: React.FunctionComponent = () => {
           type="email"
           value={email}
           disabled
-          required
           onInputChange={(email) => setEmail(email)}
         />
         <Spacer pb={5} />
