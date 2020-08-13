@@ -92,7 +92,7 @@ const IconContainer = styled(Row)<{ disabled?: boolean }>`
 // Pass accurate input type
 // https://www.w3.org/WAI/tutorials/forms/validation/#validating-common-input
 
-export const Input: FC<InputProps> = ({
+export const Input = ({
   className,
   disabled = false,
   label,
@@ -154,7 +154,7 @@ export const Input: FC<InputProps> = ({
         value={value}
         onBlur={() => removeFocus}
         onChange={(e) => onInputChange(e.target.value)}
-        onFocus={() => setFocus}
+        onFocus={() => setFocus()}
       />
       {hasError && (
         <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
