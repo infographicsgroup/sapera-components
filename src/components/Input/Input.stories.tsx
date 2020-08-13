@@ -21,14 +21,22 @@ export const Inputs: React.FunctionComponent = () => {
   const [password, setPassword] = useState<string | undefined>();
   const [phone, setPhone] = useState<number | undefined>();
 
-  const validateInputs = () => {};
-
   return (
-    <Column bg={Color.BackgroundMain}>
+    <Column bg={Color.BackgroundMain} width={300}>
       <form>
         <Spacer pb={5} />
-        <Input label={"Age"} name="age" type="number" value={age} required onInputChange={(age) => setAge(age)} />
+        <Input
+          errorText={"Age must be at least 18"}
+          hasError={age ? age < 18 : false}
+          label={"Age"}
+          name="age"
+          type="number"
+          value={age}
+          required
+          onInputChange={(age) => setAge(age)}
+        />
         <Spacer pb={5} />
+        {/* Text Input with icon  */}
         <Input
           icon={downloadIcon}
           label={"Color"}
