@@ -104,7 +104,7 @@ export const Input = ({
   maxLength,
   pattern,
   size = "large",
-  width = "300px",
+  width = 300,
   icon,
   hasError = false,
   isValid = false,

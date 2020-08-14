@@ -9,7 +9,7 @@ export interface InputProps {
   ariaLabel?: string | undefined;
   className?: string;
   placeholder?: string;
-  width?: string;
+  width?: string | number;
   type:
     | "color"
     | "hidden"
@@ -45,10 +45,6 @@ export interface InputProps {
   hasError?: boolean;
   isValid?: boolean;
   onInputChange: (value: string | number) => void;
-}
-
-export interface WidthProps {
-  width?: number | string;
 }
 
 export interface StyledInputProps {
