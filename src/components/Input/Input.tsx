@@ -1,9 +1,11 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { Color } from "../../theme/util";
-import { Row, Box, Spacer, Column } from "../../theme/custom-styled-components";
+import { Row, Box, Column } from "../../theme/custom-styled-components";
 import { ErrorIcon, CheckIcon } from "../Icon/Icons";
 import { InputProps, StyledLabelProps, StyledInputProps, LabelContainerProps } from "./InputTypes";
+
+const ERROR_TEXT_HEIGHT = 22;
 
 const StyledLabel = styled.label<StyledLabelProps>`
   font-family: sans-serif;
@@ -56,8 +58,10 @@ const LabelContainer = styled.div<LabelContainerProps>`
 `;
 
 const ErrorText = styled.h1`
+  position: absolute;
+  bottom: 0;
   font-family: sans-serif;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: normal;
   color: ${Color.ErrorRed};
 `;
@@ -128,7 +132,7 @@ export const Input = ({
   };
 
   return (
-    <Column className={className} position="relative" width={width}>
+    <Column className={className} minHeight={sizeNumber + ERROR_TEXT_HEIGHT} position="relative" width={width}>
       <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon !== "undefined"} size={sizeNumber}>
         <IconContainer alignItems="center" disabled={disabled}>
           {icon && <Box mr="8px">{icon}</Box>}
@@ -168,7 +172,6 @@ export const Input = ({
       )}
       {hasError && (
         <>
-          <Spacer mt={1} />
           <ErrorText>{errorText}</ErrorText>
         </>
       )}

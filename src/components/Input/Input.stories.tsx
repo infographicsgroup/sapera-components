@@ -23,7 +23,7 @@ export const Inputs: React.FunctionComponent = () => {
   return (
     <Column bg={Color.BackgroundMain} width={"100%"}>
       <form>
-        <Spacer pb={5} />
+        <Spacer pb={3} />
         <Input
           errorText={"Age must be at least 18"}
           hasError={age ? age < 18 : false}
@@ -35,7 +35,7 @@ export const Inputs: React.FunctionComponent = () => {
           required
           onInputChange={(age) => setAge(age)}
         />
-        <Spacer pb={5} />
+        <Spacer pb={3} />
         <Input
           icon={downloadIcon}
           label={"First name"}
@@ -45,7 +45,7 @@ export const Inputs: React.FunctionComponent = () => {
           required
           onInputChange={(name) => setName(name)}
         />
-        <Spacer pb={5} />
+        <Spacer pb={3} />
         <Input
           label={"email"}
           name="email"
@@ -54,7 +54,7 @@ export const Inputs: React.FunctionComponent = () => {
           disabled
           onInputChange={(email) => setEmail(email)}
         />
-        <Spacer pb={5} />
+        <Spacer pb={3} />
         <Input
           errorText={"Password should not be 'password'"}
           hasError={password ? password === "password" : false}
@@ -65,7 +65,7 @@ export const Inputs: React.FunctionComponent = () => {
           required
           onInputChange={(password) => setPassword(password)}
         />
-        <Spacer pb={5} />
+        <Spacer pb={3} />
         <Input
           errorText={"Phone number should have ...  "}
           hasError={!phone}
@@ -76,7 +76,7 @@ export const Inputs: React.FunctionComponent = () => {
           required
           onInputChange={(phone) => setPhone(phone)}
         />
-        <Spacer pb={5} />
+        <Spacer pb={3} />
         <button type="submit">submit</button>
       </form>
     </Column>
