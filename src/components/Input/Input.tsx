@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import styled, { css } from "styled-components";
 import { Color } from "../../theme/util";
 import { Row, Box, Column } from "../../theme/custom-styled-components";
@@ -20,7 +20,7 @@ const StyledLabel = styled.label<StyledLabelProps>`
       color: ${Color.ErrorRed};
     `}
   /* TODO remove 'all', animate only 'fontsize' and 'top'*/
-    transition: all 0.3s ease;
+    transition: font-size 0.3s ease;
 `;
 
 const LabelContainer = styled.div<LabelContainerProps>`
@@ -96,7 +96,7 @@ const IconContainer = styled(Row)<{ disabled?: boolean }>`
 // Pass accurate input type
 // https://www.w3.org/WAI/tutorials/forms/validation/#validating-common-input
 
-export const Input = ({
+export const Input: FC<InputProps> = ({
   className,
   disabled = false,
   label,
@@ -156,9 +156,9 @@ export const Input = ({
         tab-index={tabIndex}
         type={type}
         value={value}
-        onBlur={() => removeFocus}
+        onBlur={() => setHasFocus(false)}
         onChange={(e) => onInputChange(e.target.value)}
-        onFocus={() => setFocus()}
+        onFocus={() => setHasFocus(true)}
       />
       {hasError && (
         <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
