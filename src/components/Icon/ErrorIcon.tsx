@@ -15,13 +15,13 @@ const ErrorIcon = ({
 }: IconProps) => {
   return (
     <svg
-      aria-hidden={true}
       className={`svg-icon ${className}`}
       height={height}
       role="img"
       viewBox={viewBox}
       width={width}
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
     >
       <path
         clipRule="evenodd"

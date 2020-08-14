@@ -2,7 +2,7 @@ import React from "react";
 import { Color } from "../../theme/util";
 import { IconProps } from "./IconTypes";
 
-// "ariaHidden = true" so icons are accessible to screen readers.
+// "ariaHidden" so icons are accessible to screen readers.
 // if icon should be a Semantic Icon (buttons, toggles), either show direct copy, hidden copy, or pass an aria-label to the wrapping element.
 // https://a11y-101.com/development/icons-and-links
 
@@ -20,12 +20,12 @@ const TickIcon = ({
 }: TickIconProps) => {
   return (
     <svg
-      aria-hidden={true}
       className={`svg-icon ${className}`}
       height={height}
       viewBox={viewBox}
       width={width}
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
     >
       <g fill="none" fillRule="evenodd">
         <path d="M-3-2h16v16H-3z" />
