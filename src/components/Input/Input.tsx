@@ -121,19 +121,11 @@ export const Input: FC<InputProps> = ({
   // 'disabled' removes element for screen readers, so for a11y it's best to visually make them disbaled and use aria-diabled instead - // aria-disabled={disabled}
   // https://a11y-101.com/development/aria-disabled
 
-  const sizeNumber = size === "medium" ? 50 : 56;
-
-  const setFocus = () => {
-    setHasFocus(true);
-  };
-
-  const removeFocus = () => {
-    setHasFocus(false);
-  };
+  const SIZE_NUMBER = size === "medium" ? 50 : 56;
 
   return (
-    <Column className={className} minHeight={sizeNumber + ERROR_TEXT_HEIGHT} position="relative" width={width}>
-      <LabelContainer disabled={disabled} hasFocus={hasFocus || value} hasIcon={icon !== "undefined"} size={sizeNumber}>
+    <Column className={className} minHeight={SIZE_NUMBER + ERROR_TEXT_HEIGHT} position="relative" width={width}>
+      <LabelContainer disabled={disabled} hasFocus={hasFocus || value} size={SIZE_NUMBER}>
         <IconContainer alignItems="center" disabled={disabled}>
           {icon && <Box mr="8px">{icon}</Box>}
           <StyledLabel disabled={disabled} hasError={hasError} hasFocus={hasFocus || value} htmlFor={name}>
@@ -152,7 +144,7 @@ export const Input: FC<InputProps> = ({
         name={name}
         pattern={pattern}
         required={required}
-        size={sizeNumber}
+        size={SIZE_NUMBER}
         tab-index={tabIndex}
         type={type}
         value={value}

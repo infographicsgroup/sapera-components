@@ -61,7 +61,6 @@ export interface StyledLabelProps {
 
 export interface LabelContainerProps {
   hasFocus: boolean;
-  hasIcon: boolean;
   disabled: boolean;
   size: number;
 }
