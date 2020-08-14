@@ -58,8 +58,8 @@ const LabelContainer = styled.div<LabelContainerProps>`
 const ErrorText = styled.h1`
   font-family: sans-serif;
   font-size: 17px;
-  color: ${Color.ErrorRed};
   font-weight: normal;
+  color: ${Color.ErrorRed};
 `;
 
 const StyledInput = styled.input<StyledInputProps>`
