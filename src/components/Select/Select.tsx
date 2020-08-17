@@ -32,8 +32,7 @@ const DropdownIndicator = (props: IndicatorProps<any>) => {
 };
 
 const fonts = () => ({
-  fontFamily: "monospace",
-  fontSize: "14px",
+  fontSize: "17px",
   fontWeight: "normal",
   color: Color.Primary,
 });

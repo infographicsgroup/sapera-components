@@ -6,15 +6,16 @@ import { IconProps } from "./IconTypes";
 // if icon should be a Semantic Icon (buttons, toggles), either show direct copy, hidden copy, or pass an aria-label to the wrapping element.
 // https://a11y-101.com/development/icons-and-links
 
-const DownloadIcon = ({
+const CheckIcon = ({
   className = "",
   width = 20,
   height = 20,
-  viewBox = "0 0 20 20",
+  viewBox = "0 0 24.8 24.8",
   fill = Color.Primary,
 }: IconProps) => {
   return (
     <svg
+      aria-label="input is valid"
       className={`svg-icon ${className}`}
       height={height}
       role="img"
@@ -24,11 +25,11 @@ const DownloadIcon = ({
       aria-hidden
     >
       <path
-        d="M15.639 10v5.639H4.36V10H2.75v5.639c0 .886.725 1.611 1.611 1.611H15.64c.886 0 1.611-.725 1.611-1.611V10h-1.611zm-4.833.54l2.086-2.079 1.136 1.136L10 13.625 5.972 9.597l1.136-1.136 2.086 2.079V2.75h1.612v7.79z"
+        d="M12.4,0.1c6.8,0,12.2,5.5,12.2,12.2c0,6.8-5.5,12.2-12.2,12.2S0.1,19.1,0.1,12.4 C0.1,5.6,5.6,0.1,12.4,0.1z M12.4,1.9C6.6,1.9,1.9,6.6,1.9,12.4c0,5.8,4.7,10.5,10.5,10.5s10.5-4.7,10.5-10.5 C22.9,6.6,18.2,1.9,12.4,1.9z M17.5,6.2L11,19.4H9.4L5.8,14h2.1l2.2,3.3l5.5-11H17.5z"
         fill={fill}
       />
     </svg>
   );
 };
 
-export default DownloadIcon;
+export default CheckIcon;

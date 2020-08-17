@@ -22,6 +22,7 @@ enum BaseColor {
   Pewter = "#949F9F",
   White = "#FFFFFF",
   Black = "#000000",
+  Valencia = "#D43A3A",
 }
 
 /**
@@ -47,6 +48,7 @@ export const Color = {
   BackgroundMain: BaseColor.Bianca,
   BackgroundDisabled: lightenColor(BaseColor.Black, 0.1).css(),
 
+  ErrorRed: BaseColor.Valencia,
   DisabledGrey: BaseColor.Pewter,
   BorderGrey: lightenColor(BaseColor.GableGreen, 0.5).css(),
   BorderDisabled: lightenColor(BaseColor.Black, 0.1).css(),
