@@ -16,20 +16,20 @@ const downloadIcon = <DownloadIcon height={25} width={25} />;
 export const TextButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <Column alignItems="center" justifyContent="center">
-      <Button bg={"purple"} id="button-id" onClick={action("clicked")}>
+      <Button bg="purple" id="button-id" onClick={action("clicked")}>
         primary lg, custom bg
       </Button>
       <br />
       <Button
         data-test="data-attribute-test"
         data-test-two="data-attribute-test-two"
-        size={"medium"}
+        size="medium"
         onClick={action("clicked")}
       >
         primary md
       </Button>
       <br />
-      <Button size={"small"} onClick={action("clicked")}>
+      <Button size="small" onClick={action("clicked")}>
         primary sm
       </Button>
     </Column>
@@ -38,11 +38,11 @@ export const TextButtons: React.FunctionComponent = () => (
         Secondary lg
       </Button>
       <br />
-      <Button bg={"yellow"} size={"medium"} isSecondary onClick={action("clicked")}>
+      <Button bg="yellow" size="medium" isSecondary onClick={action("clicked")}>
         Secondary md
       </Button>
       <br />
-      <Button size={"small"} isSecondary onClick={action("clicked")}>
+      <Button size="small" isSecondary onClick={action("clicked")}>
         Secondary sm
       </Button>
     </Column>
@@ -56,11 +56,11 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
         button
       </Button>
       <br />
-      <Button icon={downloadIcon} size={"medium"} iconFirst onClick={action("clicked")}>
+      <Button icon={downloadIcon} size="medium" iconFirst onClick={action("clicked")}>
         Button
       </Button>
       <br />
-      <Button icon={downloadIcon} size={"small"} onClick={action("clicked")}>
+      <Button icon={downloadIcon} size="small" onClick={action("clicked")}>
         Button
       </Button>
     </Column>
@@ -69,11 +69,11 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
         Download
       </Button>
       <br />
-      <Button icon={downloadIcon} size={"medium"} isSecondary onClick={action("clicked")}>
+      <Button icon={downloadIcon} size="medium" isSecondary onClick={action("clicked")}>
         Download
       </Button>
       <br />
-      <Button icon={downloadIcon} size={"small"} iconFirst isSecondary onClick={action("clicked")}>
+      <Button icon={downloadIcon} size="small" iconFirst isSecondary onClick={action("clicked")}>
         Download
       </Button>
     </Column>
