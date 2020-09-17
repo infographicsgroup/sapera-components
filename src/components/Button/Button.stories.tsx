@@ -16,7 +16,7 @@ const downloadIcon = <DownloadIcon height={25} width={25} />;
 export const TextButtons: React.FunctionComponent = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <Column alignItems="center" justifyContent="center">
-      <Button bg={"purple"} onClick={action("clicked")}>
+      <Button bg={"purple"} id="button-id" onClick={action("clicked")}>
         primary lg, custom bg
       </Button>
       <br />
