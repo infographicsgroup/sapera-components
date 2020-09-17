@@ -22,6 +22,7 @@ export interface ButtonProps {
   value?: string;
   onClick?: () => void;
   width?: string;
+  id?: string;
 }
 
 interface StyledButtonProps extends ButtonProps {
@@ -96,17 +97,18 @@ const StyledButton = styled.button<StyledButtonProps>`
 export const Button: FC<ButtonProps> = ({
   ariaExpanded,
   ariaPressed,
+  ariaLabel,
   autoFocus,
   children,
   className,
   disabled = false,
-  ariaLabel,
   onClick,
   name,
   tabIndex,
   width = "auto",
   type = "button",
   icon,
+  id,
   size = "large",
   iconFirst = false,
   isSecondary = false,
@@ -130,6 +132,7 @@ export const Button: FC<ButtonProps> = ({
       className={className}
       disabledUI={disabled}
       iconFirst={iconFirst}
+      id={id}
       isSecondary={isSecondary}
       name={name}
       size={size}
