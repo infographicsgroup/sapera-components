@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 import { Color, ColorType } from "../../theme/util";
+import dataAttributeProps, { DataAttributePropsType } from "../../utils/dataAttributeProps";
 
 // https://www.w3schools.com/tags/tag_button.asp
 export interface ButtonProps {
@@ -23,6 +24,7 @@ export interface ButtonProps {
   onClick?: () => void;
   width?: string;
   id?: string;
+  props?: unknown;
 }
 
 interface StyledButtonProps extends ButtonProps {
@@ -114,6 +116,7 @@ export const Button: FC<ButtonProps> = ({
   isSecondary = false,
   bg = isSecondary ? "none" : Color.Primary,
   value,
+  ...props
 }: ButtonProps) => {
   // aria-label atrribute usage
   // developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
@@ -141,6 +144,7 @@ export const Button: FC<ButtonProps> = ({
       value={value}
       width={width}
       onClick={disabled ? () => null : onClick}
+      {...dataAttributeProps(props as DataAttributePropsType)}
     >
       <span>{children}</span>
       {icon && icon}
