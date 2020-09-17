@@ -20,7 +20,12 @@ export const TextButtons: React.FunctionComponent = () => (
         primary lg, custom bg
       </Button>
       <br />
-      <Button size={"medium"} onClick={action("clicked")}>
+      <Button
+        data-test="data-attribute-test"
+        data-test-two="data-attribute-test-two"
+        size={"medium"}
+        onClick={action("clicked")}
+      >
         primary md
       </Button>
       <br />
