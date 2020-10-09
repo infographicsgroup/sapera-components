@@ -27,13 +27,7 @@ export const CirclePagination: FC<CirclePaginationProps> = ({
   className,
 }: CirclePaginationProps) => {
   return (
-    <Grid
-      className={className}
-      display="inline-grid"
-      gridAutoFlow="column"
-      gridGap={{ xxs: 60, lg: 120 }}
-      justifyContent="flex-start"
-    >
+    <Grid className={className} display="inline-grid" gridAutoFlow="column" gridGap={50} justifyContent="flex-start">
       {data.map((item: any, index: number) => {
         return (
           <ButtonStyled
