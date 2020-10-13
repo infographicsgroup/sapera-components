@@ -42,8 +42,8 @@ const BUTTON_HEIGHTS = {
 };
 
 const BUTTON_PADDING = {
-  large: "0 35",
-  medium: "0 30",
+  large: "0 48",
+  medium: "0 48",
   small: "0 25",
 };
 
@@ -51,6 +51,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
   flex-direction: row;
   width: ${(p) => p.width};
   height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
