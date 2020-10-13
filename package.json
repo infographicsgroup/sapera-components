@@ -1,6 +1,6 @@
 {
   "name": "sapera-components",
-  "version": "0.0.13-development",
+  "version": "0.0.14-development",
   "description": "Sapera Design System and Storybook",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -43,6 +43,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-backgrounds": "^6.0.26",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
