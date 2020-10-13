@@ -79,7 +79,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     css`
       color: ${Color.Primary};
       background: ${p.bg};
-      border: 1.25px solid ${Color.Primary};
+      border: 2px solid ${Color.BorderGrey};
       svg,
       path {
         fill: ${Color.Primary};
