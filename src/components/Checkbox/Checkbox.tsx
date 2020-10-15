@@ -22,8 +22,8 @@ const LabelStyled = styled.label`
 const InputStyled = styled.input`
   position: absolute;
   z-index: 2;
-  top: -5px;
-  left: -5px;
+  // top: -5px;
+  left: -2px;
   opacity: 0;
   width: ${LABEL_SIZE + 3}px;
   height: ${LABEL_SIZE + 3}px;
@@ -65,26 +65,34 @@ export interface CheckboxProps {
   children: string | React.ReactNode;
   checked?: boolean;
   disabled?: boolean;
-  id: string;
   name: string;
   value: string;
-  onChange?: () => void;
+  id?: string;
+  onChange: (value?: unknown) => void;
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
-  id,
   children,
   className,
   onChange,
   checked,
   name,
   value,
+  id,
   disabled = false,
 }: CheckboxProps) => {
   return (
     <Column className={className}>
-      <LabelStyled htmlFor={id} onChange={onChange}>
-        <InputStyled checked={checked} disabled={disabled} id={id} name={name} type="checkbox" value={value} />
+      <LabelStyled htmlFor={name}>
+        <InputStyled
+          checked={checked}
+          disabled={disabled}
+          id={id || name}
+          name={name}
+          type="checkbox"
+          value={value}
+          onChange={onChange}
+        />
         <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
           <TickIcon />
         </CheckmarkStyled>
