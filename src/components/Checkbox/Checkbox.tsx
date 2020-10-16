@@ -21,7 +21,7 @@ const LabelStyled = styled.label`
 `;
 
 const ErrorText = styled.h1`
-  margin-top: 16px;
+  margin-top: 8px;
   font-family: sans-serif;
   font-size: 14px;
   font-weight: normal;
