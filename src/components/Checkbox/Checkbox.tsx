@@ -54,6 +54,7 @@ const InputStyled = styled.input`
 const CheckmarkStyled = styled.span`
   position: absolute;
   left: 0;
+  top: -4px;
   display: flex;
   align-items: center;
   width: ${LABEL_SIZE}px;
@@ -98,7 +99,7 @@ export const Checkbox: FC<CheckboxProps> = ({
 }: CheckboxProps) => {
   return (
     <Column>
-      <LabelStyled className={className} htmlFor={id} onChange={onChange}>
+      <LabelStyled className={className} htmlFor={id}>
         <InputStyled
           aria-invalid={hasError}
           aria-required={required}
@@ -109,6 +110,7 @@ export const Checkbox: FC<CheckboxProps> = ({
           required={required}
           type="checkbox"
           value={value}
+          onChange={onChange}
         />
         <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
           <TickIcon />
