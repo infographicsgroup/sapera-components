@@ -6,7 +6,7 @@ const DATA = {
   ID: "checkbox-default",
   TEXT: "Text",
   VALUE: "Value",
-  CLASSNAME: "checkbox",
+  CLASSNAME: "Checkbox",
 };
 
 describe("Checkbox", () => {

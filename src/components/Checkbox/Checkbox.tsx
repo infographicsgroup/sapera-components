@@ -5,7 +5,7 @@ import { Column } from "../../theme/custom-styled-components";
 import { Color } from "../../theme/util";
 
 const LABEL_SIZE = 24;
-const CHECKMARK_CLASSNAME = "checkbox";
+const CHECKMARK_CLASSNAME = "checkmark";
 
 const LabelStyled = styled.label`
   position: relative;
