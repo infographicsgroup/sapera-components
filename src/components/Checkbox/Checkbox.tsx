@@ -106,6 +106,7 @@ export const Checkbox: FC<CheckboxProps> = ({
           disabled={disabled}
           id={id}
           name={name}
+          required={required}
           type="checkbox"
           value={value}
         />
