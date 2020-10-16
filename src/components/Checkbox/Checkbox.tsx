@@ -5,7 +5,7 @@ import { Column } from "../../theme/custom-styled-components";
 import { Color } from "../../theme/util";
 
 const LABEL_SIZE = 24;
-const CHECKMARK_CLASSNAME = "checkmark";
+const CHECKMARK_CLASSNAME = "checkbox";
 
 const LabelStyled = styled.label`
   position: relative;
@@ -98,8 +98,8 @@ export const Checkbox: FC<CheckboxProps> = ({
   disabled = false,
 }: CheckboxProps) => {
   return (
-    <Column>
-      <LabelStyled className={className} htmlFor={id}>
+    <Column className={className}>
+      <LabelStyled htmlFor={id}>
         <InputStyled
           aria-invalid={hasError}
           aria-required={required}
