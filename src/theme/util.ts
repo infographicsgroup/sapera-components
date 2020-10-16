@@ -21,8 +21,8 @@ enum BaseColor {
   RobinsEggBlue = "#00C7BE",
   Pewter = "#949F9F",
   White = "#FFFFFF",
-  Valencia = "#D43A3A",
   Black = "#000000",
+  Valencia = "#D43A3A",
 }
 
 /**
