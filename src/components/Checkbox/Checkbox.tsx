@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { TickIcon } from "../Icon/Icons";
+import { Column } from "../../theme/custom-styled-components";
 import { Color } from "../../theme/util";
 
 const LABEL_SIZE = 24;
@@ -17,6 +18,14 @@ const LabelStyled = styled.label`
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
+`;
+
+const ErrorText = styled.h1`
+  margin-top: 16px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: ${Color.ErrorRed};
 `;
 
 /* Hide the browser's default checkbox */
@@ -68,6 +77,9 @@ export interface CheckboxProps {
   id: string;
   name: string;
   value: string;
+  hasError?: boolean;
+  required?: boolean;
+  errorText?: string;
   onChange: (value: any) => void;
 }
 
@@ -79,15 +91,30 @@ export const Checkbox: FC<CheckboxProps> = ({
   checked,
   name,
   value,
+  hasError = false,
+  errorText = "Input not valid",
+  required,
   disabled = false,
 }: CheckboxProps) => {
   return (
-    <LabelStyled className={className} htmlFor={id} onChange={onChange}>
-      <InputStyled checked={checked} disabled={disabled} id={id} name={name} type="checkbox" value={value} />
-      <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
-        <TickIcon />
-      </CheckmarkStyled>
-      {children}
-    </LabelStyled>
+    <Column>
+      <LabelStyled className={className} htmlFor={id} onChange={onChange}>
+        <InputStyled
+          aria-invalid={hasError}
+          aria-required={required}
+          checked={checked}
+          disabled={disabled}
+          id={id}
+          name={name}
+          type="checkbox"
+          value={value}
+        />
+        <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
+          <TickIcon />
+        </CheckmarkStyled>
+        {children}
+      </LabelStyled>
+      {hasError && <ErrorText>{errorText}</ErrorText>}
+    </Column>
   );
 };
