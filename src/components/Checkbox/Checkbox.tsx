@@ -9,6 +9,9 @@ const CHECKMARK_CLASSNAME = "checkmark";
 
 const LabelStyled = styled.label`
   position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   font-family: monospace;
   padding-left: ${LABEL_SIZE + 10}px;
   -webkit-user-select: none;
@@ -68,7 +71,7 @@ export interface CheckboxProps {
   name: string;
   value: string;
   id?: string;
-  onChange: (value?: unknown) => void;
+  onChange: (value: any) => void;
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
