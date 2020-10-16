@@ -71,7 +71,7 @@ const CheckmarkStyled = styled.span`
 
 export interface CheckboxProps {
   className?: string;
-  children: string | React.ReactNode;
+  children: string | React.ReactNode | Element;
   checked?: boolean;
   disabled?: boolean;
   id: string;
