@@ -50,7 +50,6 @@ export const Color = {
 
   ErrorRed: BaseColor.Valencia,
   DisabledGrey: BaseColor.Pewter,
-  BorderGrey: lightenColor(BaseColor.GableGreen, 0.5).css(),
   BorderDisabled: lightenColor(BaseColor.Black, 0.1).css(),
 };
 

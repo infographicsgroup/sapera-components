@@ -48,8 +48,7 @@ export default create({
   borders: {
     // 1px sometimes weren't showing up on Chrome- 'thin' is a fix
     // https://muffinman.io/fix-for-chrome-not-rendering-borders/
-    thin: `thin solid ${Color.BorderGrey}`,
-    primary: `1px solid ${Color.Primary}`,
+    primary: `thin solid ${Color.Primary}`,
     transparent: "thin solid transparent",
   },
   breakpoints,
