@@ -11,7 +11,7 @@ const LabelStyled = styled.label`
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: ${LABEL_SIZE + 10}px;
+  padding-left: ${LABEL_SIZE + 16}px;
   font-family: monospace;
   -webkit-user-select: none;
   -moz-user-select: none;

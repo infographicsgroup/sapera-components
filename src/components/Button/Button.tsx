@@ -20,6 +20,7 @@ export interface ButtonProps {
   type?: "button" | "reset" | "submit";
   icon?: React.ReactNode;
   isSecondary?: boolean;
+  borderRadius?: string;
   value?: string;
   onClick?: () => void;
   width?: string;
@@ -29,6 +30,7 @@ export interface ButtonProps {
 
 interface StyledButtonProps extends ButtonProps {
   disabledUI?: boolean;
+  borderRadius?: string;
 }
 
 /**
@@ -56,7 +58,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   width: ${(p) => p.width};
   height: ${(p) => (p.size ? BUTTON_HEIGHTS[p.size] + "px" : BUTTON_HEIGHTS.large + "px")};
   padding: ${(p) => (p.size ? BUTTON_PADDING[p.size] + "px" : BUTTON_PADDING.large + "px")};
-  border-radius: 28px;
+  border-radius: ${(p) => p.borderRadius};
   color: ${Color.TextInverted};
   background: ${(p) => (p.disabledUI ? Color.DisabledGrey : p.bg)};
   border: none;
@@ -105,6 +107,7 @@ export const Button: FC<ButtonProps> = ({
   children,
   className,
   disabled = false,
+  borderRadius = "28px",
   onClick,
   name,
   tabIndex,
@@ -133,6 +136,7 @@ export const Button: FC<ButtonProps> = ({
       aria-pressed={ariaPressed}
       autoFocus={autoFocus}
       bg={bg}
+      borderRadius={borderRadius}
       className={className}
       disabledUI={disabled}
       iconFirst={iconFirst}
