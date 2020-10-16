@@ -19,7 +19,14 @@ export const Default: React.FunctionComponent = () => {
         </Checkbox>
       </Column>
       <Column>
-        <Checkbox d="checkbox-default" name="default" value="default" hasError onChange={() => action("clicked")}>
+        <Checkbox
+          errorText="hasError"
+          id="checkbox-default"
+          name="default"
+          value="default"
+          hasError
+          onChange={() => action("clicked")}
+        >
           Checkbox with Error
         </Checkbox>
       </Column>
