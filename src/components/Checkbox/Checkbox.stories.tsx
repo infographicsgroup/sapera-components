@@ -14,7 +14,7 @@ export const Default: React.FunctionComponent = () => {
   return (
     <Grid gridGap={4}>
       <Column>
-        <Checkbox id="checkbox-default" name="default" value="default" onChange={action("checked")}>
+        <Checkbox id="checkbox-default" name="default" value="default" onChange={action("clicked")}>
           This is a custom checkbox default style
         </Checkbox>
       </Column>
@@ -25,13 +25,13 @@ export const Default: React.FunctionComponent = () => {
           name="checkbox-with-error"
           value="checkbox-with-error"
           hasError
-          onChange={action("checked")}
+          onChange={action("clicked")}
         >
           Checkbox with Error
         </Checkbox>
       </Column>
       <Column>
-        <Checkbox id="checkbox-disabled" name="disabled" value="disabled" disabled onChange={action("checkd")}>
+        <Checkbox id="checkbox-disabled" name="disabled" value="disabled" disabled onChange={action("clicked")}>
           disabled
         </Checkbox>
       </Column>
