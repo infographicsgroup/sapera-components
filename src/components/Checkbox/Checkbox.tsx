@@ -60,7 +60,6 @@ const CheckmarkStyled = styled.span`
   width: ${LABEL_SIZE}px;
   height: ${LABEL_SIZE}px;
   z-index: 1;
-  background-color: ${Color.BackgroundMain};
   border: 2px solid ${Color.Primary};
   border-radius: 5px;
 
