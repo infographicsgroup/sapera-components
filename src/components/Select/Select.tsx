@@ -82,7 +82,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
       },
     ) => {
       const { width, size, hasDisabledUI } = state.selectProps;
-      const borderStyle = hasDisabledUI ? `2px solid ${Color.BorderDisabled}` : `2px solid ${Color.BorderGrey}`;
+      const borderStyle = hasDisabledUI ? `2px solid ${Color.BorderDisabled}` : `2px solid ${Color.Primary}`;
       return {
         ...provided,
         display: "flex",

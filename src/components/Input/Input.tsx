@@ -71,7 +71,7 @@ const StyledInput = styled.input<StyledInputProps>`
   height: ${(p) => `${p.size}px`};
   width: 100%;
   padding: 16px;
-  border: 2px solid ${Color.BorderGrey};
+  border: 2px solid ${Color.Primary};
   border-radius: 7px;
   background: ${Color.BackgroundMain};
   font-size: 17px;

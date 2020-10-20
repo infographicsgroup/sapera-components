@@ -11,14 +11,14 @@ export const lightenColor = (color: ColorType, alpha: number): chroma.Color => c
  */
 enum BaseColor {
   Amethyst = "#B566CC",
-  Bianca = "#FCFAF3",
+  EcruWhite = "#F8F6EC",
   Coral = "#FF884D",
   Dandelion = "#FFDD61",
   DodgerBlue = "#4DA3FF",
   Emerald = "#56D680",
   GableGreen = "#19323C",
   Persimmon = "#FF5C57",
-  Turquoise = "#30C7BE",
+  RobinsEggBlue = "#00C7BE",
   Pewter = "#949F9F",
   White = "#FFFFFF",
   Black = "#000000",
@@ -38,19 +38,18 @@ export const Color = {
   SecondaryOrange: BaseColor.Coral,
   SecondaryPurple: BaseColor.Amethyst,
   SecondaryRed: BaseColor.Persimmon,
-  SecondaryTeal: BaseColor.Turquoise,
+  SecondaryTeal: BaseColor.RobinsEggBlue,
   SecondaryYellow: BaseColor.Dandelion,
 
   TextPrimary: BaseColor.GableGreen,
-  TextInverted: BaseColor.Bianca,
+  TextInverted: BaseColor.EcruWhite,
   TextDisabled: lightenColor(BaseColor.Black, 0.6).css(),
 
-  BackgroundMain: BaseColor.Bianca,
+  BackgroundMain: BaseColor.EcruWhite,
   BackgroundDisabled: lightenColor(BaseColor.Black, 0.1).css(),
 
   ErrorRed: BaseColor.Valencia,
   DisabledGrey: BaseColor.Pewter,
-  BorderGrey: lightenColor(BaseColor.GableGreen, 0.5).css(),
   BorderDisabled: lightenColor(BaseColor.Black, 0.1).css(),
 };
 
