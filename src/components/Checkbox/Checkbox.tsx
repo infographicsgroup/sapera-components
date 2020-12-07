@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { TickIcon } from "../Icon/Icons";
-import { Column } from "../../theme/custom-styled-components";
+import { Column } from "../../styled";
 import { Color } from "../../theme/util";
 
 const LABEL_SIZE = 24;

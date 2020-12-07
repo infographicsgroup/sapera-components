@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Grid, Box } from "../../theme/custom-styled-components";
+import { Grid, Box } from "../../styled";
 import { ColorType } from "../../theme/util";
 import Circle from "./Circle";
 

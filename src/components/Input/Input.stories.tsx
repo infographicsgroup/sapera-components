@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DownloadIcon } from "../Icon/Icons";
 import { Color } from "../../theme/util";
-import { Spacer, Column } from "../../theme/custom-styled-components";
+import { Spacer, Column } from "../../styled";
 import { Input } from "./Input";
 import { withA11y } from "@storybook/addon-a11y";
 

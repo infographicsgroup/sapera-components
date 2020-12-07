@@ -1,7 +1,7 @@
 import React from "react";
 import { SelectComponent } from "./Select";
 import { OPTIONS_DATA } from "./dummyData";
-import { Column, Spacer } from "../../theme/custom-styled-components";
+import { Column, Spacer } from "../../styled";
 import { withA11y } from "@storybook/addon-a11y";
 
 export default {

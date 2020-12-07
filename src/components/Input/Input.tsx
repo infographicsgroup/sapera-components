@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import styled, { css } from "styled-components";
 import { Color } from "../../theme/util";
-import { Row, Box, Column } from "../../theme/custom-styled-components";
+import { Row, Box, Column } from "../../styled";
 import { ErrorIcon, CheckIcon } from "../Icon/Icons";
 import { InputProps, StyledLabelProps, StyledInputProps, LabelContainerProps } from "./InputTypes";
 
@@ -158,7 +158,7 @@ export const Input: FC<InputProps> = ({
         </Row>
       )}
       {isValid && (
-        <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
+        <Row alignItems="center" height={50} mr={5} position="absolute" right={0} >
           <CheckIcon fill={Color.SecondaryGreen} height={25} width={25} />
         </Row>
       )}

@@ -3,12 +3,12 @@ import styled from "styled-components";
 import Select, { components, IndicatorProps, ValueType } from "react-select";
 import { Color } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
-import tickSVG from "../../images/tick.svg";
+import tickSVG from "../../assets/tick.svg";
 import isMobileDetect from "../../utils/isMobileDetect";
 import { throttle } from "lodash";
 import { SelectNative } from "./SelectNative";
 import { SelectComponentProps, OptionType, WidthProps, SizeProps, DisabledUIProps } from "./SelectTypes";
-import { Spacer } from "../../theme/custom-styled-components";
+import { Spacer } from "../../styled";
 
 export const LabelStyled = styled.label`
   font-family: sans-serif;

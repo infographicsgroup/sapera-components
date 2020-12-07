@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { Color, lightenColor } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
-import { Box, Column, Spacer } from "../../theme/custom-styled-components";
+import { Box, Column, Spacer } from "../../styled";
 import { OptionType, SelectComponentProps, DisabledUIProps } from "./SelectTypes";
 import { LabelStyled } from "./Select";
 
