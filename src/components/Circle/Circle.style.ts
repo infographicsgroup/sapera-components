@@ -1,23 +1,21 @@
-import React from "react";
 import styled, { css } from "styled-components";
-import { Color, ColorType, breakpoint } from "../../theme/util";
+import { breakpoint } from "../../theme/util";
+import { CircleProps } from "./Circle.props";
 
-interface CircleProps {
-  className?: string;
-  diameter?: number;
-  color?: ColorType;
-  isActive?: boolean;
-  bgColor?: ColorType | string;
-}
-
+/**
+ * <Dot />
+ */
 const Dot = styled.div<CircleProps>`
   width: ${(p) => p.diameter}px;
   height: ${(p) => p.diameter}px;
   margin: auto;
-  border-radius: 50%;
   background-color: ${(p) => p.color};
+  border-radius: 50%;
 `;
 
+/**
+ * <CircleStyled />
+ */
 const CircleStyled = styled.div<CircleProps>`
   position: relative;
   display: flex;
@@ -39,18 +37,4 @@ const CircleStyled = styled.div<CircleProps>`
     `}
 `;
 
-const Circle = ({
-  className,
-  color = Color.Primary,
-  diameter = 26,
-  isActive,
-  bgColor = "transparent",
-}: CircleProps) => {
-  return (
-    <CircleStyled bgColor={bgColor} className={className} color={color} diameter={diameter} isActive={isActive}>
-      <Dot color={color} diameter={diameter / 4.3} />
-    </CircleStyled>
-  );
-};
-
-export default Circle;
+export { Dot, CircleStyled };

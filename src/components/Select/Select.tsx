@@ -1,5 +1,4 @@
-import React, { FC, useState, useEffect, CSSProperties } from "react";
-import styled from "styled-components";
+import React, { Fragment, useState, useEffect, CSSProperties } from "react";
 import Select, { components, IndicatorProps, ValueType } from "react-select";
 import { Color } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
@@ -7,21 +6,18 @@ import tickSVG from "../../assets/tick.svg";
 import isMobileDetect from "../../utils/isMobileDetect";
 import { throttle } from "lodash";
 import { SelectNative } from "./SelectNative";
-import { SelectComponentProps, OptionType, WidthProps, SizeProps, DisabledUIProps } from "./SelectTypes";
+import { SelectComponentProps, OptionType, WidthProps, SizeProps, DisabledUIProps } from "./Select.props";
 import { Spacer } from "../../styled";
+import { fonts, LabelStyled } from "./Select.style";
 
-export const LabelStyled = styled.label`
-  font-family: sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  color: ${Color.Primary};
-`;
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/**
+ * <DropdownIndicator />
+ */
 const DropdownIndicator = (props: IndicatorProps<any>) => {
   // NOTE: using hideSelectedOptions to set the disabled fill color for now because the user cannot select the options anyway
   const { menuIsOpen, hideSelectedOptions } = props.selectProps;
   const fillColor = hideSelectedOptions ? Color.TextDisabled : Color.TextPrimary;
+
   return (
     components.DropdownIndicator && (
       <components.DropdownIndicator {...props}>
@@ -31,13 +27,10 @@ const DropdownIndicator = (props: IndicatorProps<any>) => {
   );
 };
 
-const fonts = () => ({
-  fontSize: "17px",
-  fontWeight: "normal",
-  color: Color.Primary,
-});
-
-export const SelectComponent: FC<SelectComponentProps> = ({
+/**
+ * <SelectComponent />
+ */
+const SelectComponent: React.FC<SelectComponentProps> = ({
   className,
   options,
   width = 286,
@@ -69,6 +62,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
   const customStyles = {
     container: (_: CSSProperties, state: { selectProps: { width: WidthProps } }) => {
       const { width } = state.selectProps;
+
       return {
         position: "relative",
         maxWidth: width,
@@ -83,6 +77,7 @@ export const SelectComponent: FC<SelectComponentProps> = ({
     ) => {
       const { width, size, hasDisabledUI } = state.selectProps;
       const borderStyle = hasDisabledUI ? `2px solid ${Color.BorderDisabled}` : `2px solid ${Color.Primary}`;
+
       return {
         ...provided,
         display: "flex",
@@ -142,8 +137,9 @@ export const SelectComponent: FC<SelectComponentProps> = ({
       padding: 0,
     }),
   };
+
   return (
-    <>
+    <Fragment>
       {isMobile ? (
         <SelectNative hasDisabledUI={hasDisabledUI} label={label} options={options} />
       ) : (
@@ -171,6 +167,8 @@ export const SelectComponent: FC<SelectComponentProps> = ({
           />
         </div>
       )}
-    </>
+    </Fragment>
   );
 };
+
+export { SelectComponent };
