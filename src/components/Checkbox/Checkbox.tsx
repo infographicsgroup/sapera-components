@@ -80,6 +80,7 @@ export interface CheckboxProps {
   hasError?: boolean;
   required?: boolean;
   errorText?: string;
+  // eslint-disable-next-line
   onChange: (value: any) => void;
 }
 

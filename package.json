@@ -14,8 +14,8 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "_eslint": "eslint './{src,.storybook}/**/*.{ts,tsx,js,jsx}'",
-    "_prettier": "prettier --check './{src,.storybook}/**/*.{ts,tsx,js,jsx}'",
+    "_eslint": "eslint ./{src,.storybook}/**/*.{ts,tsx,js,jsx}",
+    "_prettier": "prettier --check ./{src,.storybook}/**/*.{ts,tsx,js,jsx}",
     "format:check": "yarn _prettier",
     "format": "yarn _prettier --write",
     "lint:check": "yarn _eslint",

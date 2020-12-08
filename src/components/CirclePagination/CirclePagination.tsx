@@ -6,6 +6,7 @@ import Circle from "./Circle";
 
 export interface CirclePaginationProps {
   activeItem: number;
+  // eslint-disable-next-line
   data: any;
   bgColor?: ColorType;
   onItemClick: (index: number) => void;
@@ -28,6 +29,7 @@ export const CirclePagination: FC<CirclePaginationProps> = ({
 }: CirclePaginationProps) => {
   return (
     <Grid className={className} display="inline-grid" gridAutoFlow="column" gridGap={50} justifyContent="flex-start">
+      {/* eslint-disable-next-line */}
       {data.map((item: any, index: number) => {
         return (
           <ButtonStyled
