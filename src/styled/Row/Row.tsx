@@ -5,7 +5,7 @@ import { Column } from "../Column";
  * <Row />
  */
 const Row = styled(Column)`
-    flex-direction: row;
+  flex-direction: row;
 `;
 
 export { Row };
