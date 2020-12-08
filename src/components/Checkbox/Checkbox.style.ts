@@ -68,9 +68,9 @@ const CheckmarkStyled = styled.span`
   align-items: center;
   width: ${LABEL_SIZE}px;
   height: ${LABEL_SIZE}px;
-  z-index: 1;
   border: 2px solid ${Color.Primary};
   border-radius: 5px;
+  z-index: 1;
 
   svg {
     width: 100%;
