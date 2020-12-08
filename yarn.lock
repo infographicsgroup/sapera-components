@@ -13078,6 +13078,11 @@ ts-pnp@^1.1.2:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
+tsconfig-paths-jest@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths-jest/-/tsconfig-paths-jest-0.0.1.tgz#a977a5648c434037b69884e644ce1b82bf025b68"
+  integrity sha1-qXelZIxDQDe2mITmRM4bgr8CW2g=
+
 tsconfig-paths-webpack-plugin@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/tsconfig-paths-webpack-plugin/-/tsconfig-paths-webpack-plugin-3.3.0.tgz#a7461723c20623ca9148621a5ce36532682ad2ff"

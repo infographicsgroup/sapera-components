@@ -93,6 +93,7 @@ module.exports = {
 
   overrides: [
     {
+      excludedFiles: ["tsconfig.json"],
       files: ["*.ts", "*.tsx"],
       rules: {
         "@typescript-eslint/no-unused-vars": [

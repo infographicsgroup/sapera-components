@@ -44,22 +44,19 @@
       "@assets/*": ["./src/assets/*"],
 
       "@styles": ["./src/styles/index", "./src/styles/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   },
-
-
-
 
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "typings/**/*.ts",
-    "typings/**/*.tsx",
+    "typings/**/*.tsx"
   ],
 
   "exclude": [
     "node_modules",
     "dist"
-  ],
+  ]
 }
