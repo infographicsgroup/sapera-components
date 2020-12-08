@@ -34,6 +34,7 @@ export interface InputProps {
   name: string;
   // TODO: remove any
   // value: string | string[] | undefined | number;
+  // eslint-disable-next-line
   value: any;
   label: string;
   tabIndex?: string;

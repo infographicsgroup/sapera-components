@@ -4,7 +4,7 @@ import { ComponentType } from "react";
 /**
  * Wrap component with hook function with will be called in HOC component render
  */
-const hoc = function <SP, HP>(hook: (props: Partial<SP>) => HP, Source: ComponentType<HP & SP>) {
+function hoc<SP, HP>(hook: (props: Partial<SP>) => HP, Source: ComponentType<HP & SP>) {
   const Result: {
     Original: unknown;
     hook: unknown;
@@ -17,6 +17,6 @@ const hoc = function <SP, HP>(hook: (props: Partial<SP>) => HP, Source: Componen
     Original: ComponentType<HP & SP>;
     hook: typeof hook;
   };
-};
+}
 
 export { hoc };
