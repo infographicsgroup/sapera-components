@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import { Color } from "../../theme/util";
 import dataAttributeProps, { DataAttributePropsType } from "../../utils/dataAttributeProps";
 import { ButtonProps } from "./Button.props";
@@ -7,7 +7,7 @@ import { StyledButton } from "./Button.style";
 /**
  * <Button />
  */
-const Button: FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   ariaExpanded,
   ariaPressed,
   ariaLabel,
