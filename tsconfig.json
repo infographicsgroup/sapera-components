@@ -19,7 +19,7 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
-//    "noImplicitReturns": false,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./dist",
@@ -29,7 +29,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "es5",
-    "noImplicitAny": false
+    "noImplicitAny": true
   },
 
   "sourceMap": true,
