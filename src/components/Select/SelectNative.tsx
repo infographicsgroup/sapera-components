@@ -21,13 +21,11 @@ const SelectNative: FC<SelectComponentProps> = ({ className, options, label, has
         hasDisabledUI={hasDisabledUI}
         id={label}
       >
-        {options.map((item: OptionType, index: number) => {
-          return (
-            <option key={`item-${index}`} value={item.value}>
-              {item.label}
-            </option>
-          );
-        })}
+        {options.map((item: OptionType, index: number) => (
+          <option key={`item-${index}`} value={item.value}>
+            {item.label}
+          </option>
+        ))}
       </SelectNativeStyled>
       <Box position="absolute" right="25px" style={{ transform: "translateY(-50%)" }} top="50%">
         <CaretIcon fill={hasDisabledUI ? Color.TextDisabled : Color.TextPrimary} />
