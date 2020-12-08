@@ -10,7 +10,7 @@ const downloadIcon = <DownloadIcon height={25} width={25} />;
 /**
  * <Inputs />
  */
-const Inputs: React.FunctionComponent = () => {
+const Inputs: React.FC = () => {
   const [age, setAge] = useState<number | undefined | string>();
   const [name, setName] = useState<number | undefined | string>();
   const [email, setEmail] = useState<number | undefined | string>();

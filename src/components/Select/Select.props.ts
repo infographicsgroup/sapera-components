@@ -6,20 +6,20 @@ const OPTIONS_DATA = [
   { value: "vanilla", label: "Vanilla" },
 ];
 
-type OptionType = ControlProps<any> & {
+type OptionType = ControlProps<string> & {
   value: string;
   label: string;
 };
 
-type DisabledUIProps = ControlProps<any> & {
+type DisabledUIProps = ControlProps<boolean> & {
   hasDisabledUI?: boolean;
 };
 
-type WidthProps = ControlProps<any> & {
+type WidthProps = ControlProps<number> & {
   width?: number | string;
 };
 
-type SizeProps = ControlProps<any> & {
+type SizeProps<V = string | number> = ControlProps<V> & {
   width?: number | string;
   size?: "large" | "medium";
 };

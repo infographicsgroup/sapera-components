@@ -37,13 +37,13 @@ const ErrorText = styled.h1`
  */
 const InputStyled = styled.input`
   position: absolute;
-  z-index: 2;
   top: -5px;
   left: -5px;
   opacity: 0;
   width: ${LABEL_SIZE + 3}px;
   height: ${LABEL_SIZE + 3}px;
   cursor: pointer;
+  z-index: 2;
 
   &:checked ~ .${CHECKMARK_CLASSNAME} {
     background-color: ${Color.Primary};

@@ -11,10 +11,6 @@ type ControlProps<V = string> = {
   /**
    * Control value
    */
-  value: V;
-  /**
-   * Control label
-   */
   label?: ReactNode;
   /**
    * Root classname

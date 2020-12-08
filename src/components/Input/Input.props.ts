@@ -110,7 +110,7 @@ type InputProps<V = string | number> = ControlProps<V> & {
 /**
  * <StyledInput /> Props
  */
-type StyledInputProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type StyledInputProps<V = string | number> = ControlProps<V> & {
   /**
    * Disabled
    */
@@ -124,7 +124,7 @@ type StyledInputProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type">
 /**
  * <StyledLabel /> Props
  */
-type StyledLabelProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type StyledLabelProps = ControlProps<string> & {
   /**
    * Has icon
    */
@@ -146,7 +146,7 @@ type StyledLabelProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type">
 /**
  * <LabelContainer /> Props
  */
-type LabelContainerProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type LabelContainerProps = ControlProps<string> & {
   /**
    * Has focus
    */
