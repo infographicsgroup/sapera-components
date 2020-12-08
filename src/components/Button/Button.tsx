@@ -1,6 +1,6 @@
 import React from "react";
 import { Color } from "../../theme/util";
-import dataAttributeProps, { DataAttributePropsType } from "../../utils/dataAttributeProps";
+import dataAttributeProps, { DataAttributePropsType } from "../../utils/data-attribute-props";
 import { ButtonProps } from "./Button.props";
 import { StyledButton } from "./Button.style";
 
