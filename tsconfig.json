@@ -19,7 +19,7 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
+//    "noImplicitReturns": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./dist",
@@ -29,8 +29,19 @@
     "sourceMap": true,
     "strict": true,
     "target": "es5",
+    "noImplicitAny": false
   },
-  
+
+  "sourceMap": true,
+  "resolveJsonModule": true,
+  "declaration": false,
+  "jsx": "react",
+  "module": "ESNext",
+  "moduleResolution": "node",
+  "emitDecoratorMetadata": true,
+  "experimentalDecorators": true,
+  "target": "ES2015",
+
   "exclude": [
     "node_modules",
     "dist"

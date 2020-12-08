@@ -20,7 +20,6 @@ module.exports = {
   plugins: ["react", "react-hooks", "@typescript-eslint", "jest"],
   rules: {
     "no-undef": ["off"],
-    "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-var-requires": "off",
@@ -30,6 +29,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     semi: ["error", "always"],
+    "react/prop-types": "off",
     "space-before-function-paren": [
       "error",
       {

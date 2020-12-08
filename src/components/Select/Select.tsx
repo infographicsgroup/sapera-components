@@ -1,14 +1,14 @@
-import React, { Fragment, useState, useEffect, CSSProperties } from "react";
+import React, { CSSProperties, Fragment, useEffect, useState } from "react";
 import Select, { components, IndicatorProps, ValueType } from "react-select";
 import { Color } from "../../theme/util";
 import { CaretIcon } from "../Icon/Icons";
-import tickSVG from "../../assets/tick.svg";
-import isMobileDetect from "../../utils/isMobileDetect";
-import { throttle } from "lodash";
 import { SelectNative } from "./SelectNative";
-import { SelectComponentProps, OptionType, WidthProps, SizeProps, DisabledUIProps } from "./Select.props";
+import { DisabledUIProps, OptionType, SelectComponentProps, SizeProps, WidthProps } from "./Select.props";
 import { Spacer } from "../../styled";
 import { fonts, LabelStyled } from "./Select.style";
+import isMobileDetect from "../../utils/isMobileDetect";
+import tickSVG from "../../assets/tick.svg";
+import { throttle } from "lodash";
 
 /**
  * <DropdownIndicator />
@@ -38,7 +38,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
   placeholder = "Select...",
   label,
   hasDisabledUI,
-}: SelectComponentProps) => {
+}) => {
   const isClient = typeof window !== "undefined";
   const [selectedOption, setSelectedOption] = useState<ValueType<OptionType>>(null);
   const [isMobile, setIsMobile] = useState<boolean>(isClient ? isMobileDetect() : false);
@@ -53,7 +53,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [isMobile]);
+  }, []);
 
   const handleChange = (selectedOption: ValueType<OptionType>) => {
     setSelectedOption(selectedOption);

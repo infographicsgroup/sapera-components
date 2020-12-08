@@ -6,13 +6,13 @@ import { CircleStyled, Dot } from "./Circle.style";
 /**
  * <Circle />
  */
-const Circle = ({
+const Circle: React.FC<CircleProps> = ({
   className,
   color = Color.Primary,
   diameter = 26,
   isActive,
   bgColor = "transparent",
-}: CircleProps) => (
+}) => (
   <CircleStyled bgColor={bgColor} className={className} color={color} diameter={diameter} isActive={isActive}>
     <Dot color={color} diameter={diameter / 4.3} />
   </CircleStyled>

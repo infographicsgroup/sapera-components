@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({
   isValid = false,
   errorText = "Input not valid",
   value,
-}: InputProps) => {
+}) => {
   const [hasFocus, setHasFocus] = useState<boolean>(false);
 
   // TODO - don't use disabled, similar to Button.tsx

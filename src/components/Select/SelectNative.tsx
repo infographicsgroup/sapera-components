@@ -8,7 +8,8 @@ import { LabelStyled, SelectNativeStyled } from "./Select.style";
 /**
  * <SelectNative />
  */
-const SelectNative: FC<SelectComponentProps> = ({ className, options, label, hasDisabledUI }: SelectComponentProps) => (
+// eslint-disable-next-line react/prop-types
+const SelectNative: FC<SelectComponentProps> = ({ className, options, label, hasDisabledUI }) => (
   <Column>
     <LabelStyled htmlFor={label}>{label}</LabelStyled>
     <Spacer mb={1} />

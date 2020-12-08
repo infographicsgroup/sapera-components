@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   bg = isSecondary ? "none" : Color.Primary,
   value,
   ...props
-}: ButtonProps) => (
+}) => (
   <StyledButton
     aria-disabled={disabled}
     aria-expanded={ariaExpanded}

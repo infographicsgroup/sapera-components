@@ -16,7 +16,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   errorText = "Input not valid",
   required,
   disabled = false,
-}: CheckboxProps) => (
+}) => (
   <Column className={className}>
     <LabelStyled htmlFor={id}>
       <InputStyled
