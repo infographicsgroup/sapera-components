@@ -29,7 +29,7 @@ export const CirclePagination: FC<CirclePaginationProps> = ({
 }: CirclePaginationProps) => (
   <Grid className={className} display="inline-grid" gridAutoFlow="column" gridGap={50} justifyContent="flex-start">
     {/* eslint-disable-next-line */}
-      {data.map((item: any, index: number) => {
+    {data.map((item: any, index: number) => {
       return (
         <ButtonStyled
           aria-label={`carousel-page-${index}`}
