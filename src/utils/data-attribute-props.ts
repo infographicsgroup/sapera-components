@@ -1,16 +1,18 @@
-export interface DataAttributePropsType {
+type DataAttributeProps = {
   [x: string]: unknown;
   props?: unknown;
-}
-
-const dataAttributeProps = (props: DataAttributePropsType) => {
-  const newProps: { [key: string]: unknown } = {};
-
-  Object.keys(props).forEach((key) => {
-    if (key.startsWith("data-") || key === "className") newProps[key] = props[key];
-  });
-
-  return newProps;
 };
 
-export default dataAttributeProps;
+/**
+ * Filter props
+ */
+const dataAttributeProps = (props: DataAttributeProps) =>
+  Object.keys(props)
+    .filter((key) => key.startsWith("data-") || key === "className")
+    .reduce((result, key) => {
+      result[key] = props[key];
+
+      return result;
+    }, {} as { [x: string]: unknown });
+
+export { dataAttributeProps, DataAttributeProps };

@@ -10,30 +10,28 @@ export default {
   decorators: [withA11y],
 };
 
-export const Default: React.FunctionComponent = () => {
-  return (
-    <Column>
-      <Spacer p={3}>
-        <Column>
-          <Spacer mb={4} mt={2}>
-            <SelectComponent
-              label="Large size with custom placeholder"
-              options={OPTIONS_DATA}
-              placeholder="Choose flavour"
-            />
-          </Spacer>
-        </Column>
-        <Column>
-          <Spacer mb={4} mt={2}>
-            <SelectComponent label="Medium size" options={OPTIONS_DATA} size="medium" />
-          </Spacer>
-        </Column>
-        <Column>
-          <Spacer mb={7} mt={2}>
-            <SelectComponent label="Disabled UI" options={OPTIONS_DATA} placeholder="Choose flavour" hasDisabledUI />
-          </Spacer>
-        </Column>
-      </Spacer>
-    </Column>
-  );
-};
+export const Default: React.FunctionComponent = () => (
+  <Column>
+    <Spacer p={3}>
+      <Column>
+        <Spacer mb={4} mt={2}>
+          <SelectComponent
+            label="Large size with custom placeholder"
+            options={OPTIONS_DATA}
+            placeholder="Choose flavour"
+          />
+        </Spacer>
+      </Column>
+      <Column>
+        <Spacer mb={4} mt={2}>
+          <SelectComponent label="Medium size" options={OPTIONS_DATA} size="medium" />
+        </Spacer>
+      </Column>
+      <Column>
+        <Spacer mb={7} mt={2}>
+          <SelectComponent label="Disabled UI" options={OPTIONS_DATA} placeholder="Choose flavour" hasDisabledUI />
+        </Spacer>
+      </Column>
+    </Spacer>
+  </Column>
+);

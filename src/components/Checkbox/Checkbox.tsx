@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { TickIcon } from "../Icon/Icons";
 import { Column } from "../../styled";
-import { Color } from "../../theme/util";
+import { colors } from "../../styles/colors";
 
 const LABEL_SIZE = 24;
 const CHECKMARK_CLASSNAME = "checkmark";
@@ -25,7 +25,7 @@ const ErrorText = styled.h1`
   font-family: sans-serif;
   font-size: 14px;
   font-weight: normal;
-  color: ${Color.ErrorRed};
+  color: ${colors.error};
 `;
 
 /* Hide the browser's default checkbox */
@@ -40,14 +40,14 @@ const InputStyled = styled.input`
   cursor: pointer;
 
   &:checked ~ .${CHECKMARK_CLASSNAME} {
-    background-color: ${Color.Primary};
+    background-color: ${colors.primary};
     svg {
       opacity: 1;
     }
   }
 
   &:disabled ~ .${CHECKMARK_CLASSNAME} {
-    border: 2px solid ${Color.BorderDisabled};
+    border: 2px solid ${colors.border.disabled};
   }
 `;
 
@@ -60,7 +60,7 @@ const CheckmarkStyled = styled.span`
   width: ${LABEL_SIZE}px;
   height: ${LABEL_SIZE}px;
   z-index: 1;
-  border: 2px solid ${Color.Primary};
+  border: 2px solid ${colors.primary};
   border-radius: 5px;
 
   svg {
@@ -96,28 +96,26 @@ export const Checkbox: FC<CheckboxProps> = ({
   errorText = "Input not valid",
   required,
   disabled = false,
-}: CheckboxProps) => {
-  return (
-    <Column className={className}>
-      <LabelStyled htmlFor={id}>
-        <InputStyled
-          aria-invalid={hasError}
-          aria-required={required}
-          checked={checked}
-          disabled={disabled}
-          id={id}
-          name={name}
-          required={required}
-          type="checkbox"
-          value={value}
-          onChange={onChange}
-        />
-        <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
-          <TickIcon />
-        </CheckmarkStyled>
-        {children}
-      </LabelStyled>
-      {hasError && <ErrorText>{errorText}</ErrorText>}
-    </Column>
-  );
-};
+}: CheckboxProps) => (
+  <Column className={className}>
+    <LabelStyled htmlFor={id}>
+      <InputStyled
+        aria-invalid={hasError}
+        aria-required={required}
+        checked={checked}
+        disabled={disabled}
+        id={id}
+        name={name}
+        required={required}
+        type="checkbox"
+        value={value}
+        onChange={onChange}
+      />
+      <CheckmarkStyled className={CHECKMARK_CLASSNAME}>
+        <TickIcon />
+      </CheckmarkStyled>
+      {children}
+    </LabelStyled>
+    {hasError && <ErrorText>{errorText}</ErrorText>}
+  </Column>
+);

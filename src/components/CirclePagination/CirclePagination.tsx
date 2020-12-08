@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { Grid, Box } from "../../styled";
-import { ColorType } from "../../theme/util";
+import { Color } from "../../styles/colors";
 import Circle from "./Circle";
 
 export interface CirclePaginationProps {
   activeItem: number;
   // eslint-disable-next-line
   data: any;
-  bgColor?: ColorType;
+  bgColor?: Color;
   onItemClick: (index: number) => void;
   className?: string;
 }
@@ -26,22 +26,20 @@ export const CirclePagination: FC<CirclePaginationProps> = ({
   bgColor,
   activeItem,
   className,
-}: CirclePaginationProps) => {
-  return (
-    <Grid className={className} display="inline-grid" gridAutoFlow="column" gridGap={50} justifyContent="flex-start">
-      {/* eslint-disable-next-line */}
-      {data.map((item: any, index: number) => {
-        return (
-          <ButtonStyled
-            aria-label={`carousel-page-${index}`}
-            as="button"
-            key={`pagination-element-${index}-${item}`}
-            onClick={() => onItemClick(index)}
-          >
-            <Circle bgColor={bgColor} isActive={activeItem === index} />
-          </ButtonStyled>
-        );
-      })}
-    </Grid>
-  );
-};
+}: CirclePaginationProps) => (
+  <Grid className={className} display="inline-grid" gridAutoFlow="column" gridGap={50} justifyContent="flex-start">
+    {/* eslint-disable-next-line */}
+    {data.map((item: any, index: number) => {
+      return (
+        <ButtonStyled
+          aria-label={`carousel-page-${index}`}
+          as="button"
+          key={`pagination-element-${index}-${item}`}
+          onClick={() => onItemClick(index)}
+        >
+          <Circle bgColor={bgColor} isActive={activeItem === index} />
+        </ButtonStyled>
+      );
+    })}
+  </Grid>
+);
