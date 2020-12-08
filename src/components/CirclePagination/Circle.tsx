@@ -1,13 +1,13 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { Color, ColorType, breakpoint } from "../../theme/util";
+import { colors, Color, breakpoint } from "../../styles";
 
 interface CircleProps {
   className?: string;
   diameter?: number;
-  color?: ColorType;
+  color?: Color;
   isActive?: boolean;
-  bgColor?: ColorType | string;
+  bgColor?: Color | string;
 }
 
 const Dot = styled.div<CircleProps>`
@@ -41,16 +41,14 @@ const CircleStyled = styled.div<CircleProps>`
 
 const Circle = ({
   className,
-  color = Color.Primary,
+  color = colors.primary,
   diameter = 26,
   isActive,
   bgColor = "transparent",
-}: CircleProps) => {
-  return (
-    <CircleStyled bgColor={bgColor} className={className} color={color} diameter={diameter} isActive={isActive}>
-      <Dot color={color} diameter={diameter / 4.3} />
-    </CircleStyled>
-  );
-};
+}: CircleProps) => (
+  <CircleStyled bgColor={bgColor} className={className} color={color} diameter={diameter} isActive={isActive}>
+    <Dot color={color} diameter={diameter / 4.3} />
+  </CircleStyled>
+);
 
 export default Circle;

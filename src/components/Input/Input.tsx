@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import styled, { css } from "styled-components";
-import { Color } from "../../theme/util";
+import { colors } from "../../styles/colors";
 import { Row, Box, Column } from "../../styled";
 import { ErrorIcon, CheckIcon } from "../Icon/Icons";
 import { InputProps, StyledLabelProps, StyledInputProps, LabelContainerProps } from "./InputTypes";
@@ -12,12 +12,12 @@ const StyledLabel = styled.label<StyledLabelProps>`
   z-index: 1;
   padding: 16px 5px 16px 0;
   font-size: 17px;
-  color: ${Color.TextPrimary};
+  color: ${colors.text.primary};
 
   ${(p) =>
     p.hasError &&
     css`
-      color: ${Color.ErrorRed};
+      color: ${colors.error};
     `}
   /* TODO remove 'all', animate only 'fontsize' and 'top'*/
     transition: font-size 0.3s ease;
@@ -39,7 +39,7 @@ const LabelContainer = styled.div<LabelContainerProps>`
       top: ${(p: { size: number }) => `-${p.size / 4 - 3}px`};
       padding-left: 5px;
       margin-left: 11px;
-      background: ${Color.BackgroundMain};
+      background: ${colors.background.main};
       height: 16px;
 
       ${StyledLabel} {
@@ -50,7 +50,7 @@ const LabelContainer = styled.div<LabelContainerProps>`
       }
 
       svg {
-        background: ${Color.BackgroundMain};
+        background: ${colors.background.main};
         transform: scale(0.85);
         transition: transform 0.3s ease;
       }
@@ -63,7 +63,7 @@ const ErrorText = styled.h1`
   font-family: sans-serif;
   font-size: 14px;
   font-weight: normal;
-  color: ${Color.ErrorRed};
+  color: ${colors.error};
 `;
 
 const StyledInput = styled.input<StyledInputProps>`
@@ -71,15 +71,15 @@ const StyledInput = styled.input<StyledInputProps>`
   height: ${(p) => `${p.size}px`};
   width: 100%;
   padding: 16px;
-  border: 2px solid ${Color.Primary};
+  border: 2px solid ${colors.primary};
   border-radius: 7px;
-  background: ${Color.BackgroundMain};
+  background: ${colors.background.main};
   font-size: 17px;
   cursor: ${(p) => (p.disabled ? "default" : "pointer")};
 
   :disabled {
-    border: 2px solid ${Color.BorderDisabled};
-    background: ${Color.BackgroundDisabled};
+    border: 2px solid ${colors.border.disabled};
+    background: ${colors.background.disabled};
   }
 `;
 
@@ -88,7 +88,7 @@ const IconContainer = styled(Row)<{ disabled?: boolean }>`
     p.disabled &&
     css`
       svg * {
-        fill: ${Color.DisabledGrey};
+        fill: ${colors.disabled};
       }
     `}
 `;
@@ -154,12 +154,12 @@ export const Input: FC<InputProps> = ({
       />
       {hasError && (
         <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
-          <ErrorIcon fill={Color.ErrorRed} height={25} width={25} />
+          <ErrorIcon fill={colors.error} height={25} width={25} />
         </Row>
       )}
       {isValid && (
         <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
-          <CheckIcon fill={Color.SecondaryGreen} height={25} width={25} />
+          <CheckIcon fill={colors.secondary.green} height={25} width={25} />
         </Row>
       )}
       {hasError && (

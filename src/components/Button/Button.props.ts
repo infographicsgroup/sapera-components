@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorType } from "../../theme/util";
+import { ColorType } from "../../styles/colors";
 
 /**
  * <Button /> Props

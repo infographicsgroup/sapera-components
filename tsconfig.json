@@ -1,4 +1,5 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -29,17 +30,36 @@
     "sourceMap": true,
     "strict": true,
     "target": "es5",
+    "paths": {
+      "@components": ["./src/components/index", "./src/components/*"],
+      "@components/*": ["./src/components/*"],
+
+      "@utils": ["./src/utils/index", "./src/utils/*"],
+      "@utils/*": ["./src/utils/*"],
+
+      "@styled": ["./src/styled/index", "./src/styled/*"],
+      "@styled/*": ["./src/styled/*"],
+
+      "@assets": ["./src/assets/index", "./src/assets/*"],
+      "@assets/*": ["./src/assets/*"],
+
+      "@styles": ["./src/styles/index", "./src/styles/*"],
+      "@styles/*": ["./src/styles/*"],
+    }
   },
-  
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
+
+
+
+
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "typings/**/*.ts",
     "typings/**/*.tsx",
   ],
-  "compileOnSave": false
+
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
 }
