@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorType } from "../../styles/colors";
+import { Color } from "../../styles/colors";
 
 /**
  * <Button /> Props
@@ -56,7 +56,7 @@ type ButtonProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
   /**
    * Background
    */
-  bg?: string | ColorType | undefined;
+  bg?: string | Color | undefined;
   /**
    * Width
    */

@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { Grid, Box } from "../../styled";
-import { ColorType } from "../../styles/colors";
+import { Color } from "../../styles/colors";
 import Circle from "./Circle";
 
 export interface CirclePaginationProps {
   activeItem: number;
   // eslint-disable-next-line
   data: any;
-  bgColor?: ColorType;
+  bgColor?: Color;
   onItemClick: (index: number) => void;
   className?: string;
 }
