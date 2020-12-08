@@ -158,7 +158,7 @@ export const Input: FC<InputProps> = ({
         </Row>
       )}
       {isValid && (
-        <Row alignItems="center" height={50} mr={5} position="absolute" right={0} >
+        <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
           <CheckIcon fill={Color.SecondaryGreen} height={25} width={25} />
         </Row>
       )}
