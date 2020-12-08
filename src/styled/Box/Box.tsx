@@ -5,16 +5,6 @@ import { BoxProps } from "./Box.props";
 /**
  * <Box />
  */
-const Box = styled.div<BoxProps>(
-  background,
-  border,
-  color,
-  flexbox,
-  layout,
-  position,
-  shadow,
-  space,
-  typography,
-);
+const Box = styled.div<BoxProps>(background, border, color, flexbox, layout, position, shadow, space, typography);
 
 export { Box };

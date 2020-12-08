@@ -1,4 +1,14 @@
-import { BackgroundProps, BorderProps, ColorProps, FlexboxProps, LayoutProps, PositionProps, ShadowProps, SpaceProps, TypographyProps } from "styled-system";
+import {
+  BackgroundProps,
+  BorderProps,
+  ColorProps,
+  FlexboxProps,
+  LayoutProps,
+  PositionProps,
+  ShadowProps,
+  SpaceProps,
+  TypographyProps,
+} from "styled-system";
 
 type BoxProps = BackgroundProps &
   BorderProps &
@@ -8,6 +18,6 @@ type BoxProps = BackgroundProps &
   PositionProps &
   ShadowProps &
   SpaceProps &
-  TypographyProps
+  TypographyProps;
 
 export { BoxProps };

@@ -36,8 +36,6 @@ const breakpoints = new BreakpointsTypes(
   `${BreakpointSize.xl}px`,
 );
 
-
-
 export default create({
   /*
   Space theme

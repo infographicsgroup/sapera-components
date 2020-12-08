@@ -1,7 +1,15 @@
-import { BackgroundProps, BorderProps, ColorProps, FlexboxProps, LayoutProps, PositionProps, SpaceProps, GridProps } from "styled-system";
+import {
+  BackgroundProps,
+  BorderProps,
+  ColorProps,
+  FlexboxProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+  GridProps,
+} from "styled-system";
 
-type ColumnProps =
- BackgroundProps &
+type ColumnProps = BackgroundProps &
   BorderProps &
   ColorProps &
   FlexboxProps &
@@ -9,6 +17,6 @@ type ColumnProps =
   LayoutProps &
   PositionProps &
   SpaceProps &
-  GridProps
+  GridProps;
 
 export { ColumnProps };

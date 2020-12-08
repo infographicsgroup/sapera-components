@@ -1,19 +1,16 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { action } from "@storybook/addon-actions";
 import { Button } from "./Button";
 import { withA11y } from "@storybook/addon-a11y";
 import { DownloadIcon } from "../Icon/Icons";
 import { Column } from "../../styled";
 
-export default {
-  title: "Button",
-  component: Button,
-  decorators: [withA11y],
-};
-
 const downloadIcon = <DownloadIcon height={25} width={25} />;
 
-export const TextButtons: React.FunctionComponent = () => (
+/**
+ * <TextButtons />
+ */
+const TextButtons: React.FC = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <Column alignItems="center" justifyContent="center">
       <Button bg="purple" id="button-id" onClick={action("clicked")}>
@@ -49,7 +46,10 @@ export const TextButtons: React.FunctionComponent = () => (
   </div>
 );
 
-export const TextWithIconButtons: React.FunctionComponent = () => (
+/**
+ * <TextWithIconButtons />
+ */
+const TextWithIconButtons: React.FC = () => (
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <Column alignItems="center" justifyContent="center">
       <Button icon={downloadIcon} onClick={action("clicked")}>
@@ -80,12 +80,23 @@ export const TextWithIconButtons: React.FunctionComponent = () => (
   </div>
 );
 
-export const ButtonStates: React.FunctionComponent = () => (
-  <>
+/**
+ * <ButtonStates />
+ */
+const ButtonStates: React.FC = () => (
+  <Fragment>
     <Button disabled onClick={action("clicked")}>
       Disabled
     </Button>
     <br />
     <Button onClick={action("clicked")}>Hover</Button>
-  </>
+  </Fragment>
 );
+
+export default {
+  title: "Button",
+  component: Button,
+  decorators: [withA11y],
+};
+
+export { ButtonStates, TextButtons, TextWithIconButtons };

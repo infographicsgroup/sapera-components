@@ -6,12 +6,6 @@ import { GridComponentProps } from "./Grid.props";
 /**
  * <Grid />
  */
-const Grid = styled(Box)<GridComponentProps>(
-  { display: "grid" },
-  grid,
-  layout,
-);
+const Grid = styled(Box)<GridComponentProps>({ display: "grid" }, grid, layout);
 
-export {
-  Grid,
-};
+export { Grid };
