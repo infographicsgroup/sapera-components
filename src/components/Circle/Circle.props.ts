@@ -1,10 +1,10 @@
-import React from "react";
 import { ColorType } from "../../theme/util";
+import { ControlProps } from "../../form";
 
 /**
  * <Circle /> Props
  */
-type CircleProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type CircleProps = ControlProps<boolean> & {
   /**
    * className
    */

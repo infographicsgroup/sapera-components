@@ -1,4 +1,4 @@
-import React from "react";
+import { ControlProps } from "../../form";
 
 const OPTIONS_DATA = [
   { value: "chocolate", label: "Chocolate" },
@@ -6,31 +6,31 @@ const OPTIONS_DATA = [
   { value: "vanilla", label: "Vanilla" },
 ];
 
-type OptionType = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type OptionType = ControlProps<any> & {
   value: string;
   label: string;
 };
 
-type DisabledUIProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type DisabledUIProps = ControlProps<any> & {
   hasDisabledUI?: boolean;
 };
 
-type WidthProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type WidthProps = ControlProps<any> & {
   width?: number | string;
 };
 
-type SizeProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type SizeProps = ControlProps<any> & {
   width?: number | string;
   size?: "large" | "medium";
 };
 
-type CustomSelectProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type CustomSelectProps = ControlProps<any> & {
   width?: number | string;
   size?: "large" | "medium";
   hasDisabledUI?: boolean;
 };
 
-type SelectComponentProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type SelectComponentProps = ControlProps<any> & {
   className?: string;
   options: OptionType[];
   selectProps?: CustomSelectProps;

@@ -1,9 +1,10 @@
 import React from "react";
+import { ControlProps } from "../../form/control";
 
 /**
  * <Input /> Props
  */
-type InputProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type InputProps<V = string | number> = ControlProps<V> & {
   /**
    * Aria pressed
    */

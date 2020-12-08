@@ -1,10 +1,10 @@
-import React from "react";
 import { ColorType } from "../../theme/util";
+import { ControlProps } from "../../form";
 
 /**
  * <CirclePagination /> Props
  */
-type CirclePaginationProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type CirclePaginationProps = ControlProps<boolean> & {
   /**
    * Active Item
    */

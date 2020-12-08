@@ -1,9 +1,10 @@
 import React from "react";
+import { ControlProps } from "../../form";
 
 /**
  * <Checkbox /> Props
  */
-type CheckboxProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
+type CheckboxProps = ControlProps<boolean> & {
   /**
    * className
    */
