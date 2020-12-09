@@ -1,6 +1,6 @@
 import React from "react";
 import { SelectComponent } from "./Select";
-import { Column, Spacer } from "../../styled";
+import { Column, Spacer } from "@styled";
 import { withA11y } from "@storybook/addon-a11y";
 import { OPTIONS_DATA } from "./Select.props";
 

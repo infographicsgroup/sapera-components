@@ -1,5 +1,5 @@
 import React from "react";
-import { ControlProps } from "../../form/control";
+import { ControlProps } from "../../form";
 
 /**
  * <Input /> Props

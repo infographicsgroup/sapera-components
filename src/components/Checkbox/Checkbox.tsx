@@ -4,6 +4,9 @@ import { Column } from "@styled";
 import { CheckboxProps } from "./Checkbox.props";
 import { CHECKMARK_CLASSNAME, CheckmarkStyled, ErrorText, InputStyled, LabelStyled } from "./Checkbox.style";
 
+/**
+ * <Checkbox />
+ */
 const Checkbox: React.FC<CheckboxProps> = ({
   id,
   children,

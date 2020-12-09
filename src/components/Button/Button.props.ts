@@ -1,5 +1,5 @@
 import React from "react";
-import { Color } from "../../styles/colors";
+import { Color } from "@styles";
 
 /**
  * <Button /> Props

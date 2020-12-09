@@ -1,5 +1,5 @@
-import { ColorType } from "../../theme/util";
 import { ControlProps } from "../../form";
+import { Color } from "@styles";
 
 /**
  * <Circle /> Props
@@ -16,7 +16,7 @@ type CircleProps = ControlProps<boolean> & {
   /**
    * Color
    */
-  color?: ColorType;
+  color?: Color;
   /**
    * Is active
    */
@@ -24,7 +24,7 @@ type CircleProps = ControlProps<boolean> & {
   /**
    * Background color
    */
-  bgColor?: ColorType | string;
+  bgColor?: Color | string;
 };
 
 export { CircleProps };

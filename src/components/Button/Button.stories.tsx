@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions";
 import { Button } from "./Button";
 import { withA11y } from "@storybook/addon-a11y";
 import { DownloadIcon } from "../Icon/Icons";
-import { Column } from "../../styled";
+import { Column } from "@styled";
 
 const downloadIcon = <DownloadIcon height={25} width={25} />;
 
