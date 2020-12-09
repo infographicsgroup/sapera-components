@@ -43,6 +43,8 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     "no-undef": ["off"],
     "prettier/prettier": ["warn", { usePrettierrc: true, endOfLine: "auto" }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/prop-types": 0,
     "arrow-body-style": ["warn", "as-needed"],
 
     quotes: ["error", "double"],

@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { SelectComponent } from "./Select";
-import { OPTIONS_DATA } from "./dummyData";
+import { OPTIONS_DATA } from "./Select.props";
 
 const DATA = {
   CLASSNAME: "selectComponent",
@@ -14,7 +14,5 @@ describe("Select", () => {
     it("should render without errors", () => {
       expect(wrapper.length).toBe(1);
     });
-
-    // TODO: continue
   });
 });

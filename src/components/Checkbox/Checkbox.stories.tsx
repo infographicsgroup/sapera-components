@@ -2,15 +2,12 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 import { Checkbox } from "./Checkbox";
 import { withA11y } from "@storybook/addon-a11y";
-import { Column, Grid } from "../../styled";
+import { Column, Grid } from "@styled";
 
-export default {
-  title: "Checkbox",
-  component: Checkbox,
-  decorators: [withA11y],
-};
-
-export const Default: React.FunctionComponent = () => (
+/**
+ * <Checkboxes />
+ */
+const Checkboxes: React.FC = () => (
   <Grid gridGap={4}>
     <Column>
       <Checkbox id="checkbox-default" name="default" value="default" onChange={action("clicked")}>
@@ -36,3 +33,11 @@ export const Default: React.FunctionComponent = () => (
     </Column>
   </Grid>
 );
+
+export { Checkboxes };
+
+export default {
+  title: "Checkbox",
+  component: Checkbox,
+  decorators: [withA11y],
+};

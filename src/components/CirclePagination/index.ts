@@ -1,4 +1,1 @@
-import { CirclePagination, CirclePaginationProps } from "./CirclePagination";
-
-export { CirclePagination };
-export type { CirclePaginationProps };
+export * from "./CirclePagination";

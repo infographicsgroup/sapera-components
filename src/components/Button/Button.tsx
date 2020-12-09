@@ -1,6 +1,6 @@
 import { dataAttributeProps, DataAttributeProps } from "@utils";
 import React from "react";
-import { colors } from "../../styles/colors";
+import { colors } from "@styles";
 import { ButtonProps } from "./Button.props";
 import { StyledButton } from "./Button.style";
 
@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   bg = isSecondary ? "none" : colors.primary,
   value,
   ...props
-}: ButtonProps) => (
+}) => (
   <StyledButton
     aria-disabled={disabled}
     aria-expanded={ariaExpanded}

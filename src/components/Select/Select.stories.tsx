@@ -1,16 +1,13 @@
 import React from "react";
 import { SelectComponent } from "./Select";
-import { OPTIONS_DATA } from "./dummyData";
-import { Column, Spacer } from "../../styled";
+import { Column, Spacer } from "@styled";
 import { withA11y } from "@storybook/addon-a11y";
+import { OPTIONS_DATA } from "./Select.props";
 
-export default {
-  title: "Select",
-  component: SelectComponent,
-  decorators: [withA11y],
-};
-
-export const Default: React.FunctionComponent = () => (
+/**
+ * <Selects />
+ */
+const Selects: React.FunctionComponent = () => (
   <Column>
     <Spacer p={3}>
       <Column>
@@ -35,3 +32,11 @@ export const Default: React.FunctionComponent = () => (
     </Spacer>
   </Column>
 );
+
+export { Selects };
+
+export default {
+  title: "Select",
+  component: Selects,
+  decorators: [withA11y],
+};

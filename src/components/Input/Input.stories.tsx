@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import { DownloadIcon } from "../Icon/Icons";
-import { colors } from "../../styles/colors";
-import { Spacer, Column } from "../../styled";
+import { colors } from "@styles";
+import { Spacer, Column } from "@styled";
 import { Input } from "./Input";
 import { withA11y } from "@storybook/addon-a11y";
 
-export default {
-  title: "Input",
-  component: Input,
-  decorators: [withA11y],
-};
-
 const downloadIcon = <DownloadIcon height={25} width={25} />;
 
-export const Inputs: React.FunctionComponent = () => {
+/**
+ * <Inputs />
+ */
+const Inputs: React.FC = () => {
   const [age, setAge] = useState<number | undefined | string>();
   const [name, setName] = useState<number | undefined | string>();
   const [email, setEmail] = useState<number | undefined | string>();
@@ -81,4 +78,12 @@ export const Inputs: React.FunctionComponent = () => {
       </form>
     </Column>
   );
+};
+
+export { Inputs };
+
+export default {
+  title: "Input",
+  component: Input,
+  decorators: [withA11y],
 };
