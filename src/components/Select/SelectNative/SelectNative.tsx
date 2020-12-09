@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 import { colors } from "@styles";
-import { CaretIcon } from "../Icon/Icons";
+import { CaretIcon } from "../../Icon/Icons";
 import { Box, Column, Spacer } from "@styled";
-import { OptionType, SelectComponentProps } from "./Select.props";
-import { LabelStyled, SelectNativeStyled } from "./Select.style";
+import { SelectNativeStyled } from "./SelectNative.style";
+import { LabelStyled } from "@components/Select/Select.style";
+import { OptionType, SelectComponentProps } from "@components/Select/Select.props";
 
 /**
  * <SelectNative />
