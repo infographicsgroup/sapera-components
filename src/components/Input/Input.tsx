@@ -28,11 +28,6 @@ const Input: React.FC<InputProps> = ({
   value,
 }) => {
   const [hasFocus, setHasFocus] = useState<boolean>(false);
-
-  // TODO - don't use disabled, similar to Button.tsx
-  // 'disabled' removes element for screen readers, so for a11y it's best to visually make them disbaled and use aria-diabled instead - // aria-disabled={disabled}
-  // https://a11y-101.com/development/aria-disabled
-
   const SIZE_NUMBER = size === "medium" ? 50 : 56;
 
   return (
