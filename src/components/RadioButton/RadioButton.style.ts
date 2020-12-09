@@ -31,13 +31,13 @@ const ButtonWrapper = styled.div<{ color?: string | Color | undefined; disabled?
       align-items: center;
       -webkit-box-orient: horizontal;
 
-      cursor: ${(p) => (p.disabled ? "default" : "pointer")};
+      cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
 
       &::before {
         content: "";
         margin-right: 15px;
         border-radius: 50%;
-        border: 2px solid ${(p) => (p.disabled ? "#949F9F" : p.color)};
+        border: 2px solid ${({ disabled, color }) => (disabled ? "#949F9F" : color)};
         width: ${RADIO_BUTTON_WIDTH}px;
         height: ${RADIO_BUTTON_WIDTH}px;
         box-sizing: border-box;
@@ -57,7 +57,7 @@ const ButtonWrapper = styled.div<{ color?: string | Color | undefined; disabled?
 
     &:checked {
       + label::after {
-        background: ${(p) => p.color};
+        background: ${({ color }) => color};
       }
     }
 

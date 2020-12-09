@@ -9,14 +9,14 @@ import { IconProps } from "./IconTypes";
 
 const SVGStyled = styled.svg<CaretIconProps>`
   transform-origin: center;
-  ${(p) =>
-    p.isUp &&
+  ${({ isUp }) =>
+    isUp &&
     css`
       transform: rotate(180deg);
     `}
 
-  ${(p) =>
-    p.isLeft &&
+  ${({ isLeft }) =>
+    isLeft &&
     css`
       transform: rotate(90deg);
     `}

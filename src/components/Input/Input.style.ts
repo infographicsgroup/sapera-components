@@ -15,8 +15,8 @@ const StyledLabel = styled.label<StyledLabelProps>`
   font-size: 17px;
   color: ${colors.text.primary};
 
-  ${(p) =>
-    p.hasError &&
+  ${({ hasError }) =>
+    hasError &&
     css`
       color: ${colors.error};
     `}
@@ -34,7 +34,7 @@ const LabelContainer = styled.div<LabelContainerProps>`
   position: absolute;
   align-items: center;
   z-index: 6;
-  pointer-events: ${(p) => (p.disabled ? "none" : "auto")};
+  pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
   padding-left: 16px;
 
   ${(props) =>
@@ -78,14 +78,14 @@ const ErrorText = styled.h1`
  */
 const StyledInput = styled.input<StyledInputProps>`
   position: relative;
-  height: ${(p) => `${p.size}px`};
+  height: ${({ size }) => `${size}px`};
   width: 100%;
   padding: 16px;
   border: 2px solid ${colors.primary};
   border-radius: 7px;
   background: ${colors.background.main};
   font-size: 17px;
-  cursor: ${(p) => (p.disabled ? "default" : "pointer")};
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
 
   :disabled {
     border: 2px solid ${colors.border.disabled};
@@ -97,8 +97,8 @@ const StyledInput = styled.input<StyledInputProps>`
  * <IconContainer />
  */
 const IconContainer = styled(Row)<{ disabled?: boolean }>`
-  ${(p) =>
-    p.disabled &&
+  ${({ disabled }) =>
+    disabled &&
     css`
       svg * {
         fill: ${colors.disabled};

@@ -6,11 +6,11 @@ import { CircleProps } from "./Circle.props";
  * <Dot />
  */
 const Dot = styled.div<CircleProps>`
-  width: ${(p) => p.diameter}px;
-  height: ${(p) => p.diameter}px;
+  width: ${({ diameter }) => diameter}px;
+  height: ${({ diameter }) => diameter}px;
   margin: auto;
   border-radius: 50%;
-  background-color: ${(p) => p.color};
+  background-color: ${({ color }) => color};
 `;
 
 /**
@@ -20,20 +20,20 @@ const CircleStyled = styled.div<CircleProps>`
   position: relative;
   display: flex;
   align-items: center;
-  width: ${(p) => p.diameter}px;
-  height: ${(p) => p.diameter}px;
+  width: ${({ diameter }) => diameter}px;
+  height: ${({ diameter }) => diameter}px;
   border-radius: 50%;
 
   ${breakpoint.lg`
     background-color: ${(p: CircleProps) => p.bgColor};
   `}
 
-  ${(p) =>
-    p.isActive &&
+  ${({ isActive }) =>
+    isActive &&
     css`
       border-width: 1px;
       border-style: solid;
-      border-color: ${(p: CircleProps) => p.color};
+      border-color: ${({ color }: CircleProps) => color};
     `}
 `;
 
