@@ -5,9 +5,9 @@ import { withA11y } from "@storybook/addon-a11y";
 import { Column, Grid } from "@styled";
 
 /**
- * <Default />
+ * <Checkboxes />
  */
-const Default: React.FC = () => (
+const Checkboxes: React.FC = () => (
   <Grid gridGap={4}>
     <Column>
       <Checkbox id="checkbox-default" name="default" value="default" onChange={action("clicked")}>
@@ -34,7 +34,7 @@ const Default: React.FC = () => (
   </Grid>
 );
 
-export { Default };
+export { Checkboxes };
 
 export default {
   title: "Checkbox",

@@ -1,5 +1,5 @@
 import { ControlProps } from "../../form";
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useEffect, useMemo, useState } from "react";
 import { ValueType } from "react-select";
 import { isMobile } from "@utils";
 import { colors } from "@styles";
@@ -65,11 +65,13 @@ const useSelectProps = ({
   const [mobile, setMobile] = useState<boolean>(isClient ? isMobile() : false);
 
   const handleResize = () => {
-    setMobile(isMobile());
+    throttle(() => {
+      setMobile(isMobile());
+    });
   };
 
   useEffect(() => {
-    window.addEventListener("resize", throttle(handleResize));
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -80,84 +82,88 @@ const useSelectProps = ({
     setSelectedOption(selectedOption);
   };
 
-  const customStyles = {
-    container: (_: CSSProperties, state: { selectProps: { width: WidthProps } }) => {
-      const { width } = state.selectProps;
+  const { customStyles } = useMemo(() => {
+    const customStyles = {
+      container: (_: CSSProperties, state: { selectProps: { width: WidthProps } }) => {
+        const { width } = state.selectProps;
 
-      return {
-        position: "relative",
-        maxWidth: width,
-      } as CSSProperties;
-    },
-    control: (
-      provided: CSSProperties,
-      state: {
-        selectProps: { width: WidthProps; size: SizeProps; hasDisabledUI: DisabledUIProps };
-        isFocused: boolean;
+        return {
+          position: "relative",
+          maxWidth: width,
+        } as CSSProperties;
       },
-    ) => {
-      const { width, size, hasDisabledUI } = state.selectProps;
-      const borderStyle = hasDisabledUI ? `2px solid ${colors.border.disabled}` : `2px solid ${colors.primary}`;
+      control: (
+        provided: CSSProperties,
+        state: {
+          selectProps: { width: WidthProps; size: SizeProps; hasDisabledUI: DisabledUIProps };
+          isFocused: boolean;
+        },
+      ) => {
+        const { width, size, hasDisabledUI } = state.selectProps;
+        const borderStyle = hasDisabledUI ? `2px solid ${colors.border.disabled}` : `2px solid ${colors.primary}`;
 
-      return {
+        return {
+          ...provided,
+          display: "flex",
+          height: size === "large" ? 56 : 50,
+          ...fonts,
+          border: borderStyle,
+          borderRadius: "6px",
+          maxWidth: width,
+          padding: "0 16px 0 24px",
+          backgroundColor: hasDisabledUI ? colors.background.disabled : "none",
+          // TODO: Remove pointerEvents and fix disabledUI for screen reader.
+          pointerEvents: hasDisabledUI ? "none" : "auto",
+        } as CSSProperties;
+      },
+      indicatorSeparator: () => ({
+        display: "none",
+      }),
+      menu: () =>
+        ({
+          position: "absolute",
+          zIndex: 2,
+          border: `2px solid ${colors.primary}`,
+          maxWidth: "87%",
+          width: "100%",
+          left: "50%",
+          backgroundColor: `${colors.inverted}`,
+          transform: "translate(-50%, -2px)",
+          boxShadow: "none",
+          borderTopRightRadius: "none",
+          borderTopLeftRadius: "none",
+          margin: "0 auto",
+          ...fonts,
+        } as CSSProperties),
+      menuList: () => ({}),
+      placeholder: (
+        _: CSSProperties,
+        state: {
+          selectProps: { hasDisabledUI: DisabledUIProps };
+        },
+      ) => {
+        const { hasDisabledUI } = state.selectProps;
+        return {
+          color: hasDisabledUI ? colors.text.disabled : colors.text.primary,
+        };
+      },
+      option: (_: CSSProperties, state: { isSelected: boolean; isFocused: boolean; size: string }) =>
+        ({
+          backgroundColor: state.isSelected || state.isFocused ? colors.primary : colors.inverted,
+          color: state.isSelected || state.isFocused ? colors.text.inverted : colors.text.primary,
+          padding: state.size === "large" ? "22px 25px" : "19px 25px",
+          backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "right 25px center",
+        } as CSSProperties),
+      valueContainer: (provided: CSSProperties) => ({
         ...provided,
-        display: "flex",
-        height: size === "large" ? 56 : 50,
-        ...fonts(),
-        border: borderStyle,
-        borderRadius: "6px",
-        maxWidth: width,
-        padding: "0 16px 0 24px",
-        backgroundColor: hasDisabledUI ? colors.background.disabled : "none",
-        // TODO: Remove pointerEvents and fix disabledUI for screen reader.
-        pointerEvents: hasDisabledUI ? "none" : "auto",
-      } as CSSProperties;
-    },
-    indicatorSeparator: () => ({
-      display: "none",
-    }),
-    menu: () =>
-      ({
-        position: "absolute",
-        zIndex: 2,
-        border: `2px solid ${colors.primary}`,
-        maxWidth: "87%",
-        width: "100%",
-        left: "50%",
-        backgroundColor: `${colors.inverted}`,
-        transform: "translate(-50%, -2px)",
-        boxShadow: "none",
-        borderTopRightRadius: "none",
-        borderTopLeftRadius: "none",
-        margin: "0 auto",
-        ...fonts(),
-      } as CSSProperties),
-    menuList: () => ({}),
-    placeholder: (
-      _: CSSProperties,
-      state: {
-        selectProps: { hasDisabledUI: DisabledUIProps };
-      },
-    ) => {
-      const { hasDisabledUI } = state.selectProps;
-      return {
-        color: hasDisabledUI ? colors.text.disabled : colors.text.primary,
-      };
-    },
-    option: (_: CSSProperties, state: { isSelected: boolean; isFocused: boolean; size: string }) =>
-      ({
-        backgroundColor: state.isSelected || state.isFocused ? colors.primary : colors.inverted,
-        color: state.isSelected || state.isFocused ? colors.text.inverted : colors.text.primary,
-        padding: state.size === "large" ? "22px 25px" : "19px 25px",
-        backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "right 25px center",
-      } as CSSProperties),
-    valueContainer: (provided: CSSProperties) => ({
-      ...provided,
-      padding: 0,
-    }),
-  };
+        padding: 0,
+      }),
+    };
+
+    return { customStyles };
+  }, [width, size, hasDisabledUI]);
 
   return {
     className,

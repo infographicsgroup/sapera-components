@@ -7,7 +7,6 @@ const RADIO_BUTTON_WIDTH = 24;
  */
 const ButtonWrapper = styled.div<{ color?: string | Color | undefined; disabled?: boolean }>`
   position: relative;
-  position: relative;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.176;

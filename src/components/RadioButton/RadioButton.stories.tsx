@@ -7,7 +7,7 @@ import { colors } from "@styles";
 /**
  * <Default />
  */
-const Default: React.FunctionComponent = () => {
+const RadioButtons: React.FunctionComponent = () => {
   const [selectedOption, setSelectedOption] = useState("green");
 
   const onClick = (name: string) => {
@@ -58,10 +58,10 @@ const Default: React.FunctionComponent = () => {
   );
 };
 
-export { Default };
+export { RadioButtons };
 
 export default {
   title: "RadioButton",
-  component: RadioButton,
+  component: RadioButtons,
   decorators: [withA11y],
 };

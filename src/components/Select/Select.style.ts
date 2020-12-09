@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { colors } from "@styles";
 
-const fonts = () => ({
+const fonts = {
   fontSize: "17px",
   fontWeight: "normal",
   color: colors.primary,
-});
+};
 
 /**
  * <LabelStyled />

@@ -5,9 +5,9 @@ import { withA11y } from "@storybook/addon-a11y";
 import { OPTIONS_DATA } from "./Select.props";
 
 /**
- * <Default />
+ * <Selects />
  */
-const Default: React.FunctionComponent = () => (
+const Selects: React.FunctionComponent = () => (
   <Column>
     <Spacer p={3}>
       <Column>
@@ -33,10 +33,10 @@ const Default: React.FunctionComponent = () => (
   </Column>
 );
 
-export { Default };
+export { Selects };
 
 export default {
   title: "Select",
-  component: SelectComponent,
+  component: Selects,
   decorators: [withA11y],
 };
