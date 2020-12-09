@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { breakpoint } from "../../theme/util";
+import { breakpoint } from "@styles";
 import { CircleProps } from "./Circle.props";
 
 /**
@@ -9,8 +9,8 @@ const Dot = styled.div<CircleProps>`
   width: ${(p) => p.diameter}px;
   height: ${(p) => p.diameter}px;
   margin: auto;
-  background-color: ${(p) => p.color};
   border-radius: 50%;
+  background-color: ${(p) => p.color};
 `;
 
 /**

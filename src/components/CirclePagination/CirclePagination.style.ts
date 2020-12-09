@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box } from "../../styled/Box";
+import { Box } from "@styled";
 
 /**
  * <ButtonStyled />

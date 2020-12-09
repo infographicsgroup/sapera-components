@@ -1,6 +1,6 @@
 import React from "react";
 import { TickIcon } from "../Icon/Icons";
-import { Column } from "../../styled";
+import { Column } from "@styled";
 import { CheckboxProps } from "./Checkbox.props";
 import { CHECKMARK_CLASSNAME, CheckmarkStyled, ErrorText, InputStyled, LabelStyled } from "./Checkbox.style";
 

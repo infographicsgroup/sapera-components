@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DownloadIcon } from "../Icon/Icons";
-import { Color } from "../../theme/util";
+import { colors } from "../../styles/colors";
 import { Spacer, Column } from "../../styled";
 import { Input } from "./Input";
 import { withA11y } from "@storybook/addon-a11y";
@@ -18,7 +18,7 @@ const Inputs: React.FC = () => {
   const [phone, setPhone] = useState<number | undefined | string>();
 
   return (
-    <Column bg={Color.BackgroundMain} width={"100%"}>
+    <Column bg={colors.background.main} width={"100%"}>
       <form>
         <Spacer pb={3} />
         <Input

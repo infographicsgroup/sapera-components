@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { CirclePagination } from "./CirclePagination";
+import { CirclePagination } from "@components";
 import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
-import { Column, Spacer } from "../../styled";
+import { Column, Spacer } from "@styled";
 
 /**
  * <CirclePaginationGroup />

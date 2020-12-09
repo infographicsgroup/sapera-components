@@ -1,14 +1,13 @@
 import React, { FC } from "react";
-import { Color } from "../../theme/util";
+import { colors } from "@styles";
 import { CaretIcon } from "../Icon/Icons";
-import { Box, Column, Spacer } from "../../styled";
+import { Box, Column, Spacer } from "@styled";
 import { OptionType, SelectComponentProps } from "./Select.props";
 import { LabelStyled, SelectNativeStyled } from "./Select.style";
 
 /**
  * <SelectNative />
  */
-// eslint-disable-next-line react/prop-types
 const SelectNative: FC<SelectComponentProps> = ({ className, options, label, hasDisabledUI }) => (
   <Column>
     <LabelStyled htmlFor={label}>{label}</LabelStyled>
@@ -29,7 +28,7 @@ const SelectNative: FC<SelectComponentProps> = ({ className, options, label, has
         ))}
       </SelectNativeStyled>
       <Box position="absolute" right="25px" style={{ transform: "translateY(-50%)" }} top="50%">
-        <CaretIcon fill={hasDisabledUI ? Color.TextDisabled : Color.TextPrimary} />
+        <CaretIcon fill={hasDisabledUI ? colors.text.disabled : colors.text.primary} />
       </Box>
     </Column>
   </Column>

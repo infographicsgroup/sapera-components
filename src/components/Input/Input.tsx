@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
-import { Color } from "../../theme/util";
-import { Row, Box, Column } from "../../styled";
+import { colors } from "@styles";
+import { Row, Box, Column } from "@styled";
 import { ErrorIcon, CheckIcon } from "../Icon/Icons";
 import { InputProps } from "./Input.props";
 import { ERROR_TEXT_HEIGHT, ErrorText, IconContainer, LabelContainer, StyledInput, StyledLabel } from "./Input.style";
@@ -66,12 +66,12 @@ const Input: React.FC<InputProps> = ({
       />
       {hasError && (
         <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
-          <ErrorIcon fill={Color.ErrorRed} height={25} width={25} />
+          <ErrorIcon fill={colors.error} height={25} width={25} />
         </Row>
       )}
       {isValid && (
         <Row alignItems="center" height={50} mr={5} position="absolute" right={0}>
-          <CheckIcon fill={Color.SecondaryGreen} height={25} width={25} />
+          <CheckIcon fill={colors.secondary.green} height={25} width={25} />
         </Row>
       )}
       {hasError && (

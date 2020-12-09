@@ -1,4 +1,4 @@
-import { ColorType } from "../../theme/util";
+import { Color } from "@styles";
 import { ControlProps } from "../../form";
 
 /**
@@ -16,7 +16,7 @@ type CirclePaginationProps = ControlProps<boolean> & {
   /**
    * Background color
    */
-  bgColor?: ColorType;
+  bgColor?: Color;
   /**
    * onItemClick
    */

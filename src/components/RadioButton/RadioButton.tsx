@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Color, ColorType } from "../../theme/util";
+import { colors, Color } from "../../styles/colors";
 
 const RADIO_BUTTON_WIDTH = 24;
 
@@ -11,10 +11,10 @@ export interface RadioButtonProps {
   checked?: boolean;
   name: string;
   value: string;
-  color?: string | ColorType | undefined;
+  color?: string | Color | undefined;
   onClick?: () => void;
 }
-const ButtonWrapper = styled.div<{ color?: string | ColorType | undefined; disabled?: boolean }>`
+const ButtonWrapper = styled.div<{ color?: string | Color | undefined; disabled?: boolean }>`
   position: relative;
   position: relative;
   font-size: 17px;
@@ -87,33 +87,31 @@ export const RadioButton: FC<RadioButtonProps> = ({
   onClick,
   disabled = false,
   checked,
-  color = Color.Primary,
+  color = colors.primary,
   value,
-}: RadioButtonProps) => {
-  return (
-    <ButtonWrapper className={className} color={color} disabled={disabled}>
-      {/* // aria-label for form elements */}
-      {/* https://dequeuniversity.com/rules/axe/3.5/label?application=axeAPI */}
+}: RadioButtonProps) => (
+  <ButtonWrapper className={className} color={color} disabled={disabled}>
+    {/* // aria-label for form elements */}
+    {/* https://dequeuniversity.com/rules/axe/3.5/label?application=axeAPI */}
 
-      {/* https://webaim.org/techniques/forms/advanced#arialabel */}
+    {/* https://webaim.org/techniques/forms/advanced#arialabel */}
 
-      {/* // input checked property vs. attribute
+    {/* // input checked property vs. attribute
       https://github.com/facebook/react/issues/6321 */}
 
-      <input
-        aria-checked={checked}
-        aria-label={name}
-        checked={checked}
-        disabled={disabled}
-        id={`radio-button-${value}`}
-        name={name}
-        type="radio"
-        value={value}
-        onChange={onClick}
-      />
-      <label htmlFor={value} onClick={disabled ? () => null : onClick}>
-        {children}
-      </label>
-    </ButtonWrapper>
-  );
-};
+    <input
+      aria-checked={checked}
+      aria-label={name}
+      checked={checked}
+      disabled={disabled}
+      id={`radio-button-${value}`}
+      name={name}
+      type="radio"
+      value={value}
+      onChange={onClick}
+    />
+    <label htmlFor={value} onClick={disabled ? () => null : onClick}>
+      {children}
+    </label>
+  </ButtonWrapper>
+);

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { ButtonProps } from "./Button.props";
-import { Color } from "../../theme/util";
+import { colors } from "../../styles/colors";
 
 const BUTTON_HEIGHTS = {
   large: 56,
@@ -29,8 +29,8 @@ const StyledButton = styled.button<ButtonProps>`
   font-size: 16px;
   font-weight: normal;
   letter-spacing: 1px;
-  color: ${Color.TextInverted};
-  background: ${(p) => (p.disabledUI ? Color.DisabledGrey : p.bg)};
+  color: ${colors.text.inverted};
+  background: ${(p) => (p.disabledUI ? colors.disabled : p.bg)};
   border: none;
   border-radius: 28px;
 
@@ -42,18 +42,18 @@ const StyledButton = styled.button<ButtonProps>`
 
   svg,
   path {
-    fill: ${Color.TextInverted};
+    fill: ${colors.text.inverted};
   }
 
   ${(p) =>
     p.isSecondary &&
     css`
-      color: ${Color.Primary};
+      color: ${colors.primary};
       background: ${p.bg};
-      border: 2px solid ${Color.Primary};
+      border: 2px solid ${colors.primary};
       svg,
       path {
-        fill: ${Color.Primary};
+        fill: ${colors.primary};
       }
     `}
 

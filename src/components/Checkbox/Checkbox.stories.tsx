@@ -2,7 +2,7 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 import { Checkbox } from "./Checkbox";
 import { withA11y } from "@storybook/addon-a11y";
-import { Column, Grid } from "../../styled";
+import { Column, Grid } from "@styled";
 
 /**
  * <Default />

@@ -1,12 +1,12 @@
-import React, { CSSProperties, Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState, useEffect, CSSProperties } from "react";
 import Select, { components, IndicatorProps, ValueType } from "react-select";
-import { Color } from "../../theme/util";
+import { colors } from "@styles";
 import { CaretIcon } from "../Icon/Icons";
+import { isMobile } from "@utils";
 import { SelectNative } from "./SelectNative";
 import { DisabledUIProps, OptionType, SelectComponentProps, SizeProps, WidthProps } from "./Select.props";
-import { Spacer } from "../../styled";
-import { fonts, LabelStyled } from "./Select.style";
-import isMobileDetect from "../../utils/isMobileDetect";
+import { Spacer } from "@styled";
+import { LabelStyled } from "./Select.style";
 import tickSVG from "../../assets/tick.svg";
 import { throttle } from "lodash";
 
@@ -16,7 +16,7 @@ import { throttle } from "lodash";
 const DropdownIndicator = (props: IndicatorProps<any>) => {
   // NOTE: using hideSelectedOptions to set the disabled fill color for now because the user cannot select the options anyway
   const { menuIsOpen, hideSelectedOptions } = props.selectProps;
-  const fillColor = hideSelectedOptions ? Color.TextDisabled : Color.TextPrimary;
+  const fillColor = hideSelectedOptions ? colors.text.disabled : colors.text.primary;
 
   return (
     components.DropdownIndicator && (
@@ -30,6 +30,12 @@ const DropdownIndicator = (props: IndicatorProps<any>) => {
 /**
  * <SelectComponent />
  */
+const fonts = () => ({
+  fontSize: "17px",
+  fontWeight: "normal",
+  color: colors.primary,
+});
+
 const SelectComponent: React.FC<SelectComponentProps> = ({
   className,
   options,
@@ -41,10 +47,10 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
 }) => {
   const isClient = typeof window !== "undefined";
   const [selectedOption, setSelectedOption] = useState<ValueType<OptionType>>(null);
-  const [isMobile, setIsMobile] = useState<boolean>(isClient ? isMobileDetect() : false);
+  const [mobile, setMobile] = useState<boolean>(isClient ? isMobile() : false);
 
   const handleResize = () => {
-    setIsMobile(isMobileDetect());
+    setMobile(isMobile());
   };
 
   useEffect(() => {
@@ -76,7 +82,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
       },
     ) => {
       const { width, size, hasDisabledUI } = state.selectProps;
-      const borderStyle = hasDisabledUI ? `2px solid ${Color.BorderDisabled}` : `2px solid ${Color.Primary}`;
+      const borderStyle = hasDisabledUI ? `2px solid ${colors.border.disabled}` : `2px solid ${colors.primary}`;
 
       return {
         ...provided,
@@ -87,7 +93,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
         borderRadius: "6px",
         maxWidth: width,
         padding: "0 16px 0 24px",
-        backgroundColor: hasDisabledUI ? Color.BackgroundDisabled : "none",
+        backgroundColor: hasDisabledUI ? colors.background.disabled : "none",
         // TODO: Remove pointerEvents and fix disabledUI for screen reader.
         pointerEvents: hasDisabledUI ? "none" : "auto",
       } as CSSProperties;
@@ -99,11 +105,11 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
       ({
         position: "absolute",
         zIndex: 2,
-        border: `2px solid ${Color.Primary}`,
+        border: `2px solid ${colors.primary}`,
         maxWidth: "87%",
         width: "100%",
         left: "50%",
-        backgroundColor: `${Color.Inverted}`,
+        backgroundColor: `${colors.inverted}`,
         transform: "translate(-50%, -2px)",
         boxShadow: "none",
         borderTopRightRadius: "none",
@@ -120,13 +126,13 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
     ) => {
       const { hasDisabledUI } = state.selectProps;
       return {
-        color: hasDisabledUI ? Color.TextDisabled : Color.TextPrimary,
+        color: hasDisabledUI ? colors.text.disabled : colors.text.primary,
       };
     },
     option: (_: CSSProperties, state: { isSelected: boolean; isFocused: boolean; size: string }) =>
       ({
-        backgroundColor: state.isSelected || state.isFocused ? Color.Primary : Color.Inverted,
-        color: state.isSelected || state.isFocused ? Color.TextInverted : Color.TextPrimary,
+        backgroundColor: state.isSelected || state.isFocused ? colors.primary : colors.inverted,
+        color: state.isSelected || state.isFocused ? colors.text.inverted : colors.text.primary,
         padding: state.size === "large" ? "22px 25px" : "19px 25px",
         backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
         backgroundRepeat: "no-repeat",
@@ -140,7 +146,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
 
   return (
     <Fragment>
-      {isMobile ? (
+      {mobile ? (
         <SelectNative hasDisabledUI={hasDisabledUI} label={label} options={options} />
       ) : (
         <div>

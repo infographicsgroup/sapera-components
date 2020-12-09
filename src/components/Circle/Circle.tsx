@@ -1,14 +1,14 @@
 import React from "react";
-import { Color } from "../../theme/util";
 import { CircleProps } from "./Circle.props";
 import { CircleStyled, Dot } from "./Circle.style";
+import { colors } from "@styles";
 
 /**
  * <Circle />
  */
 const Circle: React.FC<CircleProps> = ({
   className,
-  color = Color.Primary,
+  color = colors.primary,
   diameter = 26,
   isActive,
   bgColor = "transparent",

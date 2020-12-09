@@ -1,6 +1,6 @@
+import { dataAttributeProps, DataAttributeProps } from "@utils";
 import React from "react";
-import { Color } from "../../theme/util";
-import dataAttributeProps, { DataAttributePropsType } from "../../utils/data-attribute-props";
+import { colors } from "../../styles/colors";
 import { ButtonProps } from "./Button.props";
 import { StyledButton } from "./Button.style";
 
@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
   size = "large",
   iconFirst = false,
   isSecondary = false,
-  bg = isSecondary ? "none" : Color.Primary,
+  bg = isSecondary ? "none" : colors.primary,
   value,
   ...props
 }) => (
@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
     value={value}
     width={width}
     onClick={disabled ? () => null : onClick}
-    {...dataAttributeProps(props as DataAttributePropsType)}
+    {...dataAttributeProps(props as DataAttributeProps)}
   >
     <span>{children}</span>
     {icon && icon}

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { Color } from "../../theme/util";
+import { colors } from "@styles";
 import { LabelContainerProps, StyledInputProps, StyledLabelProps } from "./Input.props";
-import { Row } from "../../styled/Row";
+import { Row } from "@styled";
 
 const ERROR_TEXT_HEIGHT = 22;
 
@@ -9,16 +9,16 @@ const ERROR_TEXT_HEIGHT = 22;
  * <StyledLabel />
  */
 const StyledLabel = styled.label<StyledLabelProps>`
-  padding: 16px 5px 16px 0;
   font-family: sans-serif;
-  font-size: 17px;
-  color: ${Color.TextPrimary};
   z-index: 1;
+  padding: 16px 5px 16px 0;
+  font-size: 17px;
+  color: ${colors.text.primary};
 
   ${(p) =>
     p.hasError &&
     css`
-      color: ${Color.ErrorRed};
+      color: ${colors.error};
     `}
   /* TODO remove 'all', animate only 'fontsize' and 'top'*/
     transition: font-size 0.3s ease;
@@ -28,33 +28,33 @@ const StyledLabel = styled.label<StyledLabelProps>`
  * <LabelContainer />
  */
 const LabelContainer = styled.div<LabelContainerProps>`
-  position: absolute;
   display: flex;
   flex-direction: row;
-  align-items: center;
   pointer-events: none;
-  padding-left: 16px;
+  position: absolute;
+  align-items: center;
   z-index: 6;
   pointer-events: ${(p) => (p.disabled ? "none" : "auto")};
+  padding-left: 16px;
 
   ${(props) =>
     props.hasFocus &&
     css`
       top: ${(p: { size: number }) => `-${p.size / 4 - 3}px`};
-      height: 16px;
       padding-left: 5px;
       margin-left: 11px;
-      background: ${Color.BackgroundMain};
+      background: ${colors.background.main};
+      height: 16px;
 
       ${StyledLabel} {
-        padding-top: 0;
-        padding-left: 0;
-        padding-bottom: 0;
         font-size: 14px;
+        padding-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
       }
 
       svg {
-        background: ${Color.BackgroundMain};
+        background: ${colors.background.main};
         transform: scale(0.85);
         transition: transform 0.3s ease;
       }
@@ -70,7 +70,7 @@ const ErrorText = styled.h1`
   font-family: sans-serif;
   font-size: 14px;
   font-weight: normal;
-  color: ${Color.ErrorRed};
+  color: ${colors.error};
 `;
 
 /**
@@ -81,15 +81,15 @@ const StyledInput = styled.input<StyledInputProps>`
   height: ${(p) => `${p.size}px`};
   width: 100%;
   padding: 16px;
-  font-size: 17px;
-  background: ${Color.BackgroundMain};
-  border: 2px solid ${Color.Primary};
+  border: 2px solid ${colors.primary};
   border-radius: 7px;
+  background: ${colors.background.main};
+  font-size: 17px;
   cursor: ${(p) => (p.disabled ? "default" : "pointer")};
 
   :disabled {
-    border: 2px solid ${Color.BorderDisabled};
-    background: ${Color.BackgroundDisabled};
+    border: 2px solid ${colors.border.disabled};
+    background: ${colors.background.disabled};
   }
 `;
 
@@ -101,7 +101,7 @@ const IconContainer = styled(Row)<{ disabled?: boolean }>`
     p.disabled &&
     css`
       svg * {
-        fill: ${Color.DisabledGrey};
+        fill: ${colors.disabled};
       }
     `}
 `;
