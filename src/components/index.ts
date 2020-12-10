@@ -5,3 +5,4 @@ export * from "./Icon/Icons";
 export * from "./Input";
 export * from "./RadioButton";
 export * from "./Select";
+export * from "./Text";
