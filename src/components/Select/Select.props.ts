@@ -4,7 +4,6 @@ import { ValueType } from "react-select";
 import { isMobile } from "@utils";
 import { colors } from "@sc-styles";
 import { fonts } from "@components/Select/Select.style";
-import tickSVG from "@assets/tick.svg";
 import { throttle } from "lodash";
 
 const OPTIONS_DATA = [
@@ -152,7 +151,7 @@ const useSelectProps = ({
           backgroundColor: state.isSelected || state.isFocused ? colors.primary : colors.inverted,
           color: state.isSelected || state.isFocused ? colors.text.inverted : colors.text.primary,
           padding: state.size === "large" ? "22px 25px" : "19px 25px",
-          backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
+          // backgroundImage: state.isSelected ? `url()` : "none",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right 25px center",
         } as CSSProperties),
