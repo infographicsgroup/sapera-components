@@ -151,7 +151,7 @@ const useSelectProps = ({
           backgroundColor: state.isSelected || state.isFocused ? colors.primary : colors.inverted,
           color: state.isSelected || state.isFocused ? colors.text.inverted : colors.text.primary,
           padding: state.size === "large" ? "22px 25px" : "19px 25px",
-          // backgroundImage: state.isSelected ? `url()` : "none",
+          // backgroundImage: state.isSelected ? `url(${tickSVG})` : "none",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right 25px center",
         } as CSSProperties),
