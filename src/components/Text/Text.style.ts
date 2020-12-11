@@ -22,48 +22,56 @@ const variant = _variant({
       fontSize: px([32, null, null, null, null, 60]),
       lineHeight: px([40, null, null, null, null, 76]),
     },
+
     h2: {
       fontFamily: fonts.normal,
       fontWeight: 700,
       fontSize: px([28, null, null, null, null, 48]),
       lineHeight: px([36, null, null, null, null, 60]),
     },
+
     h3: {
       fontFamily: fonts.normal,
       fontWeight: 700,
       fontSize: px([28, null, null, null, null, 36]),
       lineHeight: px([36, null, null, null, null, 48]),
     },
+
     h4: {
       fontFamily: fonts.normal,
       fontWeight: 700,
       fontSize: px([24, null, null, null, null, 30]),
       lineHeight: px([32, null, null, null, null, 40]),
     },
+
     subtitleLarge: {
       fontFamily: fonts.normal,
       fontWeight: 700,
       fontSize: px([20, null, null, null, null, 24]),
       lineHeight: px([32, null, null, null, null, 32]),
     },
+
     paragraphLarge: {
       fontFamily: fonts.normal,
       fontWeight: 400,
       fontSize: px([20, null, null, null, null, 24]),
       lineHeight: px([32, null, null, null, null, 40]),
     },
+
     subtitleNormal: {
       fontFamily: fonts.normal,
       fontWeight: 700,
       fontSize: px([16, null, null, null, null, 18]),
       lineHeight: px([24, null, null, null, null, 24]),
     },
+
     paragraphNormal: {
       fontFamily: fonts.normal,
       fontWeight: 400,
       fontSize: px([16, null, null, null, null, 18]),
       lineHeight: px([24, null, null, null, null, 32]),
     },
+
     button: {
       fontFamily: fonts.mono,
       fontWeight: 700,
