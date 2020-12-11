@@ -1,5 +1,5 @@
 import React from "react";
-import { Color } from "@styles";
+import { Color } from "@sc-styles";
 
 /**
  * <Button /> Props

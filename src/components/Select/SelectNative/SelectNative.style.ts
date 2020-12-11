@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, rgba } from "@styles";
+import { colors, rgba } from "@sc-styles";
 import { DisabledUIProps } from "@components/Select/Select.props";
 
 /**

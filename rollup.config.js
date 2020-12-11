@@ -1,6 +1,7 @@
 import typescript from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
 import svg from "rollup-plugin-svg";
+import image from "@rollup/plugin-image";
 const pkg = require("./package.json");
 
 // Only package.json dependencies section is considered internal, other dependencies should be external/excluded
@@ -20,5 +21,13 @@ export default [
     output: [{ file: pkg.types, format: "es" }],
     external: externalDependencies,
     plugins: [dts()],
+  },
+  {
+    input: "src/index.js",
+    output: {
+      dir: "output",
+      format: "cjs",
+    },
+    plugins: [image()],
   },
 ];

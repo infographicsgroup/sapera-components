@@ -1,6 +1,6 @@
 import { dataAttributeProps, DataAttributeProps } from "@utils";
 import React from "react";
-import { colors } from "@styles";
+import { colors } from "@sc-styles";
 import { ButtonProps } from "./Button.props";
 import { StyledButton } from "./Button.style";
 

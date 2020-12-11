@@ -1,5 +1,5 @@
 import { ControlProps } from "../../form";
-import { Color } from "@styles";
+import { Color } from "@sc-styles";
 
 /**
  * <Circle /> Props

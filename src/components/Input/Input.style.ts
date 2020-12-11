@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colors } from "@styles";
+import { colors } from "@sc-styles";
 import { LabelContainerProps, StyledInputProps, StyledLabelProps } from "./Input.props";
 import { Row } from "@styled";
 

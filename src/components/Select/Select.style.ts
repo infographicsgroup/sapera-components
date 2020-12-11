@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "@styles";
+import { colors } from "@sc-styles";
 
 const fonts = {
   fontSize: "17px",

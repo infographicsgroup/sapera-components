@@ -1,4 +1,4 @@
-import { Color } from "@styles";
+import { Color } from "@sc-styles";
 import { ControlProps } from "../../form";
 
 /**

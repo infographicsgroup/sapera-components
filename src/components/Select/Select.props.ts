@@ -2,7 +2,7 @@ import { ControlProps } from "../../form";
 import { CSSProperties, useEffect, useMemo, useState } from "react";
 import { ValueType } from "react-select";
 import { isMobile } from "@utils";
-import { colors } from "@styles";
+import { colors } from "@sc-styles";
 import { fonts } from "@components/Select/Select.style";
 import tickSVG from "@assets/tick.svg";
 import { throttle } from "lodash";

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { colors } from "@styles";
+import { colors } from "@sc-styles";
 import { Row, Box, Column } from "@styled";
 import { ErrorIcon, CheckIcon } from "../Icon/Icons";
 import { InputProps } from "./Input.props";

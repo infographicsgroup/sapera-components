@@ -1,5 +1,5 @@
 import React from "react";
-import { colors } from "@styles";
+import { colors } from "@sc-styles";
 import { RadioButtonProps } from "./RadioButton.props";
 import { ButtonWrapper } from "./RadioButton.style";
 

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { colors } from "@styles";
+import { colors } from "@sc-styles";
 import { CaretIcon } from "../../Icon/Icons";
 import { Box, Column, Spacer } from "@styled";
 import { SelectNativeStyled } from "./SelectNative.style";
