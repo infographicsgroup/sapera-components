@@ -43,8 +43,8 @@
       "@assets": ["./src/assets/index", "./src/assets/*"],
       "@assets/*": ["./src/assets/*"],
 
-      "@styles": ["./src/styles/index", "./src/styles/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@sc-styles": ["./src/styles/index", "./src/styles/*"],
+      "@sc-styles/*": ["./src/styles/*"]
     }
   },
 

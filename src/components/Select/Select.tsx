@@ -6,7 +6,7 @@ import { SelectNative } from "./SelectNative";
 import { useSelectProps } from "./Select.props";
 import { LabelStyled } from "./Select.style";
 import { Spacer } from "@styled";
-import { colors } from "@styles";
+import { colors } from "@sc-styles";
 
 /**
  * <DropdownIndicator />
