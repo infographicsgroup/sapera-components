@@ -7,6 +7,7 @@ import {
   PositionProps,
   ShadowProps,
   SpaceProps,
+  FlexProps,
   TypographyProps,
 } from "styled-system";
 
@@ -18,6 +19,7 @@ type BoxProps = BackgroundProps &
   PositionProps &
   ShadowProps &
   SpaceProps &
-  TypographyProps;
+  TypographyProps &
+  FlexProps;
 
 export { BoxProps };

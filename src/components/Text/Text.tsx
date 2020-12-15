@@ -1,8 +1,8 @@
-import { variant } from "./Text.style";
+import { TextProps } from "@components/Text/Text.props";
+import { colors } from "@sc-styles";
 import styled from "styled-components";
 import { color, typography } from "styled-system";
-import { colors } from "@sc-styles";
-import { TextProps } from "@components/Text/Text.props";
+import { variant } from "./Text.style";
 
 /**
  * <Text />

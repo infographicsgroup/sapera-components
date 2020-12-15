@@ -2,6 +2,23 @@ import { colors } from "./colors";
 import { create } from "@storybook/theming";
 import { Breakpoint } from "./breakpoints";
 
+const breakpoints: (string | Breakpoint)[] & { [x: string]: any } = [
+  Breakpoint.xs,
+  Breakpoint.sm,
+  Breakpoint.md,
+  Breakpoint.lg,
+  Breakpoint.xl,
+].map((item) => item + "px");
+
+breakpoints.unshift(Breakpoint.xxs);
+
+breakpoints.xss = breakpoints[0];
+breakpoints.xs = breakpoints[1];
+breakpoints.sm = breakpoints[2];
+breakpoints.md = breakpoints[3];
+breakpoints.lg = breakpoints[4];
+breakpoints.xl = breakpoints[5];
+
 /**
  * Theme customs
  */
@@ -31,7 +48,7 @@ const configuration = {
     transparent: "thin solid transparent",
   },
 
-  breakpoints: [Breakpoint.xxs, Breakpoint.xs, Breakpoint.sm, Breakpoint.md, Breakpoint.lg, Breakpoint.xl],
+  breakpoints,
 };
 
 /**
