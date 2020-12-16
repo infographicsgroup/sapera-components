@@ -5,11 +5,11 @@ import styledBreakpoint from "@humblebee/styled-components-breakpoint";
  */
 enum Breakpoint {
   xxs = 0,
-  xs = 320,
-  sm = 576,
-  md = 768,
-  lg = 992,
-  xl = 1200,
+  xs = 375,
+  sm = 768,
+  md = 1280,
+  lg = 1440,
+  xl = 1680,
 }
 
 /**
