@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
-import { colors } from "@sc-styles";
-import { Row, Box, Column } from "@styled";
+import { colors } from "../../styles";
+import { Row, Box, Column } from "../../styled";
 import { ErrorIcon, CheckIcon } from "../Icon/Icons";
 import { InputProps } from "./Input.props";
 import { ERROR_TEXT_HEIGHT, ErrorText, IconContainer, LabelContainer, StyledInput, StyledLabel } from "./Input.style";

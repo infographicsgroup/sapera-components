@@ -1,9 +1,9 @@
 import { ControlProps } from "../../form";
 import { CSSProperties, useEffect, useMemo, useState } from "react";
 import { ValueType } from "react-select";
-import { isMobile } from "@utils";
-import { colors } from "@sc-styles";
-import { fonts } from "@components/Select/Select.style";
+import { isMobile } from "../../utils";
+import { colors } from "../../styles";
+import { fonts } from "./Select.style";
 import { throttle } from "lodash";
 
 const OPTIONS_DATA = [

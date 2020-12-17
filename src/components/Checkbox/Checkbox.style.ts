@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "@sc-styles";
+import { colors } from "../../styles";
 
 const LABEL_SIZE = 24;
 const CHECKMARK_CLASSNAME = "checkmark";

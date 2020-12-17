@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import Select, { components, IndicatorProps } from "react-select";
 import { CaretIcon } from "../Icon/Icons";
-import { hoc } from "@utils";
+import { hoc } from "../../utils";
 import { SelectNative } from "./SelectNative";
 import { useSelectProps } from "./Select.props";
 import { LabelStyled } from "./Select.style";
-import { Spacer } from "@styled";
-import { colors } from "@sc-styles";
+import { Spacer } from "../../styled";
+import { colors } from "../../styles";
 
 /**
  * <DropdownIndicator />

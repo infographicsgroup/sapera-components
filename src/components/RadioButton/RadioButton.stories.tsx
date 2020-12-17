@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { action } from "@storybook/addon-actions";
 import { RadioButton } from "@components";
 import { withA11y } from "@storybook/addon-a11y";
-import { colors } from "@sc-styles";
+import { colors } from "../../styles";
 
 /**
  * <Default />

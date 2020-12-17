@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@styled";
+import { Grid } from "../../styled";
 import { CirclePaginationProps } from "./CirclePagination.props";
 import { ButtonStyled } from "./CirclePagination.style";
 import { Circle } from "../Circle";

@@ -1,7 +1,7 @@
 import React from "react";
 import { CircleProps } from "./Circle.props";
 import { CircleStyled, Dot } from "./Circle.style";
-import { colors } from "@sc-styles";
+import { colors } from "../../styles";
 
 /**
  * <Circle />

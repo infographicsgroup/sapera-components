@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "@sc-styles";
+import { Color } from "../../styles";
 const RADIO_BUTTON_WIDTH = 24;
 
 /**

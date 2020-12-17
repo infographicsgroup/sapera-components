@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { colors } from "@sc-styles";
+import { colors } from "../../styles";
 import { LabelContainerProps, StyledInputProps, StyledLabelProps } from "./Input.props";
-import { Row } from "@styled";
+import { Row } from "../../styled";
 
 const ERROR_TEXT_HEIGHT = 22;
 

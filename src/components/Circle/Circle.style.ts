@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { breakpoint } from "@sc-styles";
+import { breakpoint } from "../../styles";
 import { CircleProps } from "./Circle.props";
 
 /**

@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { CirclePagination } from "@components";
+import { CirclePagination } from "./CirclePagination";
 
 const DATA = {
   LABEL: "Label",

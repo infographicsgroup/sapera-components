@@ -1,5 +1,5 @@
 import { TextProps } from "@components/Text/Text.props";
-import { colors } from "@sc-styles";
+import { colors } from "../../styles";
 import styled from "styled-components";
 import { color, typography } from "styled-system";
 import { variant } from "./Text.style";
