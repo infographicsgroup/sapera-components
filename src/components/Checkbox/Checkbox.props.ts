@@ -51,4 +51,4 @@ type CheckboxProps = ControlProps<boolean> & {
   onChange: (value: any) => void;
 };
 
-export { CheckboxProps };
+export type { CheckboxProps };

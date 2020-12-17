@@ -179,4 +179,6 @@ const useSelectProps = ({
   };
 };
 
-export { useSelectProps, OPTIONS_DATA, DisabledUIProps, OptionType, SelectComponentProps };
+export { useSelectProps, OPTIONS_DATA };
+
+export type { DisabledUIProps, OptionType, SelectComponentProps };

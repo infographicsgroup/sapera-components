@@ -40,4 +40,4 @@ type RadioButtonProps = ControlProps<boolean> & {
   onClick?: () => void;
 };
 
-export { RadioButtonProps };
+export type { RadioButtonProps };

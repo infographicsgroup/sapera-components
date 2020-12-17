@@ -19,4 +19,4 @@ type ColumnProps = BackgroundProps &
   SpaceProps &
   GridProps;
 
-export { ColumnProps };
+export type { ColumnProps };

@@ -27,4 +27,4 @@ type CirclePaginationProps = ControlProps<boolean> & {
   className?: string;
 };
 
-export { CirclePaginationProps };
+export type { CirclePaginationProps };

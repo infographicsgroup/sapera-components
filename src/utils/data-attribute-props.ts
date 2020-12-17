@@ -15,4 +15,6 @@ const dataAttributeProps = (props: DataAttributeProps) =>
       return result;
     }, {} as { [x: string]: unknown });
 
-export { dataAttributeProps, DataAttributeProps };
+export { dataAttributeProps };
+
+export type { DataAttributeProps };

@@ -91,4 +91,4 @@ type ButtonProps = Exclude<React.HTMLAttributes<HTMLButtonElement>, "type"> & {
   props?: unknown;
 };
 
-export { ButtonProps };
+export type { ButtonProps };

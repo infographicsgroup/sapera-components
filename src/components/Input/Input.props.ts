@@ -161,4 +161,4 @@ type LabelContainerProps = ControlProps<string> & {
   size: number;
 };
 
-export { InputProps, StyledInputProps, StyledLabelProps, LabelContainerProps };
+export type { InputProps, StyledInputProps, StyledLabelProps, LabelContainerProps };

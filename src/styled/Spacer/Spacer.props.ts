@@ -2,4 +2,4 @@ import { LayoutProps, SpaceProps } from "styled-system";
 
 type SpacerProps = SpaceProps & LayoutProps;
 
-export { SpacerProps };
+export type { SpacerProps };

@@ -54,4 +54,4 @@ type ControlProps<V = string> = {
   tabIndex?: number;
 };
 
-export { ControlProps };
+export type { ControlProps };

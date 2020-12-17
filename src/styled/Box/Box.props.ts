@@ -22,4 +22,4 @@ type BoxProps = BackgroundProps &
   TypographyProps &
   FlexProps;
 
-export { BoxProps };
+export type { BoxProps };
