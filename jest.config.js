@@ -1,3 +1,5 @@
+const tsconfig = require("./tsconfig.json");
+
 module.exports = {
   preset: "ts-jest/presets/js-with-babel",
   setupFiles: ["./jest.setup.js"],

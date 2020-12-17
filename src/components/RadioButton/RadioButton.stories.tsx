@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { action } from "@storybook/addon-actions";
-import { RadioButton } from "./RadioButton";
+import { RadioButton } from "@components";
 import { withA11y } from "@storybook/addon-a11y";
-import { Color } from "../../theme/util";
+import { colors } from "../../styles";
 
-export default {
-  title: "RadioButton",
-  component: RadioButton,
-  decorators: [withA11y],
-};
-
-export const Default: React.FunctionComponent = () => {
+/**
+ * <Default />
+ */
+const RadioButtons: React.FunctionComponent = () => {
   const [selectedOption, setSelectedOption] = useState("green");
 
   const onClick = (name: string) => {
@@ -19,10 +16,10 @@ export const Default: React.FunctionComponent = () => {
   };
 
   return (
-    <>
+    <Fragment>
       <RadioButton
         checked={selectedOption === "red"}
-        color={Color.SecondaryRed}
+        color={colors.secondary.red}
         name="color"
         value="red"
         onClick={() => onClick("red")}
@@ -31,7 +28,7 @@ export const Default: React.FunctionComponent = () => {
       </RadioButton>
       <RadioButton
         checked={selectedOption === "yellow"}
-        color={Color.SecondaryYellow}
+        color={colors.secondary.yellow}
         name="color"
         value="yellow"
         onClick={() => onClick("yellow")}
@@ -57,6 +54,14 @@ export const Default: React.FunctionComponent = () => {
       >
         Pink (Disabled)
       </RadioButton>
-    </>
+    </Fragment>
   );
+};
+
+export { RadioButtons };
+
+export default {
+  title: "RadioButton",
+  component: RadioButtons,
+  decorators: [withA11y],
 };
